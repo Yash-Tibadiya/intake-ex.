@@ -1,0 +1,333 @@
+{
+  "pages": [
+    {
+      "id": 1,
+      "code": "bio",
+      "desc": "Please provide your basic personal information.",
+      "order": 1,
+      "title": "Bio",
+      "columns": 2,
+      "questions": [
+        {
+          "id": 1,
+          "code": "first_name",
+          "hint": "Your legal first name as it appears on your ID",
+          "text": "First Name",
+          "type": "text",
+          "order": 1,
+          "colspan": 1,
+          "pattern": "^[A-Za-z\\s'-]{2,50}$",
+          "required": true,
+          "placeholder": "Enter your first name",
+          "patternError": "Please enter a valid name (2-50 characters, letters, spaces, hyphens and apostrophes only)",
+          "requiredError": "First name is required"
+        },
+        {
+          "id": 2,
+          "code": "middle_name",
+          "text": "Middle Name",
+          "type": "text",
+          "order": 2,
+          "colspan": 1,
+          "pattern": "^[A-Za-z\\s'-]{0,50}$",
+          "required": false,
+          "placeholder": "Enter your middle name (if applicable)",
+          "patternError": "Please enter a valid name (letters, spaces, hyphens and apostrophes only)"
+        },
+        {
+          "id": 3,
+          "code": "last_name",
+          "hint": "Your legal last name as it appears on your ID",
+          "text": "Last Name",
+          "type": "text",
+          "order": 3,
+          "colspan": 2,
+          "pattern": "^[A-Za-z\\s'-]{2,50}$",
+          "required": true,
+          "placeholder": "Enter your last name",
+          "patternError": "Please enter a valid name (2-50 characters, letters, spaces, hyphens and apostrophes only)",
+          "requiredError": "Last name is required"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "code": "dob",
+      "desc": "Please provide your date of birth.",
+      "order": 2,
+      "title": "DOB",
+      "columns": 1,
+      "questions": [
+        {
+          "id": 4,
+          "max": "today",
+          "min": "1900-01-01",
+          "code": "date_of_birth",
+          "hint": "Your full date of birth (MM/DD/YYYY)",
+          "text": "Date of Birth",
+          "type": "date",
+          "order": 1,
+          "maxError": "Date cannot be in the future",
+          "minError": "Date must be after January 1, 1900",
+          "required": true,
+          "requiredError": "Date of birth is required"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "code": "address_details",
+      "desc": "Please provide your current address information.",
+      "order": 3,
+      "title": "Details",
+      "columns": 2,
+      "questions": [
+        {
+          "id": 5,
+          "code": "address_street",
+          "hint": "Your current residential street address",
+          "text": "Address",
+          "type": "text",
+          "order": 1,
+          "colspan": 2,
+          "required": true,
+          "placeholder": "Street address",
+          "requiredError": "Street address is required"
+        },
+        {
+          "id": 6,
+          "code": "address_apt",
+          "text": "Apartment",
+          "type": "text",
+          "order": 2,
+          "colspan": 2,
+          "required": false,
+          "placeholder": "Apt, Suite, Unit, etc. (optional)"
+        },
+        {
+          "id": 7,
+          "code": "address_city",
+          "text": "City",
+          "type": "text",
+          "order": 3,
+          "colspan": 1,
+          "required": true,
+          "placeholder": "City name",
+          "requiredError": "City is required"
+        },
+        {
+          "id": 8,
+          "code": "address_state",
+          "text": "State",
+          "type": "searchableDropdown",
+          "order": 4,
+          "colspan": 1,
+          "options": [
+            { "label": "Alabama", "value": "AL" },
+            { "label": "Alaska", "value": "AK" },
+            { "label": "Arizona", "value": "AZ" },
+            { "label": "Arkansas", "value": "AR" },
+            { "label": "California", "value": "CA" },
+            { "label": "Colorado", "value": "CO" },
+            { "label": "Connecticut", "value": "CT" },
+            { "label": "Delaware", "value": "DE" },
+            { "label": "Florida", "value": "FL" },
+            { "label": "Georgia", "value": "GA" },
+            { "label": "Hawaii", "value": "HI" },
+            { "label": "Idaho", "value": "ID" },
+            { "label": "Illinois", "value": "IL" },
+            { "label": "Indiana", "value": "IN" },
+            { "label": "Iowa", "value": "IA" },
+            { "label": "Kansas", "value": "KS" },
+            { "label": "Kentucky", "value": "KY" },
+            { "label": "Louisiana", "value": "LA" },
+            { "label": "Maine", "value": "ME" },
+            { "label": "Maryland", "value": "MD" },
+            { "label": "Massachusetts", "value": "MA" },
+            { "label": "Michigan", "value": "MI" },
+            { "label": "Minnesota", "value": "MN" },
+            { "label": "Mississippi", "value": "MS" },
+            { "label": "Missouri", "value": "MO" },
+            { "label": "Montana", "value": "MT" },
+            { "label": "Nebraska", "value": "NE" },
+            { "label": "Nevada", "value": "NV" },
+            { "label": "New Hampshire", "value": "NH" },
+            { "label": "New Jersey", "value": "NJ" },
+            { "label": "New Mexico", "value": "NM" },
+            { "label": "New York", "value": "NY" },
+            { "label": "North Carolina", "value": "NC" },
+            { "label": "North Dakota", "value": "ND" },
+            { "label": "Ohio", "value": "OH" },
+            { "label": "Oklahoma", "value": "OK" },
+            { "label": "Oregon", "value": "OR" },
+            { "label": "Pennsylvania", "value": "PA" },
+            { "label": "Rhode Island", "value": "RI" },
+            { "label": "South Carolina", "value": "SC" },
+            { "label": "South Dakota", "value": "SD" },
+            { "label": "Tennessee", "value": "TN" },
+            { "label": "Texas", "value": "TX" },
+            { "label": "Utah", "value": "UT" },
+            { "label": "Vermont", "value": "VT" },
+            { "label": "Virginia", "value": "VA" },
+            { "label": "Washington", "value": "WA" },
+            { "label": "West Virginia", "value": "WV" },
+            { "label": "Wisconsin", "value": "WI" },
+            { "label": "Wyoming", "value": "WY" },
+            { "label": "District of Columbia", "value": "DC" }
+          ],
+          "required": true,
+          "placeholder": "Select your state",
+          "requiredError": "State is required"
+        },
+        {
+          "id": 9,
+          "code": "address_zip",
+          "hint": "5-digit zip code",
+          "text": "Zip Code",
+          "type": "text",
+          "order": 5,
+          "colspan": 1,
+          "pattern": "^\\d{5}(-\\d{4})?$",
+          "required": true,
+          "placeholder": "Zip code",
+          "patternError": "Please enter a valid 5-digit zip code",
+          "requiredError": "Zip code is required"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "code": "medical_problem",
+      "desc": "Please provide information about your medical conditions.",
+      "order": 8,
+      "title": "Medical Problem",
+      "columns": 1,
+      "questions": [
+        {
+          "id": 16,
+          "code": "main_medical_problem",
+          "text": "What is/are the main medical problem(s) which you currently have or have had in the past?",
+          "type": "checkbox",
+          "order": 1,
+          "colspan": 1,
+          "options": [
+            "Diabetes",
+            "Hypertension",
+            "Heart Disease",
+            "Asthma",
+            "Other"
+          ],
+          "required": true,
+          "requiredError": "Please select at least one medical condition",
+          "showFollowupWhen": "Other",
+          "followup_questions": [
+            {
+              "id": "16-1",
+              "code": "other_medical_problem",
+              "text": "If other, specify",
+              "type": "textarea",
+              "order": 1,
+              "colspan": 1,
+              "required": true,
+              "placeholder": "Please describe your medical condition",
+              "requiredError": "Please specify your medical condition"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "code": "certificate_renewal",
+      "desc": "Please provide information about any previous certifications.",
+      "order": 9,
+      "title": "Certificate Renewal",
+      "columns": 1,
+      "questions": [
+        {
+          "id": 17,
+          "code": "is_renewal",
+          "text": "Are you RENEWING your certification (Have you had a certification in the last 10 years)?",
+          "type": "radio",
+          "order": 1,
+          "colspan": 1,
+          "options": ["Yes", "No"],
+          "required": true,
+          "requiredError": "Please select an option",
+          "showFollowupWhen": "Yes",
+          "followup_questions": [
+            {
+              "id": "17-1",
+              "code": "renewal_details",
+              "text": "If yes, specify",
+              "type": "textarea",
+              "order": 1,
+              "colspan": 1,
+              "required": true,
+              "placeholder": "Provide details about your previous certification",
+              "requiredError": "Please provide details about your previous certification"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "code": "surgery",
+      "desc": "Please provide information about any past surgeries or hospitalizations.",
+      "order": 11,
+      "title": "Surgery",
+      "columns": 1,
+      "questions": [
+        {
+          "id": 21,
+          "code": "had_surgery",
+          "text": "Have you ever had any surgeries or been hospitalized?",
+          "type": "radio",
+          "order": 1,
+          "colspan": 1,
+          "options": ["Yes", "No"],
+          "required": false,
+          "requiredError": "Please select an option",
+          "showFollowupWhen": "Yes",
+          "followup_questions": [
+            {
+              "id": "21-1",
+              "code": "surgery_details",
+              "text": "If yes, specify",
+              "type": "textarea",
+              "order": 1,
+              "colspan": 1,
+              "required": false,
+              "placeholder": "Provide details about surgeries or hospitalizations",
+              "requiredError": "Please provide details about your surgeries or hospitalizations"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "code": "documents",
+      "desc": "Please upload a copy of your driver's license or identification.",
+      "order": 17,
+      "title": "Driver's License",
+      "columns": 1,
+      "questions": [
+        {
+          "id": 30,
+          "code": "drivers_license",
+          "hint": "Upload a clear image of your driver's license (5MB max)",
+          "text": "Please provide your drivers license",
+          "type": "document",
+          "order": 1,
+          "colspan": 1,
+          "filetype": ["image/jpeg", "image/png"],
+          "required": false,
+          "maxFileSize": 5,
+          "maxFilesAllowed": 3
+        }
+      ]
+    }
+  ]
+}
