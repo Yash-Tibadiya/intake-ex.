@@ -479,6 +479,27 @@
           "requiredError": "Please confirm the accuracy of your information"
         }
       ]
+    },
+    {
+      "id": 17,
+      "code": "payment_processing",
+      "desc": "Complete your registration by processing the payment.",
+      "order": 17,
+      "title": "Payment Processing",
+      "columns": 1,
+      "questions": [
+        {
+          "id": 25,
+          "code": "payment_confirmation",
+          "text": "Payment Processing",
+          "type": "radio",
+          "order": 1,
+          "colspan": 1,
+          "options": ["I understand the payment terms and wish to proceed"],
+          "required": true,
+          "requiredError": "Please confirm to proceed with payment"
+        }
+      ]
     }
   ]
 }

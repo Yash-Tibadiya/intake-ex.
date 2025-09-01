@@ -2,6 +2,7 @@
 
 import InfoBox from "@/components/InfoBox";
 import NumberCounter from "@/components/NumberCounter";
+import StripePayment from "@/components/StripePayment";
 import { useState, useEffect } from "react";
 
 interface Option {
@@ -427,6 +428,25 @@ export default function IntakeForm() {
                 max={20}
                 step={1}
                 label="Document Quantity Counter"
+              />
+            </div>
+          )}
+
+          {/* StripePayment Component - Only on Payment Page */}
+          {currentPageIndex === 16 && (
+            <div className="mb-8">
+              <StripePayment
+                amount={99.99}
+                currency="usd"
+                onPaymentSuccess={(paymentIntent) => {
+                  console.log('Payment successful:', paymentIntent);
+                  // Handle successful payment
+                  alert('Payment processed successfully!');
+                }}
+                onPaymentError={(error) => {
+                  console.error('Payment failed:', error);
+                  // Handle payment error
+                }}
               />
             </div>
           )}
