@@ -420,8 +420,8 @@ export default function IntakeForm() {
             />
           </div>
 
-          {/* NumberCounter Component - Only on Page 3 */}
-          {currentPageIndex === 2 && (
+          {/* NumberCounter Component - Only on Documents Page */}
+          {currentPageIndex === 12 && (
             <div className="mb-8">
               <NumberCounter
                 initialValue={5}
