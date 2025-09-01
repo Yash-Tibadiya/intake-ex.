@@ -50,50 +50,7 @@ interface Config {
 
 const STORAGE_KEY = "intake_form_data";
 
-// Custom Components
-const InfoBox: React.FC<{ title: string; points: string[] }> = ({
-  title,
-  points,
-}) => (
-  <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-6 shadow-sm">
-    <h3 className="text-lg font-semibold text-black mb-4 flex items-center">
-      <svg
-        className="w-5 h-5 text-blue-600 mr-2"
-        fill="currentColor"
-        viewBox="0 0 20 20"
-      >
-        <path
-          fillRule="evenodd"
-          d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-          clipRule="evenodd"
-        />
-      </svg>
-      {title}
-    </h3>
-    <ul className="space-y-2">
-      {points.map((point, index) => (
-        <li key={index} className="flex items-start text-gray-900">
-          <svg
-            className="w-4 h-4 text-blue-600 mr-3 mt-0.5 flex-shrink-0"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-          >
-            <path
-              fillRule="evenodd"
-              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-              clipRule="evenodd"
-            />
-          </svg>
-          {point}
-        </li>
-      ))}
-    </ul>
-  </div>
-);
-
-const componentMap: Record<string, React.ComponentType<any>> = {
-  InfoBox,
-};
+import InfoBox from '../../components/InfoBox';
 
 export default function IntakeForm() {
   const [config, setConfig] = useState<Config | null>(null);
@@ -204,19 +161,6 @@ export default function IntakeForm() {
       ((Array.isArray(value) && value.includes(q.showFollowupWhen)) ||
         value === q.showFollowupWhen);
 
-    if (q.component && componentMap[q.component]) {
-      const Component = componentMap[q.component];
-      return (
-        <div
-          key={q.id}
-          className={
-            q.colspan === 2 ? "col-span-1 md:col-span-2" : "col-span-1"
-          }
-        >
-          <Component {...(q.componentProps || {})} />
-        </div>
-      );
-    }
 
     return (
       <div
@@ -461,6 +405,18 @@ export default function IntakeForm() {
                 <p className="text-lg text-gray-800 mt-1">{currentPage.desc}</p>
               </div>
             </div>
+          </div>
+
+          {/* InfoBox Component */}
+          <div className="mb-8">
+            <InfoBox
+              title="Important Information"
+              points={[
+                "Your email will be used for account verification",
+                "We will send important updates to this address",
+                "Make sure to use a valid email address"
+              ]}
+            />
           </div>
 
           <form

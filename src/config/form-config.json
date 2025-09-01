@@ -31,16 +31,7 @@
           "colspan": 1,
           "required": true,
           "placeholder": "Enter your email",
-          "requiredError": "Email is required",
-          "component": "InfoBox",
-          "componentProps": {
-            "title": "Important Information",
-            "points": [
-              "Your email will be used for account verification",
-              "We will send important updates to this address",
-              "Make sure to use a valid email address"
-            ]
-          }
+          "requiredError": "Email is required"
         },
         {
           "id": 3,
