@@ -51,6 +51,7 @@ interface Config {
 const STORAGE_KEY = "intake_form_data";
 
 import InfoBox from '../../components/InfoBox';
+import NumberCounter from '../../components/NumberCounter';
 
 export default function IntakeForm() {
   const [config, setConfig] = useState<Config | null>(null);
@@ -418,6 +419,19 @@ export default function IntakeForm() {
               ]}
             />
           </div>
+
+          {/* NumberCounter Component - Only on Page 3 */}
+          {currentPageIndex === 2 && (
+            <div className="mb-8">
+              <NumberCounter
+                initialValue={5}
+                min={0}
+                max={20}
+                step={1}
+                label="Document Quantity Counter"
+              />
+            </div>
+          )}
 
           <form
             className={`grid gap-6 ${
