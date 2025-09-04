@@ -1,43 +1,5 @@
 import React from 'react';
-
-interface Option {
-  label: string;
-  value: string;
-}
-
-interface Question {
-  id: string | number;
-  code: string;
-  hint?: string;
-  text: string;
-  type: string;
-  order: number;
-  colspan: number;
-  pattern?: string;
-  required?: boolean;
-  placeholder?: string;
-  patternError?: string;
-  requiredError?: string;
-  options?: string[] | Option[];
-  showFollowupWhen?: string;
-  followup_questions?: Question[];
-  min?: string | number;
-  max?: string | number;
-  maxError?: string;
-  minError?: string;
-  filetype?: string[];
-  maxFileSize?: number;
-  maxFilesAllowed?: number;
-  component?: string;
-  componentProps?: Record<string, any>;
-}
-
-interface InputRendererProps {
-  question: Question;
-  value: any;
-  onChange: (code: string, value: any) => void;
-  handleNext?: () => void;
-}
+import { Question, InputRendererProps } from '@/types/question';
 
 const InputRenderer: React.FC<InputRendererProps> = ({ question: q, value, onChange, handleNext }) => {
   const baseInputClasses =
