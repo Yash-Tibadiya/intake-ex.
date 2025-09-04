@@ -167,8 +167,8 @@ export default function IntakeForm() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 py-8 px-4">
-      <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen bg-white py-8 px-4">
+      <div className="max-w-xl mx-auto">
         {/* Logo */}
         <div className="flex justify-center mb-3">
           <Image
@@ -181,36 +181,21 @@ export default function IntakeForm() {
         </div>
 
         {/* Progress Bar */}
-        <div className="mb-8 flex justify-center">
-          <div className="w-2/3 bg-white rounded-full h-3 shadow-inner">
+        <div className="mb-3 flex justify-center">
+          <div className="w-full bg-[#a8beb7] rounded-full h-2 shadow-inner">
             <div
-              className="bg-[#6b8162] h-3 rounded-full transition-all duration-500 ease-out shadow-sm"
+              className="bg-[#49615e] h-2 rounded-full transition-all duration-500 ease-out shadow-sm"
               style={{ width: `${progress}%` }}
             ></div>
           </div>
         </div>
 
         {/* Page Content */}
-        <div className="bg-white rounded-2xl shadow-xl p-8 mb-6 border border-gray-100">
+        <div className="my-8">
           <div className="mb-8">
             <div className="flex items-center mb-4">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mr-4">
-                <svg
-                  className="w-6 h-6 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                  />
-                </svg>
-              </div>
               <div>
-                <h1 className="text-3xl font-bold text-black">
+                <h1 className="text-3xl font-medium text-black">
                   {currentPage.title}
                 </h1>
                 <p className="text-lg text-gray-800 mt-1">{currentPage.desc}</p>
