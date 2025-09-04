@@ -5,6 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import InfoBox from "@/components/InfoBox";
 import InputRenderer from "@/components/InputRenderer";
+import ProgressBar from "@/components/ProgressBar";
 import StripePayment from "@/components/StripePayment";
 import { Question, Page, Config } from "@/types/question";
 
@@ -61,6 +62,7 @@ export default function IntakeFormPage() {
     // Save to local storage
     localStorage.setItem(STORAGE_KEY, JSON.stringify(formDataRef.current));
   }, [formData]);
+
 
   const handleInputChange = (code: string, value: any) => {
     formDataRef.current = { ...formDataRef.current, [code]: value };
@@ -276,7 +278,6 @@ export default function IntakeFormPage() {
   }
 
   const currentIndex = allPages.findIndex((p) => p.code === currentPage.code);
-  const progress = ((currentIndex + 1) / allPages.length) * 100;
 
   return (
     <div className="min-h-screen bg-white py-8 px-4">
@@ -293,14 +294,7 @@ export default function IntakeFormPage() {
         </div>
 
         {/* Progress Bar */}
-        <div className="mb-3 flex justify-center">
-          <div className="w-full bg-[#a8beb7] rounded-full h-2 shadow-inner">
-            <div
-              className="bg-[#49615e] h-2 rounded-full transition-all duration-500 ease-out shadow-sm"
-              style={{ width: `${progress}%` }}
-            ></div>
-          </div>
-        </div>
+        <ProgressBar currentIndex={currentIndex} totalPages={allPages.length} />
 
         {/* Page Content */}
         <div className="my-8">
