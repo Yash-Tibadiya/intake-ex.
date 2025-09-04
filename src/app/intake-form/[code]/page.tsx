@@ -65,7 +65,6 @@ export default function IntakeFormPage() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(formDataRef.current));
   }, [formData]);
 
-
   const handleInputChange = (code: string, value: any) => {
     formDataRef.current = { ...formDataRef.current, [code]: value };
     setFormData((prev) => ({ ...prev, [code]: value }));
