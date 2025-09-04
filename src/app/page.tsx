@@ -4,8 +4,8 @@ import InfoBox from "@/components/InfoBox";
 import InputRenderer from "@/components/InputRenderer";
 import StripePayment from "@/components/StripePayment";
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import { Question, Page, Config } from "@/types/question";
-
 
 const STORAGE_KEY = "intake_form_data";
 
@@ -139,7 +139,12 @@ export default function IntakeForm() {
             {q.hint}
           </p>
         )}
-        <InputRenderer question={q} value={value} onChange={handleInputChange} handleNext={handleNext} />
+        <InputRenderer
+          question={q}
+          value={value}
+          onChange={handleInputChange}
+          handleNext={handleNext}
+        />
         {error && (
           <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2 flex items-center">
             <svg
@@ -161,21 +166,25 @@ export default function IntakeForm() {
     );
   };
 
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 py-8 px-4">
       <div className="max-w-4xl mx-auto">
+        {/* Logo */}
+        <div className="flex justify-center mb-3">
+          <Image
+            src="/images/logo.webp"
+            alt="Logo"
+            width={500}
+            height={500}
+            className="max-w-24 h-auto object-contain"
+          />
+        </div>
+
         {/* Progress Bar */}
-        <div className="mb-8">
-          <div className="flex justify-between items-center mb-2">
-            <h2 className="text-2xl font-bold text-black">Intake Form</h2>
-            <span className="text-sm font-medium text-gray-800 bg-white px-3 py-1 rounded-full shadow-sm">
-              Step {currentPageIndex + 1} of {pages.length}
-            </span>
-          </div>
-          <div className="w-full bg-white rounded-full h-3 shadow-inner">
+        <div className="mb-8 flex justify-center">
+          <div className="w-2/3 bg-white rounded-full h-3 shadow-inner">
             <div
-              className="bg-gradient-to-r from-blue-500 to-indigo-600 h-3 rounded-full transition-all duration-500 ease-out shadow-sm"
+              className="bg-[#6b8162] h-3 rounded-full transition-all duration-500 ease-out shadow-sm"
               style={{ width: `${progress}%` }}
             ></div>
           </div>
