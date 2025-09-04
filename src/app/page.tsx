@@ -1,7 +1,6 @@
 "use client";
 
 import InfoBox from "@/components/InfoBox";
-import NumberCounter from "@/components/NumberCounter";
 import StripePayment from "@/components/StripePayment";
 import { useState, useEffect } from "react";
 
@@ -256,7 +255,9 @@ export default function IntakeForm() {
                     name={q.code}
                     value={optValue}
                     checked={value === optValue}
-                    onChange={(e) => handleInputChange(q.code, e.target.value)}
+                    onChange={(e) => {
+                      handleInputChange(q.code, e.target.value);
+                    }}
                     className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
                   />
                   <span className="ml-3 text-gray-900 font-medium">
@@ -419,19 +420,6 @@ export default function IntakeForm() {
             />
           </div>
 
-          {/* NumberCounter Component - Only on Documents Page */}
-          {currentPageIndex === 12 && (
-            <div className="mb-8">
-              <NumberCounter
-                initialValue={5}
-                min={0}
-                max={20}
-                step={1}
-                label="Document Quantity Counter"
-              />
-            </div>
-          )}
-
           {/* StripePayment Component - Only on Payment Page */}
           {currentPageIndex === 16 && (
             <div className="mb-8">
@@ -439,12 +427,12 @@ export default function IntakeForm() {
                 amount={99.99}
                 currency="usd"
                 onPaymentSuccess={(paymentIntent) => {
-                  console.log('Payment successful:', paymentIntent);
+                  console.log("Payment successful:", paymentIntent);
                   // Handle successful payment
-                  alert('Payment processed successfully!');
+                  alert("Payment processed successfully!");
                 }}
                 onPaymentError={(error) => {
-                  console.error('Payment failed:', error);
+                  console.error("Payment failed:", error);
                   // Handle payment error
                 }}
               />
