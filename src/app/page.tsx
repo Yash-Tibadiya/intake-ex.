@@ -486,21 +486,6 @@ export default function IntakeForm() {
             Previous
           </button>
 
-          <div className="flex space-x-3">
-            {pages.map((_, index) => (
-              <div
-                key={index}
-                className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                  index === currentPageIndex
-                    ? "bg-indigo-600 scale-125 shadow-lg"
-                    : index < currentPageIndex
-                    ? "bg-green-500 shadow-md"
-                    : "bg-gray-300 hover:bg-gray-400"
-                }`}
-              />
-            ))}
-          </div>
-
           <button
             onClick={handleNext}
             className="px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105 flex items-center"
