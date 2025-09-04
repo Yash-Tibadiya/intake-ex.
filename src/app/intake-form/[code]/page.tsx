@@ -198,6 +198,12 @@ export default function IntakeFormPage() {
 
   const currentIndex = allPages.findIndex((p) => p.code === currentPage.code);
 
+  // Check if Next button should be hidden
+  const shouldHideNextButton =
+    !currentPage.questions ||
+    currentPage.questions.length === 0 ||
+    currentPage.questions.some((q) => q.type === "radio");
+
   return (
     <div className="min-h-screen bg-white py-8 px-4">
       <div className="max-w-xl mx-auto">
@@ -271,14 +277,16 @@ export default function IntakeFormPage() {
           </form>
 
           {/* Navigation */}
-          <div className="flex justify-between items-center mt-8">
-            <button
-              onClick={handleNext}
-              className="px-6 py-3 bg-[#193231] hover:bg-[#193231f2] text-white rounded-full font-semibold shadow-xl hover:shadow-[#19323157] flex items-center w-full justify-center cursor-pointer"
-            >
-              Next
-            </button>
-          </div>
+          {!shouldHideNextButton && (
+            <div className="flex justify-between items-center mt-8">
+              <button
+                onClick={handleNext}
+                className="px-6 py-3 bg-[#193231] hover:bg-[#193231f2] text-white rounded-full font-semibold shadow-xl hover:shadow-[#19323157] flex items-center w-full justify-center cursor-pointer"
+              >
+                Next
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
