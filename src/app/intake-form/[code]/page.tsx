@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
-import InfoBox from "@/components/InfoBox";
 import InputRenderer from "@/components/InputRenderer";
 import LoadingSkeleton from "@/components/LoadingSkeleton";
 import PageNotFound from "@/components/PageNotFound";
@@ -199,10 +198,19 @@ export default function IntakeFormPage() {
   const currentIndex = allPages.findIndex((p) => p.code === currentPage.code);
 
   // Check if Next button should be hidden
+  const hasVisibleFollowupQuestions = currentPage.questions?.some((q) => {
+    const value = formDataRef.current[q.code] || "";
+    const showFollowup =
+      q.showFollowupWhen &&
+      ((Array.isArray(value) && value.includes(q.showFollowupWhen)) ||
+        value === q.showFollowupWhen);
+    return showFollowup && q.followup_questions && q.followup_questions.length > 0;
+  });
+
   const shouldHideNextButton =
     !currentPage.questions ||
     currentPage.questions.length === 0 ||
-    currentPage.questions.some((q) => q.type === "radio");
+    (currentPage.questions.some((q) => q.type === "radio") && !hasVisibleFollowupQuestions);
 
   return (
     <div className="min-h-screen bg-white py-8 px-4">
