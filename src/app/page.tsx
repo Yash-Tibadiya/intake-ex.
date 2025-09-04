@@ -1,19 +1,61 @@
 "use client";
 
-import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
-export default function IntakeForm() {
+export default function HomePage() {
   const router = useRouter();
 
-  useEffect(() => {
-    // Redirect to the first step
-    router.replace('/intake-form/step_1');
-  }, [router]);
+  const handleStartIntake = () => {
+    router.push('/intake-form/step_1');
+  };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 flex items-center justify-center">
-      <div className="text-black text-xl font-semibold">Redirecting to intake form...</div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+      <div className="container mx-auto px-4 py-16">
+        {/* Header with Logo */}
+        <div className="text-center mb-16">
+          <div className="flex justify-center mb-8">
+            <Image
+              src="/images/logo.webp"
+              alt="Logo"
+              width={200}
+              height={100}
+              className="object-contain"
+            />
+          </div>
+
+          <h1 className="text-5xl font-bold text-gray-900 mb-6">
+            Welcome to Our Intake Form
+          </h1>
+
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-12">
+            Complete our comprehensive intake form to get started with our services.
+            We'll guide you through each step to ensure we have all the information we need.
+          </p>
+
+          {/* CTA Button */}
+          <button
+            onClick={handleStartIntake}
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-lg font-semibold rounded-xl hover:from-blue-700 hover:to-indigo-700 shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105"
+          >
+            <svg
+              className="w-6 h-6 mr-3"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+            Start Intake Form
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
