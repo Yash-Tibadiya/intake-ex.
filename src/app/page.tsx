@@ -284,6 +284,7 @@ export default function IntakeForm() {
             {q.options?.map((opt) => {
               const optValue = typeof opt === "string" ? opt : opt.value;
               const optLabel = typeof opt === "string" ? opt : opt.label;
+              const isNoneOfTheAbove = optLabel.toLowerCase().includes("none of the above");
               return (
                 <label
                   key={optValue}
@@ -295,9 +296,28 @@ export default function IntakeForm() {
                     checked={Array.isArray(value) && value.includes(optValue)}
                     onChange={(e) => {
                       const current = Array.isArray(value) ? value : [];
-                      const updated = e.target.checked
-                        ? [...current, optValue]
-                        : current.filter((v) => v !== optValue);
+                      let updated: string[];
+
+                      if (e.target.checked) {
+                        if (isNoneOfTheAbove) {
+                          // If "None of the above" is selected, only keep it
+                          updated = [optValue];
+                        } else {
+                          // If any other option is selected, remove "None of the above" if present
+                          updated = current.filter(v => {
+                            const option = q.options?.find(o =>
+                              (typeof o === "string" ? o : o.value) === v
+                            );
+                            const optionLabel = typeof option === "string" ? option : option?.label || "";
+                            return !optionLabel.toLowerCase().includes("none of the above");
+                          });
+                          updated.push(optValue);
+                        }
+                      } else {
+                        // If unchecking, just remove the current option
+                        updated = current.filter((v) => v !== optValue);
+                      }
+
                       handleInputChange(q.code, updated);
                     }}
                     className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
