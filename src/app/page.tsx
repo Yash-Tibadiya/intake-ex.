@@ -2,7 +2,7 @@
 
 import InfoBox from "@/components/InfoBox";
 import StripePayment from "@/components/StripePayment";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface Option {
   label: string;
@@ -58,6 +58,7 @@ export default function IntakeForm() {
   const [formData, setFormData] = useState<Record<string, any>>({});
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(true);
+  const formDataRef = useRef<Record<string, any>>({});
 
   useEffect(() => {
     // Load config
@@ -75,13 +76,15 @@ export default function IntakeForm() {
     // Load saved data
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
-      setFormData(JSON.parse(saved));
+      const parsed = JSON.parse(saved);
+      setFormData(parsed);
+      formDataRef.current = parsed;
     }
   }, []);
 
   useEffect(() => {
     // Save to local storage
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(formDataRef.current));
   }, [formData]);
 
   if (loading || !config) {
@@ -97,6 +100,7 @@ export default function IntakeForm() {
   const progress = ((currentPageIndex + 1) / pages.length) * 100;
 
   const handleInputChange = (code: string, value: any) => {
+    formDataRef.current = { ...formDataRef.current, [code]: value };
     setFormData((prev) => ({ ...prev, [code]: value }));
     if (errors[code]) {
       setErrors((prev) => ({ ...prev, [code]: "" }));
@@ -106,7 +110,7 @@ export default function IntakeForm() {
   const validatePage = () => {
     const newErrors: Record<string, string> = {};
     currentPage.questions.forEach((q) => {
-      const value = formData[q.code];
+      const value = formDataRef.current[q.code];
       if (
         q.required &&
         (!value || (Array.isArray(value) && value.length === 0))
@@ -156,7 +160,7 @@ export default function IntakeForm() {
   };
 
   const renderQuestion = (q: Question) => {
-    const value = formData[q.code] || "";
+    const value = formDataRef.current[q.code] || "";
     const error = errors[q.code];
     const showFollowup =
       q.showFollowupWhen &&
@@ -257,6 +261,7 @@ export default function IntakeForm() {
                     checked={value === optValue}
                     onChange={(e) => {
                       handleInputChange(q.code, e.target.value);
+                      handleNext();
                     }}
                     className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
                   />
