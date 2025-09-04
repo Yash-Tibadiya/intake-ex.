@@ -414,16 +414,18 @@ export default function IntakeForm() {
           </div>
 
           {/* InfoBox Component */}
-          <div className="mb-8">
-            <InfoBox
-              title="Important Information"
-              points={[
-                "Your email will be used for account verification",
-                "We will send important updates to this address",
-                "Make sure to use a valid email address",
-              ]}
-            />
-          </div>
+          {currentPageIndex === 15 && (
+            <div className="mb-8">
+              <InfoBox
+                title="Important Information"
+                points={[
+                  "Your email will be used for account verification",
+                  "We will send important updates to this address",
+                  "Make sure to use a valid email address",
+                ]}
+              />
+            </div>
+          )}
 
           {/* StripePayment Component - Only on Payment Page */}
           {currentPageIndex === 16 && (

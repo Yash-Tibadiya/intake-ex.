@@ -191,7 +191,15 @@
           "type": "radio",
           "order": 1,
           "colspan": 1,
-          "options": ["Full-time Employed", "Part-time Employed", "Self-employed", "Unemployed", "Student", "Retired", "Other"],
+          "options": [
+            "Full-time Employed",
+            "Part-time Employed",
+            "Self-employed",
+            "Unemployed",
+            "Student",
+            "Retired",
+            "Other"
+          ],
           "required": true,
           "requiredError": "Please select your employment status"
         }
@@ -218,7 +226,10 @@
             { "label": "Bachelor's Degree", "value": "bachelor" },
             { "label": "Master's Degree", "value": "master" },
             { "label": "Doctorate/PhD", "value": "doctorate" },
-            { "label": "Professional Degree (MD, JD, etc.)", "value": "professional" },
+            {
+              "label": "Professional Degree (MD, JD, etc.)",
+              "value": "professional"
+            },
             { "label": "Other", "value": "other" }
           ],
           "required": true,
@@ -385,7 +396,12 @@
           "type": "checkbox",
           "order": 1,
           "colspan": 1,
-          "options": ["Morning (8AM-12PM)", "Afternoon (12PM-5PM)", "Evening (5PM-9PM)", "Weekends"],
+          "options": [
+            "Morning (8AM-12PM)",
+            "Afternoon (12PM-5PM)",
+            "Evening (5PM-9PM)",
+            "Weekends"
+          ],
           "required": true,
           "requiredError": "Please select at least one time preference"
         }
@@ -431,7 +447,13 @@
           "type": "document",
           "order": 1,
           "colspan": 1,
-          "filetype": ["image/jpeg", "image/png", "application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"],
+          "filetype": [
+            "image/jpeg",
+            "image/png",
+            "application/pdf",
+            "application/msword",
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+          ],
           "required": false,
           "maxFileSize": 15,
           "maxFilesAllowed": 5
@@ -474,7 +496,10 @@
           "type": "radio",
           "order": 1,
           "colspan": 1,
-          "options": ["All information provided is accurate and complete", "I need to review and update some information"],
+          "options": [
+            "All information provided is accurate and complete",
+            "I need to review and update some information"
+          ],
           "required": true,
           "requiredError": "Please confirm the accuracy of your information"
         }
@@ -486,20 +511,7 @@
       "desc": "Complete your registration by processing the payment.",
       "order": 17,
       "title": "Payment Processing",
-      "columns": 1,
-      "questions": [
-        {
-          "id": 25,
-          "code": "payment_confirmation",
-          "text": "Payment Processing",
-          "type": "radio",
-          "order": 1,
-          "colspan": 1,
-          "options": ["I understand the payment terms and wish to proceed"],
-          "required": true,
-          "requiredError": "Please confirm to proceed with payment"
-        }
-      ]
+      "questions": []
     }
   ]
 }
