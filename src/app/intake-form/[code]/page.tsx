@@ -112,7 +112,9 @@ export default function IntakeFormPage() {
 
   const handleNext = () => {
     if (validatePage() && currentPage && allPages.length > 0) {
-      const currentIndex = allPages.findIndex(p => p.code === currentPage.code);
+      const currentIndex = allPages.findIndex(
+        (p) => p.code === currentPage.code
+      );
       if (currentIndex < allPages.length - 1) {
         const nextPage = allPages[currentIndex + 1];
         router.push(`/intake-form/${nextPage.code}`);
@@ -122,7 +124,9 @@ export default function IntakeFormPage() {
 
   const handlePrev = () => {
     if (currentPage && allPages.length > 0) {
-      const currentIndex = allPages.findIndex(p => p.code === currentPage.code);
+      const currentIndex = allPages.findIndex(
+        (p) => p.code === currentPage.code
+      );
       if (currentIndex > 0) {
         const prevPage = allPages[currentIndex - 1];
         router.push(`/intake-form/${prevPage.code}`);
@@ -183,8 +187,69 @@ export default function IntakeFormPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 flex items-center justify-center">
-        <div className="text-black text-xl font-semibold">Loading...</div>
+      <div className="min-h-screen bg-white py-8 px-4">
+        <div className="max-w-xl mx-auto">
+          {/* Logo Skeleton */}
+          <div className="flex justify-center mb-3">
+            <div className="w-24 h-12 bg-gray-200 rounded-lg animate-pulse"></div>
+          </div>
+
+          {/* Progress Bar Skeleton */}
+          <div className="mb-3 flex justify-center">
+            <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+              <div className="h-full bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 animate-pulse w-full"></div>
+            </div>
+          </div>
+
+          {/* Page Content Skeleton */}
+          <div className="my-8">
+            {/* Page Title Skeleton */}
+            <div className="mb-8">
+              <div className="mb-4">
+                <div className="h-8 bg-gray-200 rounded-lg animate-pulse w-3/4 mb-2"></div>
+                <div className="h-5 bg-gray-200 rounded animate-pulse w-1/2"></div>
+              </div>
+            </div>
+
+            {/* Form Fields Skeleton */}
+            <div className="space-y-6">
+              {/* Field 1 */}
+              <div
+                className="space-y-2 animate-pulse"
+                style={{ animationDelay: "0.1s" }}
+              >
+                <div className="h-4 bg-gray-200 rounded w-1/3"></div>
+                <div className="h-12 bg-gray-200 rounded-xl"></div>
+              </div>
+
+              {/* Field 2 */}
+              <div
+                className="space-y-2 animate-pulse"
+                style={{ animationDelay: "0.2s" }}
+              >
+                <div className="h-4 bg-gray-200 rounded w-1/2"></div>
+                <div className="h-12 bg-gray-200 rounded-xl"></div>
+              </div>
+
+              {/* Field 3 */}
+              <div
+                className="space-y-2 animate-pulse"
+                style={{ animationDelay: "0.3s" }}
+              >
+                <div className="h-4 bg-gray-200 rounded w-2/5"></div>
+                <div className="h-12 bg-gray-200 rounded-xl"></div>
+              </div>
+            </div>
+
+            {/* Navigation Skeleton */}
+            <div className="flex justify-between items-center mt-8">
+              <div
+                className="h-12 bg-gray-200 rounded-full animate-pulse w-full"
+                style={{ animationDelay: "0.6s" }}
+              ></div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
@@ -193,10 +258,14 @@ export default function IntakeFormPage() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">Page Not Found</h1>
-          <p className="text-gray-600 mb-6">The requested page "{pageCode}" does not exist.</p>
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">
+            Page Not Found
+          </h1>
+          <p className="text-gray-600 mb-6">
+            The requested page "{pageCode}" does not exist.
+          </p>
           <button
-            onClick={() => router.push('/intake-form/step_1')}
+            onClick={() => router.push("/intake-form/step_1")}
             className="px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-all duration-200"
           >
             Go to First Step
@@ -206,7 +275,7 @@ export default function IntakeFormPage() {
     );
   }
 
-  const currentIndex = allPages.findIndex(p => p.code === currentPage.code);
+  const currentIndex = allPages.findIndex((p) => p.code === currentPage.code);
   const progress = ((currentIndex + 1) / allPages.length) * 100;
 
   return (
@@ -357,7 +426,6 @@ export default function IntakeFormPage() {
             </button>
           </div>
         </div>
-
       </div>
     </div>
   );
