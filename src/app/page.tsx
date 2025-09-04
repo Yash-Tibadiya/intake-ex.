@@ -69,7 +69,6 @@ export default function IntakeForm() {
         setLoading(false);
       })
       .catch((err) => {
-        console.error("Failed to load config:", err);
         setLoading(false);
       });
 
@@ -261,7 +260,13 @@ export default function IntakeForm() {
                     checked={value === optValue}
                     onChange={(e) => {
                       handleInputChange(q.code, e.target.value);
-                      handleNext();
+                      // Only auto-advance if this selection doesn't trigger followup questions
+                      if (
+                        !q.showFollowupWhen ||
+                        e.target.value !== q.showFollowupWhen
+                      ) {
+                        handleNext();
+                      }
                     }}
                     className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
                   />
@@ -428,19 +433,16 @@ export default function IntakeForm() {
           )}
 
           {/* StripePayment Component - Only on Payment Page */}
-          {currentPageIndex === 16 && (
+          {currentPageIndex === 36 && (
             <div className="mb-8">
               <StripePayment
                 amount={99.99}
                 currency="usd"
                 onPaymentSuccess={(paymentIntent) => {
                   console.log("Payment successful:", paymentIntent);
-                  // Handle successful payment
-                  alert("Payment processed successfully!");
                 }}
                 onPaymentError={(error) => {
-                  console.error("Payment failed:", error);
-                  // Handle payment error
+                  console.log("Payment failed:", error);
                 }}
               />
             </div>
