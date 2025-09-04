@@ -1,6 +1,7 @@
 "use client";
 
 import InfoBox from "@/components/InfoBox";
+import InputRenderer from "@/components/InputRenderer";
 import StripePayment from "@/components/StripePayment";
 import { useState, useEffect, useRef } from "react";
 
@@ -182,7 +183,7 @@ export default function IntakeForm() {
             {q.hint}
           </p>
         )}
-        {renderInput(q, value)}
+        <InputRenderer question={q} value={value} onChange={handleInputChange} handleNext={handleNext} />
         {error && (
           <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2 flex items-center">
             <svg
@@ -204,192 +205,6 @@ export default function IntakeForm() {
     );
   };
 
-  const renderInput = (q: Question, value: any) => {
-    const baseInputClasses =
-      "w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm hover:shadow-md text-gray-900 placeholder-gray-500";
-
-    switch (q.type) {
-      case "text":
-      case "email":
-      case "number":
-        return (
-          <input
-            type={q.type}
-            value={value}
-            onChange={(e) => handleInputChange(q.code, e.target.value)}
-            placeholder={q.placeholder}
-            min={q.min}
-            max={q.max}
-            className={baseInputClasses}
-          />
-        );
-      case "textarea":
-        return (
-          <textarea
-            value={value}
-            onChange={(e) => handleInputChange(q.code, e.target.value)}
-            placeholder={q.placeholder}
-            rows={4}
-            className={`${baseInputClasses} resize-none text-gray-900 placeholder-gray-500`}
-          />
-        );
-      case "date":
-        return (
-          <input
-            type="date"
-            value={value}
-            onChange={(e) => handleInputChange(q.code, e.target.value)}
-            className={`${baseInputClasses} text-gray-900`}
-          />
-        );
-      case "radio":
-        return (
-          <div className="space-y-3">
-            {q.options?.map((opt) => {
-              const optValue = typeof opt === "string" ? opt : opt.value;
-              const optLabel = typeof opt === "string" ? opt : opt.label;
-              return (
-                <label
-                  key={optValue}
-                  className="flex items-center p-3 rounded-lg border border-gray-200 hover:bg-gray-50 cursor-pointer transition-all duration-200"
-                >
-                  <input
-                    type="radio"
-                    name={q.code}
-                    value={optValue}
-                    checked={value === optValue}
-                    onChange={(e) => {
-                      handleInputChange(q.code, e.target.value);
-                      // Only auto-advance if this selection doesn't trigger followup questions
-                      if (
-                        !q.showFollowupWhen ||
-                        e.target.value !== q.showFollowupWhen
-                      ) {
-                        handleNext();
-                      }
-                    }}
-                    className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
-                  />
-                  <span className="ml-3 text-gray-900 font-medium">
-                    {optLabel}
-                  </span>
-                </label>
-              );
-            })}
-          </div>
-        );
-      case "checkbox":
-        return (
-          <div className="space-y-3">
-            {q.options?.map((opt) => {
-              const optValue = typeof opt === "string" ? opt : opt.value;
-              const optLabel = typeof opt === "string" ? opt : opt.label;
-              const isNoneOfTheAbove = optLabel.toLowerCase().includes("none of the above");
-              return (
-                <label
-                  key={optValue}
-                  className="flex items-center p-3 rounded-lg border border-gray-200 hover:bg-gray-50 cursor-pointer transition-all duration-200"
-                >
-                  <input
-                    type="checkbox"
-                    value={optValue}
-                    checked={Array.isArray(value) && value.includes(optValue)}
-                    onChange={(e) => {
-                      const current = Array.isArray(value) ? value : [];
-                      let updated: string[];
-
-                      if (e.target.checked) {
-                        if (isNoneOfTheAbove) {
-                          // If "None of the above" is selected, only keep it
-                          updated = [optValue];
-                        } else {
-                          // If any other option is selected, remove "None of the above" if present
-                          updated = current.filter(v => {
-                            const option = q.options?.find(o =>
-                              (typeof o === "string" ? o : o.value) === v
-                            );
-                            const optionLabel = typeof option === "string" ? option : option?.label || "";
-                            return !optionLabel.toLowerCase().includes("none of the above");
-                          });
-                          updated.push(optValue);
-                        }
-                      } else {
-                        // If unchecking, just remove the current option
-                        updated = current.filter((v) => v !== optValue);
-                      }
-
-                      handleInputChange(q.code, updated);
-                    }}
-                    className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                  />
-                  <span className="ml-3 text-gray-700 font-medium">
-                    {optLabel}
-                  </span>
-                </label>
-              );
-            })}
-          </div>
-        );
-      case "searchableDropdown":
-        return (
-          <select
-            value={value}
-            onChange={(e) => handleInputChange(q.code, e.target.value)}
-            className={`${baseInputClasses} cursor-pointer text-gray-900`}
-          >
-            <option value="">{q.placeholder || "Select an option..."}</option>
-            {q.options?.map((opt) => {
-              const optValue = typeof opt === "string" ? opt : opt.value;
-              const optLabel = typeof opt === "string" ? opt : opt.label;
-              return (
-                <option key={optValue} value={optValue}>
-                  {optLabel}
-                </option>
-              );
-            })}
-          </select>
-        );
-      case "document":
-        return (
-          <div className="space-y-2">
-            <input
-              type="file"
-              multiple
-              accept={q.filetype?.join(",")}
-              onChange={(e) => {
-                const files = Array.from(e.target.files || []);
-                if (q.maxFilesAllowed && files.length > q.maxFilesAllowed) {
-                  alert(`Maximum ${q.maxFilesAllowed} files allowed`);
-                  return;
-                }
-                if (q.maxFileSize) {
-                  const oversized = files.filter(
-                    (f) => f.size > q.maxFileSize! * 1024 * 1024
-                  );
-                  if (oversized.length > 0) {
-                    alert(`File size must be less than ${q.maxFileSize}MB`);
-                    return;
-                  }
-                }
-                handleInputChange(q.code, files);
-              }}
-              className="w-full px-4 py-3 border-2 border-dashed border-gray-300 rounded-xl text-gray-900 bg-gray-50 hover:bg-gray-100 hover:border-blue-400 transition-all duration-200 cursor-pointer file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
-            />
-            {q.maxFileSize && (
-              <p className="text-xs text-gray-700">
-                Maximum file size: {q.maxFileSize}MB
-              </p>
-            )}
-          </div>
-        );
-      default:
-        return (
-          <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-xl">
-            <p className="text-black">Unsupported question type: {q.type}</p>
-          </div>
-        );
-    }
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 py-8 px-4">
