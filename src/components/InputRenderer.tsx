@@ -3,7 +3,7 @@ import { Question, InputRendererProps } from '@/types/question';
 
 const InputRenderer: React.FC<InputRendererProps> = ({ question: q, value, onChange, handleNext }) => {
   const baseInputClasses =
-    "w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 bg-white shadow-sm hover:shadow-md text-gray-900 placeholder-gray-500";
+    "w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#253c3c] focus:border-[#253c3c] transition-all duration-200 bg-white shadow-sm hover:shadow-md text-gray-900 placeholder-gray-500";
 
   switch (q.type) {
     case "text":
@@ -57,11 +57,14 @@ const InputRenderer: React.FC<InputRendererProps> = ({ question: q, value, onCha
                   checked={value === optValue}
                   onChange={(e) => {
                     onChange(q.code, e.target.value);
-                    if (!q.showFollowupWhen || e.target.value !== q.showFollowupWhen) {
+                    if (
+                      !q.showFollowupWhen ||
+                      e.target.value !== q.showFollowupWhen
+                    ) {
                       handleNext?.();
                     }
                   }}
-                  className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
+                  className="w-4 h-4 accent-[#253c3c] border-gray-300 focus:ring-[#253c3c]"
                 />
                 <span className="ml-3 text-gray-900 font-medium">
                   {optLabel}
@@ -113,7 +116,7 @@ const InputRenderer: React.FC<InputRendererProps> = ({ question: q, value, onCha
 
                     onChange(q.code, updated);
                   }}
-                  className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                  className="w-4 h-4 accent-[#253c3c] border-gray-300 rounded focus:ring-[#253c3c]"
                 />
                 <span className="ml-3 text-gray-700 font-medium">
                   {optLabel}
@@ -166,7 +169,7 @@ const InputRenderer: React.FC<InputRendererProps> = ({ question: q, value, onCha
               }
               onChange(q.code, files);
             }}
-            className="w-full px-4 py-3 border-2 border-dashed border-gray-300 rounded-xl text-gray-900 bg-gray-50 hover:bg-gray-100 hover:border-blue-400 transition-all duration-200 cursor-pointer file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+            className="w-full px-4 py-3 border-2 border-dashed border-gray-300 rounded-xl text-gray-900 bg-gray-50 hover:bg-gray-100 hover:border-[#253c3c] transition-all duration-200 cursor-pointer file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-[#253c3c]/10 file:text-[#253c3c] hover:file:bg-[#253c3c]/20"
           />
           {q.maxFileSize && (
             <p className="text-xs text-gray-700">

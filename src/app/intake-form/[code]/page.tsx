@@ -229,7 +229,7 @@ export default function IntakeFormPage() {
           </div>
 
           {/* InfoBox Component */}
-          {currentIndex === 14 && (
+          {/* {currentIndex === 14 && (
             <div className="mb-8">
               <InfoBox
                 title="Important Information"
@@ -240,10 +240,10 @@ export default function IntakeFormPage() {
                 ]}
               />
             </div>
-          )}
+          )} */}
 
           {/* StripePayment Component - Only on Payment Page */}
-          {currentIndex === 35 && (
+          {currentIndex === 36 && (
             <div className="mb-8">
               <StripePayment
                 amount={99.99}
@@ -276,7 +276,7 @@ export default function IntakeFormPage() {
               onClick={handleNext}
               className="px-6 py-3 bg-[#193231] hover:bg-[#193231f2] text-white rounded-full font-semibold shadow-xl hover:shadow-[#19323157] flex items-center w-full justify-center cursor-pointer"
             >
-              {currentIndex === allPages.length - 1 ? "Submit" : "Next"}
+              Next
             </button>
           </div>
         </div>
