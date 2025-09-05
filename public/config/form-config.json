@@ -5,14 +5,14 @@
       "code": "step_1",
       "desc": "",
       "order": 1,
-      "title": "Step 1",
+      "title": "What is your weight loss goal?",
       "columns": 1,
       "questions": [
         {
           "id": 1,
           "colspan": 1,
           "code": "weight_loss_goal_category",
-          "text": "What is your weight loss goal?",
+          "text": "",
           "type": "radio",
           "order": 1,
           "options": [
@@ -30,7 +30,7 @@
       "code": "step_2",
       "desc": "",
       "order": 2,
-      "title": "Step 2",
+      "title": "Basic information",
       "columns": 2,
       "questions": [
         {
@@ -96,7 +96,7 @@
       "code": "step_3",
       "desc": "",
       "order": 3,
-      "title": "Step 3",
+      "title": "Address details",
       "columns": 2,
       "questions": [
         {
@@ -351,7 +351,7 @@
       "code": "step_4",
       "desc": "",
       "order": 4,
-      "title": "Step 4",
+      "title": "Height and weight",
       "columns": 2,
       "questions": [
         {
@@ -400,14 +400,14 @@
       "code": "step_5",
       "desc": "",
       "order": 5,
-      "title": "Step 5",
+      "title": "Doctor's care",
       "columns": 1,
       "questions": [
         {
           "id": 5,
           "colspan": 1,
           "code": "doctor_care",
-          "text": "Are you under a doctor's care at this present time?",
+          "text": "",
           "type": "radio",
           "order": 5,
           "options": ["Yes", "No"],
@@ -432,14 +432,14 @@
       "code": "step_6",
       "desc": "",
       "order": 6,
-      "title": "Step 6",
+      "title": "Past medical history",
       "columns": 1,
       "questions": [
         {
           "id": 6,
           "colspan": 1,
           "code": "past_medical_history",
-          "text": "Patient Past Medical History. Please be detailed and include everything",
+          "text": "",
           "type": "checkbox",
           "order": 6,
           "options": [
@@ -468,14 +468,14 @@
       "code": "step_7",
       "desc": "",
       "order": 7,
-      "title": "Step 7",
+      "title": "Additional past medical history",
       "columns": 1,
       "questions": [
         {
           "id": 7,
           "colspan": 1,
           "code": "additional_past_medical_history",
-          "text": "Any Other Past Medical History (that's not included on the list above) Please be specific",
+          "text": "",
           "type": "checkbox",
           "order": 7,
           "options": [
@@ -513,7 +513,7 @@
               "id": 7.1,
               "colspan": 1,
               "code": "past_surgical_history_details",
-              "text": "Please tell us more about this",
+              "text": "",
               "type": "textarea",
               "order": 7.1,
               "required": false
@@ -528,14 +528,14 @@
       "code": "step_8",
       "desc": "",
       "order": 8,
-      "title": "Step 8",
+      "title": "Past surgical history",
       "columns": 1,
       "questions": [
         {
           "id": 8,
           "colspan": 1,
           "code": "past_surgical_history",
-          "text": "Past Surgical History?",
+          "text": "",
           "type": "radio",
           "order": 8,
           "options": ["Yes", "No"],
@@ -546,7 +546,7 @@
               "id": 8.1,
               "colspan": 1,
               "code": "past_surgical_history_details",
-              "text": "Please tell us more about this",
+              "text": "",
               "type": "textarea",
               "order": 8.1,
               "required": false
@@ -560,14 +560,14 @@
       "code": "step_9",
       "desc": "",
       "order": 9,
-      "title": "Step 9",
+      "title": "Allergies",
       "columns": 1,
       "questions": [
         {
           "id": 9,
           "colspan": 1,
           "code": "allergies",
-          "text": "Any Allergies to Medications or Foods?",
+          "text": "",
           "type": "radio",
           "order": 9,
           "options": ["Yes", "No"],
@@ -578,7 +578,7 @@
               "id": 9.1,
               "colspan": 1,
               "code": "allergies_details",
-              "text": "Please tell us more about this",
+              "text": "",
               "type": "textarea",
               "order": 9.1,
               "required": false
@@ -592,14 +592,14 @@
       "code": "step_10",
       "desc": "",
       "order": 10,
-      "title": "Step 10",
+      "title": "Current medications",
       "columns": 1,
       "questions": [
         {
           "id": 10,
           "colspan": 1,
           "code": "current_medications",
-          "text": "Please list all current Patient Medications, please be sure to include directions and dosage",
+          "text": "",
           "type": "textarea",
           "order": 10,
           "required": false
@@ -611,14 +611,14 @@
       "code": "step_11",
       "desc": "",
       "order": 11,
-      "title": "Step 11",
+      "title": "Exercise habits",
       "columns": 1,
       "questions": [
         {
           "id": 11,
           "colspan": 1,
           "code": "exercise_habits",
-          "text": "Which best describes your exercise habits?",
+          "text": "",
           "type": "textarea",
           "order": 11,
           "required": false
@@ -630,14 +630,14 @@
       "code": "step_12",
       "desc": "",
       "order": 12,
-      "title": "Step 12",
+      "title": "Dieting status",
       "columns": 1,
       "questions": [
         {
           "id": 12,
           "colspan": 1,
           "code": "currently_dieting",
-          "text": "Are you dieting now?",
+          "text": "",
           "type": "radio",
           "order": 12,
           "options": ["Yes", "No"],
@@ -648,7 +648,7 @@
               "id": 12.1,
               "colspan": 1,
               "code": "currently_dieting_details",
-              "text": "Please tell us more about this",
+              "text": "",
               "type": "textarea",
               "order": 12.1,
               "required": false
@@ -662,14 +662,14 @@
       "code": "step_13",
       "desc": "",
       "order": 13,
-      "title": "Step 13",
+      "title": "Alcohol consumption",
       "columns": 1,
       "questions": [
         {
           "id": 13,
           "colspan": 1,
           "code": "alcohol_consumption",
-          "text": "Do you drink alcohol?",
+          "text": "",
           "type": "radio",
           "order": 13,
           "options": ["Yes", "No"],
@@ -680,7 +680,7 @@
               "id": 13.1,
               "colspan": 1,
               "code": "alcohol_consumption_details",
-              "text": "Please tell us more about this",
+              "text": "",
               "type": "textarea",
               "order": 13.1,
               "required": false
@@ -694,14 +694,14 @@
       "code": "step_14",
       "desc": "",
       "order": 14,
-      "title": "Step 14",
+      "title": "Smoking",
       "columns": 1,
       "questions": [
         {
           "id": 14,
           "colspan": 1,
           "code": "smoking",
-          "text": "Do you Smoke Cigarettes?",
+          "text": "",
           "type": "radio",
           "order": 14,
           "options": ["Yes", "No"],
@@ -712,7 +712,7 @@
               "id": 14.1,
               "colspan": 1,
               "code": "smoking_details",
-              "text": "Please tell us more about this",
+              "text": "",
               "type": "textarea",
               "order": 14.1,
               "required": false
@@ -726,14 +726,14 @@
       "code": "step_15",
       "desc": "",
       "order": 15,
-      "title": "Step 15",
+      "title": "Previous weight loss attempts",
       "columns": 1,
       "questions": [
         {
           "id": 15,
           "colspan": 1,
           "code": "previous_weight_loss_attempts",
-          "text": "Describe other weight loss programs or previous diets you have followed or attempted?",
+          "text": "",
           "type": "textarea",
           "order": 15,
           "required": false
@@ -745,14 +745,14 @@
       "code": "step_16",
       "desc": "",
       "order": 16,
-      "title": "Step 16",
+      "title": "Pregnancy plans",
       "columns": 1,
       "questions": [
         {
           "id": 16,
           "colspan": 1,
           "code": "pregnant",
-          "text": "Are you currently pregnant or planning to become pregnant in the next year?",
+          "text": "",
           "type": "radio",
           "order": 16,
           "options": ["Yes", "No"],
@@ -763,7 +763,7 @@
               "id": 16.1,
               "colspan": 1,
               "code": "pregnant_details",
-              "text": "Please tell us more about this",
+              "text": "",
               "type": "textarea",
               "order": 16.1,
               "required": false
@@ -777,14 +777,14 @@
       "code": "step_17",
       "desc": "",
       "order": 17,
-      "title": "Step 17",
+      "title": "Breastfeeding",
       "columns": 1,
       "questions": [
         {
           "id": 17,
           "colspan": 1,
           "code": "breastfeeding",
-          "text": "Are you currently breastfeeding?",
+          "text": "",
           "type": "radio",
           "order": 17,
           "options": ["Yes", "No"],
@@ -797,14 +797,14 @@
       "code": "step_18",
       "desc": "",
       "order": 18,
-      "title": "Step 18",
+      "title": "Cancer treatment",
       "columns": 1,
       "questions": [
         {
           "id": 18,
           "colspan": 1,
           "code": "cancer",
-          "text": "Currently being treated for cancer?",
+          "text": "",
           "type": "radio",
           "order": 18,
           "options": ["Yes", "No"],
@@ -815,7 +815,7 @@
               "id": 18.1,
               "colspan": 1,
               "code": "cancer_details",
-              "text": "Please tell us more about this",
+              "text": "",
               "type": "textarea",
               "order": 18.1,
               "required": false
@@ -829,14 +829,14 @@
       "code": "step_19",
       "desc": "",
       "order": 19,
-      "title": "Step 19",
+      "title": "Gall bladder disease",
       "columns": 1,
       "questions": [
         {
           "id": 19,
           "colspan": 1,
           "code": "gallbladder",
-          "text": "Active gall bladder disease?",
+          "text": "",
           "type": "radio",
           "order": 19,
           "options": ["Yes", "No"],
@@ -847,7 +847,7 @@
               "id": 19.1,
               "colspan": 1,
               "code": "gallbladder_details",
-              "text": "Please tell us more about this",
+              "text": "",
               "type": "textarea",
               "order": 19.1,
               "required": false
@@ -861,14 +861,14 @@
       "code": "step_20",
       "desc": "",
       "order": 20,
-      "title": "Step 20",
+      "title": "Bariatric surgery",
       "columns": 1,
       "questions": [
         {
           "id": 20,
           "colspan": 1,
           "code": "bariatric",
-          "text": "Bariatric Surgery (within the last 18 months)",
+          "text": "",
           "type": "radio",
           "order": 20,
           "options": ["Yes", "No"],
@@ -879,7 +879,7 @@
               "id": 20.1,
               "colspan": 1,
               "code": "bariatric_details",
-              "text": "Please tell us more about this",
+              "text": "",
               "type": "textarea",
               "order": 20.1,
               "required": false
@@ -893,14 +893,14 @@
       "code": "step_21",
       "desc": "",
       "order": 21,
-      "title": "Step 21",
+      "title": "Type 1 Diabetes",
       "columns": 1,
       "questions": [
         {
           "id": 21,
           "colspan": 1,
           "code": "diabetes_type1",
-          "text": "Type 1 Diabetes",
+          "text": "",
           "type": "radio",
           "order": 21,
           "options": ["Yes", "No"],
@@ -911,7 +911,7 @@
               "id": 21.1,
               "colspan": 1,
               "code": "diabetes_type1_details",
-              "text": "Please tell us more about this",
+              "text": "",
               "type": "textarea",
               "order": 21.1,
               "required": false
@@ -925,14 +925,14 @@
       "code": "step_22",
       "desc": "",
       "order": 22,
-      "title": "Step 22",
+      "title": "Medical conditions (exceptions)",
       "columns": 1,
       "questions": [
         {
           "id": 22,
           "colspan": 1,
           "code": "medical_conditions",
-          "text": "Please select any of the following that apply to you. Semaglutide is safe and effective with many pre-existing conditions, with the exception of the following:",
+          "text": "",
           "type": "checkbox",
           "order": 22,
           "options": [
@@ -955,14 +955,14 @@
       "code": "step_23",
       "desc": "",
       "order": 23,
-      "title": "Step 23",
+      "title": "GLP-1 medication history",
       "columns": 1,
       "questions": [
         {
           "id": 23,
           "colspan": 1,
           "code": "glp1_medication_history",
-          "text": "Have you ever been prescribed any weightloss GLP-1 medication? (Mounjaro, Zepbound, Ozempic, Wegovy...)?",
+          "text": "",
           "type": "radio",
           "order": 23,
           "options": ["Yes", "No"],
@@ -973,7 +973,7 @@
               "id": 23.1,
               "colspan": 1,
               "code": "glp1_medication_history_details",
-              "text": "Please tell us more about this",
+              "text": "",
               "type": "textarea",
               "order": 23.1,
               "required": false
@@ -987,14 +987,14 @@
       "code": "step_24",
       "desc": "",
       "order": 24,
-      "title": "Step 24",
+      "title": "Heart attack or stroke history",
       "columns": 1,
       "questions": [
         {
           "id": 24,
           "colspan": 1,
           "code": "heart_attack_stroke_history",
-          "text": "Have you ever had a heart attack or stroke?",
+          "text": "",
           "type": "radio",
           "order": 24,
           "options": ["Yes", "No"],
@@ -1005,7 +1005,7 @@
               "id": 24.1,
               "colspan": 1,
               "code": "heart_attack_stroke_history_details",
-              "text": "Please tell us more about this",
+              "text": "",
               "type": "textarea",
               "order": 24.1,
               "required": false
@@ -1019,14 +1019,14 @@
       "code": "step_25",
       "desc": "",
       "order": 25,
-      "title": "Step 25",
+      "title": "Insulin injection history",
       "columns": 1,
       "questions": [
         {
           "id": 25,
           "colspan": 1,
           "code": "insulin_injection_history",
-          "text": "Have you ever needed an insulin injection?",
+          "text": "",
           "type": "radio",
           "order": 25,
           "options": ["Yes", "No"],
@@ -1037,7 +1037,7 @@
               "id": 25.1,
               "colspan": 1,
               "code": "insulin_injection_history_details",
-              "text": "Please tell us more about this",
+              "text": "",
               "type": "textarea",
               "order": 25.1,
               "required": false
@@ -1051,14 +1051,14 @@
       "code": "step_26",
       "desc": "",
       "order": 26,
-      "title": "Step 26",
+      "title": "Medullary Thyroid Carcinoma",
       "columns": 1,
       "questions": [
         {
           "id": 26,
           "colspan": 1,
           "code": "medullary_thyroid_carcinoma",
-          "text": "Have you ever been diagnosed with Medullary Thyroid Carcinoma?",
+          "text": "",
           "type": "radio",
           "order": 26,
           "options": ["Yes", "No"],
@@ -1069,7 +1069,7 @@
               "id": 26.1,
               "colspan": 1,
               "code": "medullary_thyroid_carcinoma_details",
-              "text": "Please tell us more about this",
+              "text": "",
               "type": "textarea",
               "order": 26.1,
               "required": false
@@ -1083,14 +1083,14 @@
       "code": "step_27",
       "desc": "",
       "order": 27,
-      "title": "Step 27",
+      "title": "Thyroid cancer history",
       "columns": 1,
       "questions": [
         {
           "id": 27,
           "colspan": 1,
           "code": "thyroid_cancer_history",
-          "text": "Have you ever been diagnosed with any type of thyroid cancer?",
+          "text": "",
           "type": "radio",
           "order": 27,
           "options": ["Yes", "No"],
@@ -1101,7 +1101,7 @@
               "id": 27.1,
               "colspan": 1,
               "code": "thyroid_cancer_history_details",
-              "text": "Please tell us more about this",
+              "text": "",
               "type": "textarea",
               "order": 27.1,
               "required": false
@@ -1115,14 +1115,14 @@
       "code": "step_28",
       "desc": "",
       "order": 28,
-      "title": "Step 28",
+      "title": "MENS 2 diagnosis",
       "columns": 1,
       "questions": [
         {
           "id": 28,
           "colspan": 1,
           "code": "mens2_diagnosis",
-          "text": "Have you ever been diagnosed with Multiple Endocrine Neoplasia Syndrome Type 2 (MENS 2)?",
+          "text": "",
           "type": "radio",
           "order": 28,
           "options": ["Yes", "No"],
@@ -1133,7 +1133,7 @@
               "id": 28.1,
               "colspan": 1,
               "code": "mens2_diagnosis_details",
-              "text": "Please tell us more about this",
+              "text": "",
               "type": "textarea",
               "order": 28.1,
               "required": false
@@ -1147,14 +1147,14 @@
       "code": "step_29",
       "desc": "",
       "order": 29,
-      "title": "Step 29",
+      "title": "Family history: Thyroid cancer / MENS 2",
       "columns": 1,
       "questions": [
         {
           "id": 29,
           "colspan": 1,
           "code": "family_thyroid_mens2_history",
-          "text": "Has any member of your family ever been diagnosed with Medullary Thyroid Carcinoma or MENS 2?",
+          "text": "",
           "type": "radio",
           "order": 29,
           "options": ["Yes", "No"],
@@ -1165,7 +1165,7 @@
               "id": 29.1,
               "colspan": 1,
               "code": "family_thyroid_mens2_history_details",
-              "text": "Please tell us more about this",
+              "text": "",
               "type": "textarea",
               "order": 29.1,
               "required": false
@@ -1179,14 +1179,14 @@
       "code": "step_30",
       "desc": "",
       "order": 30,
-      "title": "Step 30",
+      "title": "Pancreatitis history",
       "columns": 1,
       "questions": [
         {
           "id": 30,
           "colspan": 1,
           "code": "pancreatitis_history",
-          "text": "Have you ever been diagnosed with pancreatitis?",
+          "text": "",
           "type": "radio",
           "order": 30,
           "options": ["Yes", "No"],
@@ -1197,7 +1197,7 @@
               "id": 30.1,
               "colspan": 1,
               "code": "pancreatitis_history_details",
-              "text": "Please tell us more about this",
+              "text": "",
               "type": "textarea",
               "order": 30.1,
               "required": false
@@ -1211,14 +1211,14 @@
       "code": "step_31",
       "desc": "",
       "order": 31,
-      "title": "Step 31",
+      "title": "Kidney/Renal disease history",
       "columns": 1,
       "questions": [
         {
           "id": 31,
           "colspan": 1,
           "code": "kidney_disease_history",
-          "text": "Have you ever been diagnosed with kidney or renal disease?",
+          "text": "",
           "type": "radio",
           "order": 31,
           "options": ["Yes", "No"],
@@ -1229,7 +1229,7 @@
               "id": 31.1,
               "colspan": 1,
               "code": "kidney_disease_history_details",
-              "text": "Please tell us more about this",
+              "text": "",
               "type": "textarea",
               "order": 31.1,
               "required": false
@@ -1243,14 +1243,14 @@
       "code": "step_32",
       "desc": "",
       "order": 32,
-      "title": "Step 32",
+      "title": "Diabetic retinopathy history",
       "columns": 1,
       "questions": [
         {
           "id": 32,
           "colspan": 1,
           "code": "diabetic_retinopathy_history",
-          "text": "Do you have a history of diabetic retinopathy?",
+          "text": "",
           "type": "radio",
           "order": 32,
           "options": ["Yes", "No"],
@@ -1261,7 +1261,7 @@
               "id": 32.1,
               "colspan": 1,
               "code": "diabetic_retinopathy_history_details",
-              "text": "Please tell us more about this",
+              "text": "",
               "type": "textarea",
               "order": 32.1,
               "required": false
@@ -1275,14 +1275,14 @@
       "code": "step_33",
       "desc": "",
       "order": 33,
-      "title": "Step 33",
+      "title": "How did you find us?",
       "columns": 1,
       "questions": [
         {
           "id": 33,
           "colspan": 1,
           "code": "how_did_you_find_us",
-          "text": "How did you find us?",
+          "text": "",
           "type": "checkbox",
           "order": 33,
           "options": [
@@ -1299,7 +1299,7 @@
               "id": 33.1,
               "colspan": 1,
               "code": "how_did_you_find_us_details_other",
-              "text": "Please tell us more about this",
+              "text": "",
               "type": "textarea",
               "order": 33.1,
               "required": false

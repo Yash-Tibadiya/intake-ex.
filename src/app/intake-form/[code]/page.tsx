@@ -127,7 +127,10 @@ export default function IntakeFormPage() {
     // Defaults: 1 => col-span-12 on 1-col pages, col-span-6 on 2-col pages
     const getColSpanClass = (colspan?: number) => {
       const cols = currentPage?.columns ?? 1;
-      const span = Math.max(1, Math.min(12, (colspan ?? (cols === 1 ? 12 : 6)) * (cols === 1 ? 12 : 6)));
+      const span = Math.max(
+        1,
+        Math.min(12, (colspan ?? (cols === 1 ? 12 : 6)) * (cols === 1 ? 12 : 6))
+      );
       // For simplicity, derive standard spans:
       if (cols === 1) {
         // Single column page uses a 1-col stack; make everything span full width
@@ -140,13 +143,9 @@ export default function IntakeFormPage() {
     };
 
     return (
-      <div
-        key={q.id}
-        className={`${getColSpanClass(q.colspan)} space-y-2`}
-      >
-        <label className="block text-sm font-semibold text-gray-900">
+      <div key={q.id} className={`${getColSpanClass(q.colspan)} space-y-2`}>
+        <label className="block text-sm font-semibold text-gray-900 mt-2">
           {q.text}
-          {q.required && <span className="text-red-500 ml-1">*</span>}
         </label>
         {q.hint && (
           <p className="text-sm text-gray-700 bg-blue-50 border-l-4 border-blue-400 pl-4 py-2 rounded-r">
@@ -206,7 +205,7 @@ export default function IntakeFormPage() {
     <div className="min-h-screen bg-white py-8 px-4">
       <div className="max-w-xl mx-auto">
         {/* Logo */}
-        <div className="flex justify-center mb-3">
+        <div className="flex justify-center mb-4">
           <Image
             src="/images/logo.webp"
             alt="Logo"
@@ -236,10 +235,10 @@ export default function IntakeFormPage() {
               opacity: { duration: 0.5 }, // Faster opacity change
             }}
           >
-            <div className="mb-8">
-              <div className="flex items-center mb-4">
+            <div className="mb-3">
+              <div className="flex items-center">
                 <div>
-                  <h1 className="text-3xl font-medium text-black">
+                  <h1 className="text-4xl font-medium text-black">
                     {currentPage.title}
                   </h1>
                   <p className="text-lg text-gray-800 mt-1">
@@ -281,9 +280,7 @@ export default function IntakeFormPage() {
 
             <form
               className={`grid gap-6 ${
-                currentPage.columns === 1
-                  ? "grid-cols-12"
-                  : "grid-cols-12"
+                currentPage.columns === 1 ? "grid-cols-12" : "grid-cols-12"
               }`}
             >
               {currentPage.questions
