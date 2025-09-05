@@ -9,6 +9,7 @@ import PageNotFound from "@/components/PageNotFound";
 import ProgressBar from "@/components/ProgressBar";
 import StripePayment from "@/components/StripePayment";
 import { Question, Page, Config } from "@/types/question";
+import { motion, AnimatePresence } from "framer-motion";
 
 const STORAGE_KEY = "intake_form_data";
 
@@ -224,72 +225,87 @@ export default function IntakeFormPage() {
         />
 
         {/* Page Content */}
-        <div className="my-8">
-          <div className="mb-8">
-            <div className="flex items-center mb-4">
-              <div>
-                <h1 className="text-3xl font-medium text-black">
-                  {currentPage.title}
-                </h1>
-                <p className="text-lg text-gray-800 mt-1">{currentPage.desc}</p>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentPage.code} // This ensures animation triggers on page change
+            className="my-8"
+            initial={{ opacity: 0, x: 100 }} // Start from right (100px offset)
+            animate={{ opacity: 1, x: 0 }} // Animate to center
+            exit={{ opacity: 0, x: -100 }} // Exit to left
+            transition={{
+              duration: 0.6,
+              ease: "easeOut",
+              opacity: { duration: 0.5 }, // Faster opacity change
+            }}
+          >
+            <div className="mb-8">
+              <div className="flex items-center mb-4">
+                <div>
+                  <h1 className="text-3xl font-medium text-black">
+                    {currentPage.title}
+                  </h1>
+                  <p className="text-lg text-gray-800 mt-1">
+                    {currentPage.desc}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* InfoBox Component */}
-          {/* {currentIndex === 14 && (
-            <div className="mb-8">
-              <InfoBox
-                title="Important Information"
-                points={[
-                  "Your email will be used for account verification",
-                  "We will send important updates to this address",
-                  "Make sure to use a valid email address",
-                ]}
-              />
-            </div>
-          )} */}
+            {/* InfoBox Component */}
+            {/* {currentIndex === 14 && (
+              <div className="mb-8">
+                <InfoBox
+                  title="Important Information"
+                  points={[
+                    "Your email will be used for account verification",
+                    "We will send important updates to this address",
+                    "Make sure to use a valid email address",
+                  ]}
+                />
+              </div>
+            )} */}
 
-          {/* StripePayment Component - Only on Payment Page */}
-          {currentIndex === 36 && (
-            <div className="mb-8">
-              <StripePayment
-                amount={99.99}
-                currency="usd"
-                onPaymentSuccess={(paymentIntent) => {
-                  console.log("Payment successful:", paymentIntent);
-                }}
-                onPaymentError={(error) => {
-                  console.log("Payment failed:", error);
-                }}
-              />
-            </div>
-          )}
+            {/* StripePayment Component - Only on Payment Page */}
+            {currentIndex === 36 && (
+              <div className="mb-8">
+                <StripePayment
+                  amount={99.99}
+                  currency="usd"
+                  onPaymentSuccess={(paymentIntent) => {
+                    console.log("Payment successful:", paymentIntent);
+                  }}
+                  onPaymentError={(error) => {
+                    console.log("Payment failed:", error);
+                  }}
+                />
+              </div>
+            )}
 
-          <form
-            className={`grid gap-6 ${
-              currentPage.columns === 1
-                ? "grid-cols-1"
-                : "grid-cols-1 md:grid-cols-2"
-            }`}
-          >
-            {currentPage.questions
-              .sort((a, b) => a.order - b.order)
-              .map((q) => renderQuestion(q))}
-          </form>
+            <form
+              className={`grid gap-6 ${
+                currentPage.columns === 1
+                  ? "grid-cols-1"
+                  : "grid-cols-1 md:grid-cols-2"
+              }`}
+            >
+              {currentPage.questions
+                .sort((a, b) => a.order - b.order)
+                .map((q) => renderQuestion(q))}
+            </form>
 
-          {/* Navigation */}
-          {!shouldHideNextButton && (
-            <div className="flex justify-between items-center mt-8">
-              <button
-                onClick={handleNext}
-                className="px-6 py-3 bg-[#193231] hover:bg-[#193231f2] text-white rounded-full font-semibold shadow-xl hover:shadow-[#19323157] flex items-center w-full justify-center cursor-pointer"
-              >
-                Next
-              </button>
-            </div>
-          )}
-        </div>
+            {/* Navigation */}
+            {!shouldHideNextButton && (
+              <div className="flex justify-between items-center mt-8">
+                <button
+                  onClick={handleNext}
+                  className="px-6 py-3 bg-[#193231] hover:bg-[#193231f2] text-white rounded-full font-semibold shadow-xl hover:shadow-[#19323157] flex items-center w-full justify-center cursor-pointer"
+                >
+                  Next
+                </button>
+              </div>
+            )}
+          </motion.div>
+        </AnimatePresence>
       </div>
     </div>
   );
