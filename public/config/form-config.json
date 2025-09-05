@@ -10,6 +10,7 @@
       "questions": [
         {
           "id": 1,
+          "colspan": 1,
           "code": "weight_loss_goal_category",
           "text": "What is your weight loss goal?",
           "type": "radio",
@@ -34,6 +35,7 @@
       "questions": [
         {
           "id": 2.1,
+          "colspan": 1,
           "code": "sex",
           "text": "Sex",
           "type": "searchableDropdown",
@@ -52,11 +54,11 @@
               "value": "intersex"
             }
           ],
-          "required": true,
-          "colspan": 1
+          "required": true
         },
         {
           "id": 2.2,
+          "colspan": 1,
           "code": "gender",
           "text": "Gender",
           "type": "searchableDropdown",
@@ -75,18 +77,17 @@
               "value": "non-binary"
             }
           ],
-          "required": true,
-          "colspan": 1
+          "required": true
         },
         {
           "id": 2.3,
+          "colspan": 2,
           "code": "date_of_birth",
           "text": "Date of Birth",
           "type": "date",
           "order": 3,
           "required": true,
-          "minAge": 18,
-          "colspan": 2
+          "minAge": 18
         }
       ]
     },
@@ -100,6 +101,7 @@
       "questions": [
         {
           "id": 3.1,
+          "colspan": 2,
           "code": "address",
           "text": "Address",
           "type": "text",
@@ -109,6 +111,7 @@
         },
         {
           "id": 3.2,
+          "colspan": 2,
           "code": "city",
           "text": "City",
           "type": "text",
@@ -118,6 +121,7 @@
         },
         {
           "id": 3.3,
+          "colspan": 1,
           "code": "state",
           "text": "State",
           "type": "searchableDropdown",
@@ -329,6 +333,7 @@
         },
         {
           "id": 3.4,
+          "colspan": 1,
           "code": "zip_code",
           "text": "Zip Code",
           "type": "text",
@@ -347,10 +352,11 @@
       "desc": "",
       "order": 4,
       "title": "Step 4",
-      "columns": 3,
+      "columns": 2,
       "questions": [
         {
           "id": 4.1,
+          "colspan": 1,
           "code": "feet",
           "text": "Feet",
           "type": "number",
@@ -363,6 +369,7 @@
         },
         {
           "id": 4.2,
+          "colspan": 1,
           "code": "inches",
           "text": "Inches",
           "type": "number",
@@ -375,6 +382,7 @@
         },
         {
           "id": 4.3,
+          "colspan": 2,
           "code": "weight",
           "text": "What's your weight?",
           "type": "number",
