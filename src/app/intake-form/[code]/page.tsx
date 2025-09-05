@@ -8,6 +8,7 @@ import ProgressBar from "@/components/ProgressBar";
 import StripePayment from "@/components/StripePayment";
 import { Question, Page, Config } from "@/types/question";
 import { motion, AnimatePresence } from "framer-motion";
+import NoJudgment from "@/components/NoJudgment";
 
 const STORAGE_KEY = "intake_form_data";
 
@@ -259,31 +260,7 @@ export default function IntakeFormPage() {
 
             {/* Info Component */}
             {currentPage.code === "no_judgment" && (
-              <div className="mb-4 sm:mb-8 w-full flex flex-col items-center relative min-h-screen px-4 sm:px-6 lg:px-8">
-                <Image
-                  src="/images/ww.jpg"
-                  alt="Hero"
-                  width={1000}
-                  height={1000}
-                  className="w-full max-w-[320px] sm:max-w-[400px] md:max-w-[550px] lg:max-w-[600px] h-auto mt-4 sm:mt-8"
-                />
-
-                {/* Sticky CTA Button at bottom - Blurred background */}
-                <div className="fixed bottom-0 left-0 right-0 w-full px-3 sm:px-4 md:px-6 py-12 sm:py-16 bg-white shadow-lg z-40 blur-lg"></div>
-
-                {/* Button without blur - positioned above the blurred background */}
-                <div className="fixed bottom-0 left-0 right-0 w-full px-3 sm:px-4 md:px-6 py-8 sm:py-12 z-50">
-                  <button
-                    onClick={handleNext}
-                    className="px-4 sm:px-6 py-2.5 sm:py-3 bg-[#193231] hover:bg-[#193231f2] text-white rounded-full font-semibold shadow-xl hover:shadow-[#19323157] flex items-center w-full justify-center cursor-pointer max-w-xs sm:max-w-sm md:max-w-md mx-auto text-sm sm:text-base transition-all duration-200"
-                  >
-                    Next
-                  </button>
-                </div>
-
-                {/* Add padding bottom to prevent content from being hidden behind the sticky button */}
-                <div className="pb-16 sm:pb-20 md:pb-24"></div>
-              </div>
+              <NoJudgment handleNext={handleNext} />
             )}
 
             {/* StripePayment Component - Only on Payment Page */}
