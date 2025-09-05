@@ -106,8 +106,8 @@ export default function CheckoutOption() {
   return (
     <div className="max-w-4xl mx-auto space-y-6">
       {/* Header */}
-      <div className="text-center space-y-2">
-        <h2 className="text-2xl font-bold text-gray-900">
+      <div className="space-y-2 text-left px-2 sm:px-0">
+        <h2 className="text-2xl sm:text-4xl font-bold text-[#193231]">
           Your Semaglutide Plan
         </h2>
         <p className="text-gray-600">
