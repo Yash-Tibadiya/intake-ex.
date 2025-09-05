@@ -263,7 +263,7 @@ export default function IntakeFormPage() {
             )} */}
 
             {/* StripePayment Component - Only on Payment Page */}
-            {currentIndex === 36 && (
+            {currentPage.code === "payment_processing" && (
               <div className="mb-8">
                 <StripePayment
                   amount={99.99}
