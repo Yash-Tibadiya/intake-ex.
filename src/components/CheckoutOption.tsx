@@ -3,48 +3,68 @@
 import { useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-type OptionKey = "basic" | "standard" | "premium";
+type OptionKey = "3month" | "6month" | "12month";
 
 export type CheckoutSelection = {
   key: OptionKey;
   label: string;
-  price: number;
+  monthlyPrice: number;
+  totalPrice: number;
+  originalPrice: number;
+  savings: number;
   description: string;
+  duration: string;
+  popular?: boolean;
+  bestValue?: boolean;
 };
 
 const STORAGE_KEY = "intake_form_data";
 
 const OPTIONS: Record<OptionKey, CheckoutSelection> = {
-  basic: {
-    key: "basic",
-    label: "Basic",
-    price: 49.99,
-    description: "Core features to get started quickly.",
+  "12month": {
+    key: "12month",
+    label: "12 Monthly",
+    monthlyPrice: 37,
+    totalPrice: 444,
+    originalPrice: 588,
+    savings: 144,
+    duration: "12 months",
+    bestValue: true,
+    description: "Best value for long-term weight management success.",
   },
-  standard: {
-    key: "standard",
-    label: "Standard",
-    price: 99.99,
-    description: "Popular choice with added support and features.",
+  "6month": {
+    key: "6month",
+    label: "6 Monthly",
+    monthlyPrice: 43,
+    totalPrice: 258,
+    originalPrice: 294,
+    savings: 36,
+    duration: "6 months",
+    popular: true,
+    description: "Popular choice for sustainable weight loss results.",
   },
-  premium: {
-    key: "premium",
-    label: "Premium",
-    price: 149.99,
-    description: "All features unlocked with priority support.",
+  "3month": {
+    key: "3month",
+    label: "3 Monthly",
+    monthlyPrice: 49,
+    totalPrice: 147,
+    originalPrice: 147,
+    savings: 0,
+    duration: "3 months",
+    description: "Get started with our shortest commitment period.",
   },
 };
 
 export default function CheckoutOption() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const initialKey = (searchParams.get("plan") as OptionKey) || "standard";
+  const initialKey = (searchParams.get("plan") as OptionKey) || "6month";
   const [selected, setSelected] = useState<OptionKey>(initialKey);
 
   // Ensure selected is a valid key
   useEffect(() => {
     if (!OPTIONS[selected]) {
-      setSelected("standard");
+      setSelected("6month");
     }
   }, [selected]);
 
@@ -52,14 +72,18 @@ export default function CheckoutOption() {
 
   const persistSelection = (sel: CheckoutSelection) => {
     try {
-      const savedRaw = typeof window !== "undefined" ? localStorage.getItem(STORAGE_KEY) : null;
+      const savedRaw =
+        typeof window !== "undefined"
+          ? localStorage.getItem(STORAGE_KEY)
+          : null;
       const saved = savedRaw ? JSON.parse(savedRaw) : {};
       const updated = {
         ...saved,
         checkout_option_key: sel.key,
         checkout_option_label: sel.label,
-        checkout_option_price: sel.price,
-        checkout_option_desc: sel.description,
+        checkout_option_monthly_price: sel.monthlyPrice,
+        checkout_option_total_price: sel.totalPrice,
+        checkout_option_duration: sel.duration,
       };
       localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
     } catch {
@@ -80,60 +104,104 @@ export default function CheckoutOption() {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="grid grid-cols-1 gap-4">
+    <div className="max-w-4xl mx-auto space-y-6">
+      {/* Header */}
+      <div className="text-center space-y-2">
+        <h2 className="text-2xl font-bold text-gray-900">
+          Your Semaglutide Plan
+        </h2>
+        <p className="text-gray-600">
+          Choose your weight loss journey duration
+        </p>
+      </div>
+
+      {/* Pricing Cards - Simple Layout */}
+      <div className="space-y-4">
         {Object.values(OPTIONS).map((opt) => {
           const active = opt.key === selected;
           return (
-            <button
+            <div
               key={opt.key}
-              type="button"
-              onClick={() => setSelected(opt.key)}
               className={[
-                "w-full text-left border rounded-xl px-4 py-4 transition",
+                "relative border rounded-xl p-6 cursor-pointer transition-all duration-200",
                 active
-                  ? "border-emerald-700 ring-2 ring-emerald-200 bg-emerald-50"
-                  : "border-gray-300 hover:border-gray-400",
+                  ? "border-gray-900 bg-gray-50"
+                  : "border-gray-200 bg-white hover:border-gray-300",
               ].join(" ")}
+              onClick={() => setSelected(opt.key)}
             >
               <div className="flex items-center justify-between">
-                <div>
-                  <div className="text-lg font-semibold text-gray-900">{opt.label}</div>
-                  <div className="text-sm text-gray-700 mt-1">{opt.description}</div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-3">
+                    <h3 className="text-xl font-semibold text-gray-900">
+                      {opt.label}
+                    </h3>
+                    {opt.bestValue && (
+                      <span className="bg-green-100 text-green-800 text-xs font-medium px-2 py-1 rounded">
+                        Best Value
+                      </span>
+                    )}
+                    {opt.popular && (
+                      <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded">
+                        Most Popular
+                      </span>
+                    )}
+                  </div>
+                  <div className="mt-1">
+                    <span className="text-3xl font-bold text-gray-900">
+                      ${opt.monthlyPrice}
+                    </span>
+                    <span className="text-gray-500 ml-1">per month</span>
+                  </div>
                 </div>
+
                 <div className="text-right">
-                  <div className="text-xl font-bold text-gray-900">${opt.price.toFixed(2)}</div>
-                  {active ? (
-                    <div className="text-xs text-emerald-800 font-medium mt-1">Selected</div>
-                  ) : (
-                    <div className="text-xs text-gray-500 mt-1">Choose</div>
+                  {opt.savings > 0 && (
+                    <div className="text-green-600 font-medium text-lg mb-1">
+                      Save ${opt.savings}
+                    </div>
                   )}
+                  <div className="text-gray-500 text-sm">
+                    Total: ${opt.totalPrice}
+                  </div>
                 </div>
               </div>
-            </button>
+            </div>
           );
         })}
       </div>
 
-      <div className="border rounded-xl p-4 bg-white">
-        <div className="flex items-center justify-between">
+      {/* Selected Plan Summary */}
+      <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+        <div className="flex justify-between items-center">
           <div>
-            <div className="text-sm text-gray-600">Current selection</div>
-            <div className="text-lg font-semibold text-gray-900">{current.label}</div>
+            <h3 className="font-semibold text-gray-900">{current.label}</h3>
+            <p className="text-gray-600 text-sm">{current.description}</p>
           </div>
           <div className="text-right">
-            <div className="text-2xl font-bold text-gray-900">${current.price.toFixed(2)}</div>
+            <div className="text-2xl font-bold text-gray-900">
+              ${current.totalPrice}
+            </div>
+            <div className="text-gray-500 text-sm">
+              ${current.monthlyPrice}/month for {current.duration}
+            </div>
           </div>
         </div>
       </div>
 
-      <button
-        type="button"
-        onClick={handleNext}
-        className="px-6 py-3 bg-[#193231] hover:bg-[#193231f2] text-white rounded-full font-semibold shadow-xl hover:shadow-[#19323157] flex items-center w-full justify-center cursor-pointer"
-      >
-        Next
-      </button>
+      {/* Continue Button */}
+      <div className="text-center pt-4">
+        <button
+          type="button"
+          onClick={handleNext}
+          className="w-full bg-[#193231] hover:bg-[#193231f2] text-white py-4 px-6 rounded-xl font-semibold transition-colors"
+        >
+          Continue to Payment
+        </button>
+        <p className="mt-3 text-sm text-gray-500">
+          Secure payment • Cancel anytime • HIPAA compliant
+        </p>
+      </div>
     </div>
   );
 }

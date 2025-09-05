@@ -5,7 +5,6 @@ import { useParams, useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import InputRenderer from "@/components/InputRenderer";
 import ProgressBar from "@/components/ProgressBar";
-import StripePayment from "@/components/StripePayment";
 import { Question, Page, Config } from "@/types/question";
 import { motion, AnimatePresence } from "framer-motion";
 import NoJudgment from "@/components/NoJudgment";
