@@ -1,7 +1,12 @@
-import React from 'react';
-import { InputRendererProps } from '@/types/question';
+import React from "react";
+import { InputRendererProps } from "@/types/question";
 
-const InputRenderer: React.FC<InputRendererProps> = ({ question: q, value, onChange, handleNext }) => {
+const InputRenderer: React.FC<InputRendererProps> = ({
+  question: q,
+  value,
+  onChange,
+  handleNext,
+}) => {
   const baseInputClasses =
     "w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#253c3c] focus:border-[#253c3c] transition-all duration-200 bg-white shadow-sm hover:shadow-md text-gray-900 placeholder-gray-500";
 
@@ -90,7 +95,9 @@ const InputRenderer: React.FC<InputRendererProps> = ({ question: q, value, onCha
           {q.options?.map((opt) => {
             const optValue = typeof opt === "string" ? opt : opt.value;
             const optLabel = typeof opt === "string" ? opt : opt.label;
-            const isNoneOfTheAbove = optLabel.toLowerCase().includes("none of the above");
+            const isNoneOfTheAbove = optLabel
+              .toLowerCase()
+              .includes("none of the above");
             return (
               <label
                 key={optValue}
@@ -110,12 +117,17 @@ const InputRenderer: React.FC<InputRendererProps> = ({ question: q, value, onCha
                         updated = [optValue];
                       } else {
                         // If any other option is selected, remove "None of the above" if present
-                        updated = current.filter(v => {
-                          const option = q.options?.find(o =>
-                            (typeof o === "string" ? o : o.value) === v
+                        updated = current.filter((v) => {
+                          const option = q.options?.find(
+                            (o) => (typeof o === "string" ? o : o.value) === v
                           );
-                          const optionLabel = typeof option === "string" ? option : option?.label || "";
-                          return !optionLabel.toLowerCase().includes("none of the above");
+                          const optionLabel =
+                            typeof option === "string"
+                              ? option
+                              : option?.label || "";
+                          return !optionLabel
+                            .toLowerCase()
+                            .includes("none of the above");
                         });
                         updated.push(optValue);
                       }

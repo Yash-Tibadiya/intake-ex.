@@ -123,12 +123,26 @@ export default function IntakeFormPage() {
       ((Array.isArray(value) && value.includes(q.showFollowupWhen)) ||
         value === q.showFollowupWhen);
 
+    // Map numeric colspan to Tailwind col-span classes for a 12-column grid
+    // Defaults: 1 => col-span-12 on 1-col pages, col-span-6 on 2-col pages
+    const getColSpanClass = (colspan?: number) => {
+      const cols = currentPage?.columns ?? 1;
+      const span = Math.max(1, Math.min(12, (colspan ?? (cols === 1 ? 12 : 6)) * (cols === 1 ? 12 : 6)));
+      // For simplicity, derive standard spans:
+      if (cols === 1) {
+        // Single column page uses a 1-col stack; make everything span full width
+        return "col-span-12";
+      }
+      // Two-column layout: map 1->6, 2->12; clamp into allowed values
+      const cs = colspan ?? 1;
+      if (cs <= 1) return "col-span-6";
+      return "col-span-12";
+    };
+
     return (
       <div
         key={q.id}
-        className={`${
-          q.colspan ? `col-span-${q.colspan}` : "col-span-1"
-        } space-y-2`}
+        className={`${getColSpanClass(q.colspan)} space-y-2`}
       >
         <label className="block text-sm font-semibold text-gray-900">
           {q.text}
@@ -268,8 +282,8 @@ export default function IntakeFormPage() {
             <form
               className={`grid gap-6 ${
                 currentPage.columns === 1
-                  ? "grid-cols-1"
-                  : "grid-cols-1 md:grid-cols-2"
+                  ? "grid-cols-12"
+                  : "grid-cols-12"
               }`}
             >
               {currentPage.questions
