@@ -38,21 +38,8 @@ export default function HomePage() {
           {/* CTA Button */}
           <button
             onClick={handleStartIntake}
-            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-lg font-semibold rounded-xl hover:from-blue-700 hover:to-indigo-700 shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105"
+            className="inline-flex items-center px-8 py-4 bg-[#193231] hover:bg-[#193231f2] text-white text-lg font-semibold rounded-full shadow-lg hover:shadow-xl"
           >
-            <svg
-              className="w-6 h-6 mr-3"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
             Start Intake Form
           </button>
         </div>
