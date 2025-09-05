@@ -14,7 +14,7 @@ const PageNotFound: React.FC<PageNotFoundProps> = ({ pageCode }) => {
           Page Not Found
         </h1>
         <p className="text-gray-600 mb-6">
-          The requested page "{pageCode}" does not exist.
+          The requested page &#34;{pageCode}&#34; does not exist.
         </p>
         <button
           onClick={() => router.push("/intake-form/step_1")}

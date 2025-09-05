@@ -45,7 +45,7 @@ export default function IntakeFormPage() {
         }
         setLoading(false);
       })
-      .catch((err) => {
+      .catch(() => {
         setLoading(false);
         setPageNotFound(true);
       });
@@ -120,18 +120,6 @@ export default function IntakeFormPage() {
       if (currentIndex < allPages.length - 1) {
         const nextPage = allPages[currentIndex + 1];
         router.push(`/intake-form/${nextPage.code}`);
-      }
-    }
-  };
-
-  const handlePrev = () => {
-    if (currentPage && allPages.length > 0) {
-      const currentIndex = allPages.findIndex(
-        (p) => p.code === currentPage.code
-      );
-      if (currentIndex > 0) {
-        const prevPage = allPages[currentIndex - 1];
-        router.push(`/intake-form/${prevPage.code}`);
       }
     }
   };

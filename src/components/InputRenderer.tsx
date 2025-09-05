@@ -1,5 +1,5 @@
 import React from 'react';
-import { Question, InputRendererProps } from '@/types/question';
+import { InputRendererProps } from '@/types/question';
 
 const InputRenderer: React.FC<InputRendererProps> = ({ question: q, value, onChange, handleNext }) => {
   const baseInputClasses =

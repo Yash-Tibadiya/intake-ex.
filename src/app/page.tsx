@@ -30,8 +30,9 @@ export default function HomePage() {
           </h1>
 
           <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-12">
-            Complete our comprehensive intake form to get started with our services.
-            We'll guide you through each step to ensure we have all the information we need.
+            Complete our comprehensive intake form to get started with our
+            services. We&apos;ll guide you through each step to ensure we have
+            all the information we need.
           </p>
 
           {/* CTA Button */}
