@@ -30,25 +30,53 @@
       "desc": "",
       "order": 2,
       "title": "Step 2",
-      "columns": 3,
+      "columns": 2,
       "questions": [
         {
           "id": 2.1,
           "code": "sex",
           "text": "Sex",
-          "type": "radio",
+          "type": "searchableDropdown",
           "order": 1,
-          "options": ["Male", "Female", "Intersex"],
-          "required": true
+          "options": [
+            {
+              "label": "Male",
+              "value": "male"
+            },
+            {
+              "label": "Female",
+              "value": "female"
+            },
+            {
+              "label": "Intersex",
+              "value": "intersex"
+            }
+          ],
+          "required": true,
+          "colspan": 1
         },
         {
           "id": 2.2,
           "code": "gender",
           "text": "Gender",
-          "type": "radio",
+          "type": "searchableDropdown",
           "order": 2,
-          "options": ["Women", "Men", "Non-binary"],
-          "required": true
+          "options": [
+            {
+              "label": "Women",
+              "value": "women"
+            },
+            {
+              "label": "Men",
+              "value": "men"
+            },
+            {
+              "label": "Non-binary",
+              "value": "non-binary"
+            }
+          ],
+          "required": true,
+          "colspan": 1
         },
         {
           "id": 2.3,
@@ -57,7 +85,8 @@
           "type": "date",
           "order": 3,
           "required": true,
-          "minAge": 18
+          "minAge": 18,
+          "colspan": 2
         }
       ]
     },
