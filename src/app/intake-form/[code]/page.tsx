@@ -183,6 +183,9 @@ export default function IntakeFormPage() {
 
   const currentIndex = allPages.findIndex((p) => p.code === currentPage.code);
 
+  // Pages where Logo + ProgressBar should be hidden
+  const HIDE_ON_PAGES = ["no_judgment", "introduction"] as const;
+
   // Check if Next button should be hidden
   const hasVisibleFollowupQuestions = currentPage.questions?.some((q) => {
     const value = formDataRef.current[q.code] || "";
@@ -202,30 +205,36 @@ export default function IntakeFormPage() {
       !hasVisibleFollowupQuestions);
 
   return (
-    <div className="min-h-screen bg-white py-8 px-4">
+    <div className="min-h-screen bg-white py-2 px-4">
       <div className="max-w-xl mx-auto">
-        {/* Logo */}
-        <div className="flex justify-center mb-4">
-          <Image
-            src="/images/logo.webp"
-            alt="Logo"
-            width={500}
-            height={500}
-            className="max-w-24 h-auto object-contain"
-          />
-        </div>
+        {/* Logo + Progress Bar (hidden when code in HIDE_ON_PAGES) */}
+        {!HIDE_ON_PAGES.includes(
+          currentPage.code as (typeof HIDE_ON_PAGES)[number]
+        ) && (
+          <>
+            <div className="flex justify-center pt-6 mb-4">
+              <Image
+                src="/images/logo.webp"
+                alt="Logo"
+                width={500}
+                height={500}
+                className="max-w-24 h-auto object-contain"
+              />
+            </div>
 
-        {/* Progress Bar */}
-        <ProgressBar
-          currentStepIndex={currentIndex}
-          totalSteps={allPages.length}
-        />
+            {/* Progress Bar */}
+            <ProgressBar
+              currentStepIndex={currentIndex}
+              totalSteps={allPages.length}
+            />
+          </>
+        )}
 
         {/* Page Content */}
         <AnimatePresence mode="wait">
           <motion.div
             key={currentPage.code} // This ensures animation triggers on page change
-            className="my-8"
+            className="my-1"
             initial={{ opacity: 0, x: 100 }} // Start from right (100px offset)
             animate={{ opacity: 1, x: 0 }} // Animate to center
             exit={{ opacity: 0, x: -100 }} // Exit to left
@@ -235,7 +244,7 @@ export default function IntakeFormPage() {
               opacity: { duration: 0.5 }, // Faster opacity change
             }}
           >
-            <div className="mb-3">
+            <div className="mb-3 mt-8">
               <div className="flex items-center">
                 <div>
                   <h1 className="text-4xl font-medium text-black">
@@ -248,19 +257,34 @@ export default function IntakeFormPage() {
               </div>
             </div>
 
-            {/* InfoBox Component */}
-            {/* {currentIndex === 14 && (
-              <div className="mb-8">
-                <InfoBox
-                  title="Important Information"
-                  points={[
-                    "Your email will be used for account verification",
-                    "We will send important updates to this address",
-                    "Make sure to use a valid email address",
-                  ]}
+            {/* Info Component */}
+            {currentPage.code === "no_judgment" && (
+              <div className="mb-4 sm:mb-8 w-full flex flex-col items-center relative min-h-screen px-4 sm:px-6 lg:px-8">
+                <Image
+                  src="/images/ww.jpg"
+                  alt="Hero"
+                  width={1000}
+                  height={1000}
+                  className="w-full max-w-[320px] sm:max-w-[400px] md:max-w-[550px] lg:max-w-[600px] h-auto mt-4 sm:mt-8"
                 />
+
+                {/* Sticky CTA Button at bottom - Blurred background */}
+                <div className="fixed bottom-0 left-0 right-0 w-full px-3 sm:px-4 md:px-6 py-12 sm:py-16 bg-white shadow-lg z-40 blur-lg"></div>
+
+                {/* Button without blur - positioned above the blurred background */}
+                <div className="fixed bottom-0 left-0 right-0 w-full px-3 sm:px-4 md:px-6 py-8 sm:py-12 z-50">
+                  <button
+                    onClick={handleNext}
+                    className="px-4 sm:px-6 py-2.5 sm:py-3 bg-[#193231] hover:bg-[#193231f2] text-white rounded-full font-semibold shadow-xl hover:shadow-[#19323157] flex items-center w-full justify-center cursor-pointer max-w-xs sm:max-w-sm md:max-w-md mx-auto text-sm sm:text-base transition-all duration-200"
+                  >
+                    Next
+                  </button>
+                </div>
+
+                {/* Add padding bottom to prevent content from being hidden behind the sticky button */}
+                <div className="pb-16 sm:pb-20 md:pb-24"></div>
               </div>
-            )} */}
+            )}
 
             {/* StripePayment Component - Only on Payment Page */}
             {currentPage.code === "payment_processing" && (
