@@ -13,6 +13,7 @@ import Introduction from "@/components/Introduction";
 import TreatmentInfo from "@/components/TreatmentInfo";
 import WhyMinimal from "@/components/WhyMinimal";
 import CheckoutOption from "@/components/CheckoutOption";
+import Payment from "@/components/Payment";
 
 const STORAGE_KEY = "intake_form_data";
 
@@ -289,54 +290,9 @@ export default function IntakeFormPage() {
               </div>
             )}
 
-            {/* StripePayment Component - Only on Payment Page */}
+            {/* Payment Component - Only on Payment Page */}
             {currentPage.code === "payment-processing" && (
-              <div className="mb-8">
-                {(() => {
-                  // Derive amount from localStorage (persisted by CheckoutOption)
-                  // Fallback to query params, then default
-                  let amount = 99.99;
-                  let label: string | undefined;
-                  try {
-                    const savedRaw = typeof window !== "undefined" ? localStorage.getItem(STORAGE_KEY) : null;
-                    if (savedRaw) {
-                      const saved = JSON.parse(savedRaw);
-                      if (typeof saved.checkout_option_price === "number") {
-                        amount = saved.checkout_option_price;
-                      }
-                      if (typeof saved.checkout_option_label === "string") {
-                        label = saved.checkout_option_label;
-                      }
-                    }
-                  } catch {
-                    // ignore
-                  }
-                  const qpPlan = searchParams?.get("plan");
-                  const qpPrice = searchParams?.get("price");
-                  if (!isNaN(Number(qpPrice))) {
-                    amount = Number(qpPrice);
-                  }
-                  return (
-                    <>
-                      {label && (
-                        <div className="mb-3 text-sm text-gray-700">
-                          Selected plan: <span className="font-semibold">{label}</span> — ${amount.toFixed(2)}
-                        </div>
-                      )}
-                      <StripePayment
-                        amount={amount}
-                        currency="usd"
-                        onPaymentSuccess={(paymentIntent) => {
-                          console.log("Payment successful:", paymentIntent);
-                        }}
-                        onPaymentError={(error) => {
-                          console.log("Payment failed:", error);
-                        }}
-                      />
-                    </>
-                  );
-                })()}
-              </div>
+              <Payment />
             )}
 
             <form

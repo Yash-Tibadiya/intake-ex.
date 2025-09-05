@@ -71,10 +71,9 @@ export default function CheckoutOption() {
     const sel = OPTIONS[selected];
     persistSelection(sel);
 
-    // Also pass along in query for redundancy/SSR-safe handoff
+    // Only pass plan key; do not expose or trust price from URL
     const params = new URLSearchParams({
       plan: sel.key,
-      price: String(sel.price),
     });
 
     router.push(`/intake-form/payment-processing?${params.toString()}`);
