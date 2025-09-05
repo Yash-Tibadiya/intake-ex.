@@ -405,6 +405,7 @@
       "questions": [
         {
           "id": 5,
+          "colspan": 1,
           "code": "doctor_care",
           "text": "Are you under a doctor's care at this present time?",
           "type": "radio",
@@ -415,6 +416,7 @@
           "followup_questions": [
             {
               "id": 5.1,
+              "colspan": 1,
               "code": "doctor_care_details",
               "text": "Please provide doctor's full name and contact phone number:",
               "type": "textarea",
@@ -435,6 +437,7 @@
       "questions": [
         {
           "id": 6,
+          "colspan": 1,
           "code": "past_medical_history",
           "text": "Patient Past Medical History. Please be detailed and include everything",
           "type": "checkbox",
@@ -470,6 +473,7 @@
       "questions": [
         {
           "id": 7,
+          "colspan": 1,
           "code": "additional_past_medical_history",
           "text": "Any Other Past Medical History (that's not included on the list above) Please be specific",
           "type": "checkbox",
@@ -507,6 +511,7 @@
           "followup_questions": [
             {
               "id": 7.1,
+              "colspan": 1,
               "code": "past_surgical_history_details",
               "text": "Please tell us more about this",
               "type": "textarea",
@@ -528,6 +533,7 @@
       "questions": [
         {
           "id": 8,
+          "colspan": 1,
           "code": "past_surgical_history",
           "text": "Past Surgical History?",
           "type": "radio",
@@ -538,6 +544,7 @@
           "followup_questions": [
             {
               "id": 8.1,
+              "colspan": 1,
               "code": "past_surgical_history_details",
               "text": "Please tell us more about this",
               "type": "textarea",
@@ -558,6 +565,7 @@
       "questions": [
         {
           "id": 9,
+          "colspan": 1,
           "code": "allergies",
           "text": "Any Allergies to Medications or Foods?",
           "type": "radio",
@@ -568,6 +576,7 @@
           "followup_questions": [
             {
               "id": 9.1,
+              "colspan": 1,
               "code": "allergies_details",
               "text": "Please tell us more about this",
               "type": "textarea",
@@ -588,6 +597,7 @@
       "questions": [
         {
           "id": 10,
+          "colspan": 1,
           "code": "current_medications",
           "text": "Please list all current Patient Medications, please be sure to include directions and dosage",
           "type": "textarea",
@@ -606,6 +616,7 @@
       "questions": [
         {
           "id": 11,
+          "colspan": 1,
           "code": "exercise_habits",
           "text": "Which best describes your exercise habits?",
           "type": "textarea",
@@ -624,6 +635,7 @@
       "questions": [
         {
           "id": 12,
+          "colspan": 1,
           "code": "currently_dieting",
           "text": "Are you dieting now?",
           "type": "radio",
@@ -634,6 +646,7 @@
           "followup_questions": [
             {
               "id": 12.1,
+              "colspan": 1,
               "code": "currently_dieting_details",
               "text": "Please tell us more about this",
               "type": "textarea",
@@ -654,6 +667,7 @@
       "questions": [
         {
           "id": 13,
+          "colspan": 1,
           "code": "alcohol_consumption",
           "text": "Do you drink alcohol?",
           "type": "radio",
@@ -664,6 +678,7 @@
           "followup_questions": [
             {
               "id": 13.1,
+              "colspan": 1,
               "code": "alcohol_consumption_details",
               "text": "Please tell us more about this",
               "type": "textarea",
@@ -684,6 +699,7 @@
       "questions": [
         {
           "id": 14,
+          "colspan": 1,
           "code": "smoking",
           "text": "Do you Smoke Cigarettes?",
           "type": "radio",
@@ -694,6 +710,7 @@
           "followup_questions": [
             {
               "id": 14.1,
+              "colspan": 1,
               "code": "smoking_details",
               "text": "Please tell us more about this",
               "type": "textarea",
@@ -714,6 +731,7 @@
       "questions": [
         {
           "id": 15,
+          "colspan": 1,
           "code": "previous_weight_loss_attempts",
           "text": "Describe other weight loss programs or previous diets you have followed or attempted?",
           "type": "textarea",
@@ -732,6 +750,7 @@
       "questions": [
         {
           "id": 16,
+          "colspan": 1,
           "code": "pregnant",
           "text": "Are you currently pregnant or planning to become pregnant in the next year?",
           "type": "radio",
@@ -742,6 +761,7 @@
           "followup_questions": [
             {
               "id": 16.1,
+              "colspan": 1,
               "code": "pregnant_details",
               "text": "Please tell us more about this",
               "type": "textarea",
@@ -762,6 +782,7 @@
       "questions": [
         {
           "id": 17,
+          "colspan": 1,
           "code": "breastfeeding",
           "text": "Are you currently breastfeeding?",
           "type": "radio",
@@ -781,6 +802,7 @@
       "questions": [
         {
           "id": 18,
+          "colspan": 1,
           "code": "cancer",
           "text": "Currently being treated for cancer?",
           "type": "radio",
@@ -791,6 +813,7 @@
           "followup_questions": [
             {
               "id": 18.1,
+              "colspan": 1,
               "code": "cancer_details",
               "text": "Please tell us more about this",
               "type": "textarea",
@@ -811,6 +834,7 @@
       "questions": [
         {
           "id": 19,
+          "colspan": 1,
           "code": "gallbladder",
           "text": "Active gall bladder disease?",
           "type": "radio",
@@ -821,6 +845,7 @@
           "followup_questions": [
             {
               "id": 19.1,
+              "colspan": 1,
               "code": "gallbladder_details",
               "text": "Please tell us more about this",
               "type": "textarea",
@@ -841,6 +866,7 @@
       "questions": [
         {
           "id": 20,
+          "colspan": 1,
           "code": "bariatric",
           "text": "Bariatric Surgery (within the last 18 months)",
           "type": "radio",
@@ -851,6 +877,7 @@
           "followup_questions": [
             {
               "id": 20.1,
+              "colspan": 1,
               "code": "bariatric_details",
               "text": "Please tell us more about this",
               "type": "textarea",
@@ -871,6 +898,7 @@
       "questions": [
         {
           "id": 21,
+          "colspan": 1,
           "code": "diabetes_type1",
           "text": "Type 1 Diabetes",
           "type": "radio",
@@ -881,6 +909,7 @@
           "followup_questions": [
             {
               "id": 21.1,
+              "colspan": 1,
               "code": "diabetes_type1_details",
               "text": "Please tell us more about this",
               "type": "textarea",
@@ -901,6 +930,7 @@
       "questions": [
         {
           "id": 22,
+          "colspan": 1,
           "code": "medical_conditions",
           "text": "Please select any of the following that apply to you. Semaglutide is safe and effective with many pre-existing conditions, with the exception of the following:",
           "type": "checkbox",
@@ -930,6 +960,7 @@
       "questions": [
         {
           "id": 23,
+          "colspan": 1,
           "code": "glp1_medication_history",
           "text": "Have you ever been prescribed any weightloss GLP-1 medication? (Mounjaro, Zepbound, Ozempic, Wegovy...)?",
           "type": "radio",
@@ -940,6 +971,7 @@
           "followup_questions": [
             {
               "id": 23.1,
+              "colspan": 1,
               "code": "glp1_medication_history_details",
               "text": "Please tell us more about this",
               "type": "textarea",
@@ -960,6 +992,7 @@
       "questions": [
         {
           "id": 24,
+          "colspan": 1,
           "code": "heart_attack_stroke_history",
           "text": "Have you ever had a heart attack or stroke?",
           "type": "radio",
@@ -970,6 +1003,7 @@
           "followup_questions": [
             {
               "id": 24.1,
+              "colspan": 1,
               "code": "heart_attack_stroke_history_details",
               "text": "Please tell us more about this",
               "type": "textarea",
@@ -990,6 +1024,7 @@
       "questions": [
         {
           "id": 25,
+          "colspan": 1,
           "code": "insulin_injection_history",
           "text": "Have you ever needed an insulin injection?",
           "type": "radio",
@@ -1000,6 +1035,7 @@
           "followup_questions": [
             {
               "id": 25.1,
+              "colspan": 1,
               "code": "insulin_injection_history_details",
               "text": "Please tell us more about this",
               "type": "textarea",
@@ -1020,6 +1056,7 @@
       "questions": [
         {
           "id": 26,
+          "colspan": 1,
           "code": "medullary_thyroid_carcinoma",
           "text": "Have you ever been diagnosed with Medullary Thyroid Carcinoma?",
           "type": "radio",
@@ -1030,6 +1067,7 @@
           "followup_questions": [
             {
               "id": 26.1,
+              "colspan": 1,
               "code": "medullary_thyroid_carcinoma_details",
               "text": "Please tell us more about this",
               "type": "textarea",
@@ -1050,6 +1088,7 @@
       "questions": [
         {
           "id": 27,
+          "colspan": 1,
           "code": "thyroid_cancer_history",
           "text": "Have you ever been diagnosed with any type of thyroid cancer?",
           "type": "radio",
@@ -1060,6 +1099,7 @@
           "followup_questions": [
             {
               "id": 27.1,
+              "colspan": 1,
               "code": "thyroid_cancer_history_details",
               "text": "Please tell us more about this",
               "type": "textarea",
@@ -1080,6 +1120,7 @@
       "questions": [
         {
           "id": 28,
+          "colspan": 1,
           "code": "mens2_diagnosis",
           "text": "Have you ever been diagnosed with Multiple Endocrine Neoplasia Syndrome Type 2 (MENS 2)?",
           "type": "radio",
@@ -1090,6 +1131,7 @@
           "followup_questions": [
             {
               "id": 28.1,
+              "colspan": 1,
               "code": "mens2_diagnosis_details",
               "text": "Please tell us more about this",
               "type": "textarea",
@@ -1110,6 +1152,7 @@
       "questions": [
         {
           "id": 29,
+          "colspan": 1,
           "code": "family_thyroid_mens2_history",
           "text": "Has any member of your family ever been diagnosed with Medullary Thyroid Carcinoma or MENS 2?",
           "type": "radio",
@@ -1120,6 +1163,7 @@
           "followup_questions": [
             {
               "id": 29.1,
+              "colspan": 1,
               "code": "family_thyroid_mens2_history_details",
               "text": "Please tell us more about this",
               "type": "textarea",
@@ -1140,6 +1184,7 @@
       "questions": [
         {
           "id": 30,
+          "colspan": 1,
           "code": "pancreatitis_history",
           "text": "Have you ever been diagnosed with pancreatitis?",
           "type": "radio",
@@ -1150,6 +1195,7 @@
           "followup_questions": [
             {
               "id": 30.1,
+              "colspan": 1,
               "code": "pancreatitis_history_details",
               "text": "Please tell us more about this",
               "type": "textarea",
@@ -1170,6 +1216,7 @@
       "questions": [
         {
           "id": 31,
+          "colspan": 1,
           "code": "kidney_disease_history",
           "text": "Have you ever been diagnosed with kidney or renal disease?",
           "type": "radio",
@@ -1180,6 +1227,7 @@
           "followup_questions": [
             {
               "id": 31.1,
+              "colspan": 1,
               "code": "kidney_disease_history_details",
               "text": "Please tell us more about this",
               "type": "textarea",
@@ -1200,6 +1248,7 @@
       "questions": [
         {
           "id": 32,
+          "colspan": 1,
           "code": "diabetic_retinopathy_history",
           "text": "Do you have a history of diabetic retinopathy?",
           "type": "radio",
@@ -1210,6 +1259,7 @@
           "followup_questions": [
             {
               "id": 32.1,
+              "colspan": 1,
               "code": "diabetic_retinopathy_history_details",
               "text": "Please tell us more about this",
               "type": "textarea",
@@ -1230,6 +1280,7 @@
       "questions": [
         {
           "id": 33,
+          "colspan": 1,
           "code": "how_did_you_find_us",
           "text": "How did you find us?",
           "type": "checkbox",
@@ -1246,6 +1297,7 @@
           "followup_questions": [
             {
               "id": 33.1,
+              "colspan": 1,
               "code": "how_did_you_find_us_details_other",
               "text": "Please tell us more about this",
               "type": "textarea",
