@@ -96,7 +96,7 @@
       "code": "step_3",
       "desc": "",
       "order": 3,
-      "title": "Address details",
+      "title": "Address Information",
       "columns": 2,
       "questions": [
         {
@@ -351,14 +351,14 @@
       "code": "step_4",
       "desc": "",
       "order": 4,
-      "title": "Height and weight",
+      "title": "Height and Weight",
       "columns": 2,
       "questions": [
         {
           "id": 4.1,
           "colspan": 1,
           "code": "feet",
-          "text": "Feet",
+          "text": "height (feet)?",
           "type": "number",
           "order": 1,
           "required": true,
@@ -371,7 +371,7 @@
           "id": 4.2,
           "colspan": 1,
           "code": "inches",
-          "text": "Inches",
+          "text": "height (inches)?",
           "type": "number",
           "order": 2,
           "required": true,
@@ -384,7 +384,7 @@
           "id": 4.3,
           "colspan": 2,
           "code": "weight",
-          "text": "What's your weight?",
+          "text": "What is your weight?",
           "type": "number",
           "order": 3,
           "required": true,
