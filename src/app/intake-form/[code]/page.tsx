@@ -127,7 +127,7 @@ export default function IntakeFormPage() {
       <div
         key={q.id}
         className={`${
-          q.colspan === 2 ? "col-span-1 md:col-span-2" : "col-span-1"
+          q.colspan ? `col-span-${q.colspan}` : "col-span-1"
         } space-y-2`}
       >
         <label className="block text-sm font-semibold text-gray-900">

@@ -10,11 +10,16 @@
       "questions": [
         {
           "id": 1,
-          "code": "sex",
-          "text": "Sex",
+          "code": "weight_loss_goal_category",
+          "text": "What is your weight loss goal?",
           "type": "radio",
           "order": 1,
-          "options": ["Male", "Female", "Intersex"],
+          "options": [
+            "Lose 5 to 20 lbs",
+            "Lose 21 to 50 lbs",
+            "Lose 50 lbs",
+            "Not sure"
+          ],
           "required": true
         }
       ]
@@ -25,16 +30,34 @@
       "desc": "",
       "order": 2,
       "title": "Step 2",
-      "columns": 1,
+      "columns": 3,
       "questions": [
         {
-          "id": 2,
+          "id": 2.1,
+          "code": "sex",
+          "text": "Sex",
+          "type": "radio",
+          "order": 1,
+          "options": ["Male", "Female", "Intersex"],
+          "required": true
+        },
+        {
+          "id": 2.2,
           "code": "gender",
           "text": "Gender",
           "type": "radio",
           "order": 2,
           "options": ["Women", "Men", "Non-binary"],
           "required": true
+        },
+        {
+          "id": 2.3,
+          "code": "date_of_birth",
+          "text": "Date of Birth",
+          "type": "date",
+          "order": 3,
+          "required": true,
+          "minAge": 18
         }
       ]
     },
@@ -44,7 +67,7 @@
       "desc": "",
       "order": 3,
       "title": "Step 3",
-      "columns": 1,
+      "columns": 2,
       "questions": [
         {
           "id": 3.1,
@@ -295,27 +318,43 @@
       "desc": "",
       "order": 4,
       "title": "Step 4",
-      "columns": 1,
+      "columns": 3,
       "questions": [
         {
-          "id": 4,
-          "code": "doctor_care",
-          "text": "Are you under a doctor's care at this present time?",
-          "type": "radio",
-          "order": 4,
-          "options": ["Yes", "No"],
+          "id": 4.1,
+          "code": "feet",
+          "text": "Feet",
+          "type": "number",
+          "order": 1,
           "required": true,
-          "showFollowupWhen": "Yes",
-          "followup_questions": [
-            {
-              "id": 4.1,
-              "code": "doctor_care_details",
-              "text": "Please provide doctor's full name and contact phone number:",
-              "type": "textarea",
-              "order": 4.1,
-              "required": false
-            }
-          ]
+          "pattern": "^[0-9]+$",
+          "patternError": "Feet must be a valid number.",
+          "min": 1,
+          "max": 8
+        },
+        {
+          "id": 4.2,
+          "code": "inches",
+          "text": "Inches",
+          "type": "number",
+          "order": 2,
+          "required": true,
+          "pattern": "^[0-9]+$",
+          "patternError": "Inches must be a valid number.",
+          "min": 0,
+          "max": 11
+        },
+        {
+          "id": 4.3,
+          "code": "weight",
+          "text": "What's your weight?",
+          "type": "number",
+          "order": 3,
+          "required": true,
+          "min": 50,
+          "max": 1000,
+          "pattern": "^[0-9]+$",
+          "patternError": "Weight must be a valid number."
         }
       ]
     },
@@ -329,10 +368,40 @@
       "questions": [
         {
           "id": 5,
+          "code": "doctor_care",
+          "text": "Are you under a doctor's care at this present time?",
+          "type": "radio",
+          "order": 5,
+          "options": ["Yes", "No"],
+          "required": true,
+          "showFollowupWhen": "Yes",
+          "followup_questions": [
+            {
+              "id": 5.1,
+              "code": "doctor_care_details",
+              "text": "Please provide doctor's full name and contact phone number:",
+              "type": "textarea",
+              "order": 5.1,
+              "required": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "code": "step_6",
+      "desc": "",
+      "order": 6,
+      "title": "Step 6",
+      "columns": 1,
+      "questions": [
+        {
+          "id": 6,
           "code": "past_medical_history",
           "text": "Patient Past Medical History. Please be detailed and include everything",
           "type": "checkbox",
-          "order": 5,
+          "order": 6,
           "options": [
             "Anemia",
             "Alcohol Abuse",
@@ -355,19 +424,19 @@
       ]
     },
     {
-      "id": 6,
-      "code": "step_6",
+      "id": 7,
+      "code": "step_7",
       "desc": "",
-      "order": 6,
-      "title": "Step 6",
+      "order": 7,
+      "title": "Step 7",
       "columns": 1,
       "questions": [
         {
-          "id": 6,
+          "id": 7,
           "code": "additional_past_medical_history",
           "text": "Any Other Past Medical History (that's not included on the list above) Please be specific",
           "type": "checkbox",
-          "order": 6,
+          "order": 7,
           "options": [
             "Drug Abuse",
             "Diarrhea",
@@ -400,37 +469,6 @@
           "showFollowupWhen": "None of the above",
           "followup_questions": [
             {
-              "id": 6.1,
-              "code": "past_surgical_history_details",
-              "text": "Please tell us more about this",
-              "type": "textarea",
-              "order": 6.1,
-              "required": false
-            }
-          ],
-          "required": true
-        }
-      ]
-    },
-    {
-      "id": 7,
-      "code": "step_7",
-      "desc": "",
-      "order": 7,
-      "title": "Step 7",
-      "columns": 1,
-      "questions": [
-        {
-          "id": 7,
-          "code": "past_surgical_history",
-          "text": "Past Surgical History?",
-          "type": "radio",
-          "order": 7,
-          "options": ["Yes", "No"],
-          "required": true,
-          "showFollowupWhen": "Yes",
-          "followup_questions": [
-            {
               "id": 7.1,
               "code": "past_surgical_history_details",
               "text": "Please tell us more about this",
@@ -438,7 +476,8 @@
               "order": 7.1,
               "required": false
             }
-          ]
+          ],
+          "required": true
         }
       ]
     },
@@ -452,8 +491,8 @@
       "questions": [
         {
           "id": 8,
-          "code": "allergies",
-          "text": "Any Allergies to Medications or Foods?",
+          "code": "past_surgical_history",
+          "text": "Past Surgical History?",
           "type": "radio",
           "order": 8,
           "options": ["Yes", "No"],
@@ -462,7 +501,7 @@
           "followup_questions": [
             {
               "id": 8.1,
-              "code": "allergies_details",
+              "code": "past_surgical_history_details",
               "text": "Please tell us more about this",
               "type": "textarea",
               "order": 8.1,
@@ -482,11 +521,23 @@
       "questions": [
         {
           "id": 9,
-          "code": "current_medications",
-          "text": "Please list all current Patient Medications, please be sure to include directions and dosage",
-          "type": "textarea",
+          "code": "allergies",
+          "text": "Any Allergies to Medications or Foods?",
+          "type": "radio",
           "order": 9,
-          "required": false
+          "options": ["Yes", "No"],
+          "required": true,
+          "showFollowupWhen": "Yes",
+          "followup_questions": [
+            {
+              "id": 9.1,
+              "code": "allergies_details",
+              "text": "Please tell us more about this",
+              "type": "textarea",
+              "order": 9.1,
+              "required": false
+            }
+          ]
         }
       ]
     },
@@ -499,28 +550,12 @@
       "columns": 1,
       "questions": [
         {
-          "id": 10.1,
-          "code": "feet",
-          "text": "Feet",
-          "type": "number",
-          "order": 1,
-          "required": true,
-          "pattern": "^[0-9]+$",
-          "patternError": "Feet must be a valid number.",
-          "min": 1,
-          "max": 8
-        },
-        {
-          "id": 10.2,
-          "code": "inches",
-          "text": "Inches",
-          "type": "number",
-          "order": 2,
-          "required": true,
-          "pattern": "^[0-9]+$",
-          "patternError": "Inches must be a valid number.",
-          "min": 0,
-          "max": 11
+          "id": 10,
+          "code": "current_medications",
+          "text": "Please list all current Patient Medications, please be sure to include directions and dosage",
+          "type": "textarea",
+          "order": 10,
+          "required": false
         }
       ]
     },
@@ -534,15 +569,11 @@
       "questions": [
         {
           "id": 11,
-          "code": "weight",
-          "text": "What's your weight?",
-          "type": "number",
+          "code": "exercise_habits",
+          "text": "Which best describes your exercise habits?",
+          "type": "textarea",
           "order": 11,
-          "required": true,
-          "min": 50,
-          "max": 1000,
-          "pattern": "^[0-9]+$",
-          "patternError": "Weight must be a valid number."
+          "required": false
         }
       ]
     },
@@ -556,11 +587,23 @@
       "questions": [
         {
           "id": 12,
-          "code": "exercise_habits",
-          "text": "Which best describes your exercise habits?",
-          "type": "textarea",
+          "code": "currently_dieting",
+          "text": "Are you dieting now?",
+          "type": "radio",
           "order": 12,
-          "required": false
+          "options": ["Yes", "No"],
+          "required": true,
+          "showFollowupWhen": "Yes",
+          "followup_questions": [
+            {
+              "id": 12.1,
+              "code": "currently_dieting_details",
+              "text": "Please tell us more about this",
+              "type": "textarea",
+              "order": 12.1,
+              "required": false
+            }
+          ]
         }
       ]
     },
@@ -574,8 +617,8 @@
       "questions": [
         {
           "id": 13,
-          "code": "currently_dieting",
-          "text": "Are you dieting now?",
+          "code": "alcohol_consumption",
+          "text": "Do you drink alcohol?",
           "type": "radio",
           "order": 13,
           "options": ["Yes", "No"],
@@ -584,7 +627,7 @@
           "followup_questions": [
             {
               "id": 13.1,
-              "code": "currently_dieting_details",
+              "code": "alcohol_consumption_details",
               "text": "Please tell us more about this",
               "type": "textarea",
               "order": 13.1,
@@ -604,8 +647,8 @@
       "questions": [
         {
           "id": 14,
-          "code": "alcohol_consumption",
-          "text": "Do you drink alcohol?",
+          "code": "smoking",
+          "text": "Do you Smoke Cigarettes?",
           "type": "radio",
           "order": 14,
           "options": ["Yes", "No"],
@@ -614,7 +657,7 @@
           "followup_questions": [
             {
               "id": 14.1,
-              "code": "alcohol_consumption_details",
+              "code": "smoking_details",
               "text": "Please tell us more about this",
               "type": "textarea",
               "order": 14.1,
@@ -634,23 +677,11 @@
       "questions": [
         {
           "id": 15,
-          "code": "smoking",
-          "text": "Do you Smoke Cigarettes?",
-          "type": "radio",
+          "code": "previous_weight_loss_attempts",
+          "text": "Describe other weight loss programs or previous diets you have followed or attempted?",
+          "type": "textarea",
           "order": 15,
-          "options": ["Yes", "No"],
-          "required": true,
-          "showFollowupWhen": "Yes",
-          "followup_questions": [
-            {
-              "id": 15.1,
-              "code": "smoking_details",
-              "text": "Please tell us more about this",
-              "type": "textarea",
-              "order": 15.1,
-              "required": false
-            }
-          ]
+          "required": false
         }
       ]
     },
@@ -664,11 +695,23 @@
       "questions": [
         {
           "id": 16,
-          "code": "previous_weight_loss_attempts",
-          "text": "Describe other weight loss programs or previous diets you have followed or attempted?",
-          "type": "textarea",
+          "code": "pregnant",
+          "text": "Are you currently pregnant or planning to become pregnant in the next year?",
+          "type": "radio",
           "order": 16,
-          "required": false
+          "options": ["Yes", "No"],
+          "required": true,
+          "showFollowupWhen": "Yes",
+          "followup_questions": [
+            {
+              "id": 16.1,
+              "code": "pregnant_details",
+              "text": "Please tell us more about this",
+              "type": "textarea",
+              "order": 16.1,
+              "required": false
+            }
+          ]
         }
       ]
     },
@@ -682,15 +725,12 @@
       "questions": [
         {
           "id": 17,
-          "code": "weight_loss_goal",
-          "text": "How much weight do you want to lose? Please specify in Lbs (Pounds)",
-          "type": "number",
+          "code": "breastfeeding",
+          "text": "Are you currently breastfeeding?",
+          "type": "radio",
           "order": 17,
-          "required": true,
-          "min": 1,
-          "max": 1000,
-          "pattern": "^[0-9]+$",
-          "patternError": "Please enter a valid number in pounds."
+          "options": ["Yes", "No"],
+          "required": true
         }
       ]
     },
@@ -704,8 +744,8 @@
       "questions": [
         {
           "id": 18,
-          "code": "pregnant",
-          "text": "Are you currently pregnant or planning to become pregnant in the next year?",
+          "code": "cancer",
+          "text": "Currently being treated for cancer?",
           "type": "radio",
           "order": 18,
           "options": ["Yes", "No"],
@@ -714,7 +754,7 @@
           "followup_questions": [
             {
               "id": 18.1,
-              "code": "pregnant_details",
+              "code": "cancer_details",
               "text": "Please tell us more about this",
               "type": "textarea",
               "order": 18.1,
@@ -734,12 +774,23 @@
       "questions": [
         {
           "id": 19,
-          "code": "breastfeeding",
-          "text": "Are you currently breastfeeding?",
+          "code": "gallbladder",
+          "text": "Active gall bladder disease?",
           "type": "radio",
           "order": 19,
           "options": ["Yes", "No"],
-          "required": true
+          "required": true,
+          "showFollowupWhen": "Yes",
+          "followup_questions": [
+            {
+              "id": 19.1,
+              "code": "gallbladder_details",
+              "text": "Please tell us more about this",
+              "type": "textarea",
+              "order": 19.1,
+              "required": false
+            }
+          ]
         }
       ]
     },
@@ -753,8 +804,8 @@
       "questions": [
         {
           "id": 20,
-          "code": "cancer",
-          "text": "Currently being treated for cancer?",
+          "code": "bariatric",
+          "text": "Bariatric Surgery (within the last 18 months)",
           "type": "radio",
           "order": 20,
           "options": ["Yes", "No"],
@@ -763,7 +814,7 @@
           "followup_questions": [
             {
               "id": 20.1,
-              "code": "cancer_details",
+              "code": "bariatric_details",
               "text": "Please tell us more about this",
               "type": "textarea",
               "order": 20.1,
@@ -783,8 +834,8 @@
       "questions": [
         {
           "id": 21,
-          "code": "gallbladder",
-          "text": "Active gall bladder disease?",
+          "code": "diabetes_type1",
+          "text": "Type 1 Diabetes",
           "type": "radio",
           "order": 21,
           "options": ["Yes", "No"],
@@ -793,7 +844,7 @@
           "followup_questions": [
             {
               "id": 21.1,
-              "code": "gallbladder_details",
+              "code": "diabetes_type1_details",
               "text": "Please tell us more about this",
               "type": "textarea",
               "order": 21.1,
@@ -813,23 +864,22 @@
       "questions": [
         {
           "id": 22,
-          "code": "bariatric",
-          "text": "Bariatric Surgery (within the last 18 months)",
-          "type": "radio",
+          "code": "medical_conditions",
+          "text": "Please select any of the following that apply to you. Semaglutide is safe and effective with many pre-existing conditions, with the exception of the following:",
+          "type": "checkbox",
           "order": 22,
-          "options": ["Yes", "No"],
-          "required": true,
-          "showFollowupWhen": "Yes",
-          "followup_questions": [
-            {
-              "id": 22.1,
-              "code": "bariatric_details",
-              "text": "Please tell us more about this",
-              "type": "textarea",
-              "order": 22.1,
-              "required": false
-            }
-          ]
+          "options": [
+            "Currently pregnant or planning to become pregnant in the next year",
+            "Currently breastfeeding",
+            "Currently being treated for cancer",
+            "Active eating disorder",
+            "Active gall bladder disease",
+            "Active substance abuse or dependency",
+            "Type 1 Diabetes",
+            "Bariatric Surgery (within the last 18 months)",
+            "None of the above"
+          ],
+          "required": true
         }
       ]
     },
@@ -843,8 +893,8 @@
       "questions": [
         {
           "id": 23,
-          "code": "diabetes_type1",
-          "text": "Type 1 Diabetes",
+          "code": "glp1_medication_history",
+          "text": "Have you ever been prescribed any weightloss GLP-1 medication? (Mounjaro, Zepbound, Ozempic, Wegovy...)?",
           "type": "radio",
           "order": 23,
           "options": ["Yes", "No"],
@@ -853,7 +903,7 @@
           "followup_questions": [
             {
               "id": 23.1,
-              "code": "diabetes_type1_details",
+              "code": "glp1_medication_history_details",
               "text": "Please tell us more about this",
               "type": "textarea",
               "order": 23.1,
@@ -873,22 +923,23 @@
       "questions": [
         {
           "id": 24,
-          "code": "medical_conditions",
-          "text": "Please select any of the following that apply to you. Semaglutide is safe and effective with many pre-existing conditions, with the exception of the following:",
-          "type": "checkbox",
+          "code": "heart_attack_stroke_history",
+          "text": "Have you ever had a heart attack or stroke?",
+          "type": "radio",
           "order": 24,
-          "options": [
-            "Currently pregnant or planning to become pregnant in the next year",
-            "Currently breastfeeding",
-            "Currently being treated for cancer",
-            "Active eating disorder",
-            "Active gall bladder disease",
-            "Active substance abuse or dependency",
-            "Type 1 Diabetes",
-            "Bariatric Surgery (within the last 18 months)",
-            "None of the above"
-          ],
-          "required": true
+          "options": ["Yes", "No"],
+          "required": true,
+          "showFollowupWhen": "Yes",
+          "followup_questions": [
+            {
+              "id": 24.1,
+              "code": "heart_attack_stroke_history_details",
+              "text": "Please tell us more about this",
+              "type": "textarea",
+              "order": 24.1,
+              "required": false
+            }
+          ]
         }
       ]
     },
@@ -902,8 +953,8 @@
       "questions": [
         {
           "id": 25,
-          "code": "glp1_medication_history",
-          "text": "Have you ever been prescribed any weightloss GLP-1 medication? (Mounjaro, Zepbound, Ozempic, Wegovy...)?",
+          "code": "insulin_injection_history",
+          "text": "Have you ever needed an insulin injection?",
           "type": "radio",
           "order": 25,
           "options": ["Yes", "No"],
@@ -912,7 +963,7 @@
           "followup_questions": [
             {
               "id": 25.1,
-              "code": "glp1_medication_history_details",
+              "code": "insulin_injection_history_details",
               "text": "Please tell us more about this",
               "type": "textarea",
               "order": 25.1,
@@ -932,8 +983,8 @@
       "questions": [
         {
           "id": 26,
-          "code": "heart_attack_stroke_history",
-          "text": "Have you ever had a heart attack or stroke?",
+          "code": "medullary_thyroid_carcinoma",
+          "text": "Have you ever been diagnosed with Medullary Thyroid Carcinoma?",
           "type": "radio",
           "order": 26,
           "options": ["Yes", "No"],
@@ -942,7 +993,7 @@
           "followup_questions": [
             {
               "id": 26.1,
-              "code": "heart_attack_stroke_history_details",
+              "code": "medullary_thyroid_carcinoma_details",
               "text": "Please tell us more about this",
               "type": "textarea",
               "order": 26.1,
@@ -962,8 +1013,8 @@
       "questions": [
         {
           "id": 27,
-          "code": "insulin_injection_history",
-          "text": "Have you ever needed an insulin injection?",
+          "code": "thyroid_cancer_history",
+          "text": "Have you ever been diagnosed with any type of thyroid cancer?",
           "type": "radio",
           "order": 27,
           "options": ["Yes", "No"],
@@ -972,7 +1023,7 @@
           "followup_questions": [
             {
               "id": 27.1,
-              "code": "insulin_injection_history_details",
+              "code": "thyroid_cancer_history_details",
               "text": "Please tell us more about this",
               "type": "textarea",
               "order": 27.1,
@@ -992,8 +1043,8 @@
       "questions": [
         {
           "id": 28,
-          "code": "medullary_thyroid_carcinoma",
-          "text": "Have you ever been diagnosed with Medullary Thyroid Carcinoma?",
+          "code": "mens2_diagnosis",
+          "text": "Have you ever been diagnosed with Multiple Endocrine Neoplasia Syndrome Type 2 (MENS 2)?",
           "type": "radio",
           "order": 28,
           "options": ["Yes", "No"],
@@ -1002,7 +1053,7 @@
           "followup_questions": [
             {
               "id": 28.1,
-              "code": "medullary_thyroid_carcinoma_details",
+              "code": "mens2_diagnosis_details",
               "text": "Please tell us more about this",
               "type": "textarea",
               "order": 28.1,
@@ -1022,8 +1073,8 @@
       "questions": [
         {
           "id": 29,
-          "code": "thyroid_cancer_history",
-          "text": "Have you ever been diagnosed with any type of thyroid cancer?",
+          "code": "family_thyroid_mens2_history",
+          "text": "Has any member of your family ever been diagnosed with Medullary Thyroid Carcinoma or MENS 2?",
           "type": "radio",
           "order": 29,
           "options": ["Yes", "No"],
@@ -1032,7 +1083,7 @@
           "followup_questions": [
             {
               "id": 29.1,
-              "code": "thyroid_cancer_history_details",
+              "code": "family_thyroid_mens2_history_details",
               "text": "Please tell us more about this",
               "type": "textarea",
               "order": 29.1,
@@ -1052,8 +1103,8 @@
       "questions": [
         {
           "id": 30,
-          "code": "mens2_diagnosis",
-          "text": "Have you ever been diagnosed with Multiple Endocrine Neoplasia Syndrome Type 2 (MENS 2)?",
+          "code": "pancreatitis_history",
+          "text": "Have you ever been diagnosed with pancreatitis?",
           "type": "radio",
           "order": 30,
           "options": ["Yes", "No"],
@@ -1062,7 +1113,7 @@
           "followup_questions": [
             {
               "id": 30.1,
-              "code": "mens2_diagnosis_details",
+              "code": "pancreatitis_history_details",
               "text": "Please tell us more about this",
               "type": "textarea",
               "order": 30.1,
@@ -1082,8 +1133,8 @@
       "questions": [
         {
           "id": 31,
-          "code": "family_thyroid_mens2_history",
-          "text": "Has any member of your family ever been diagnosed with Medullary Thyroid Carcinoma or MENS 2?",
+          "code": "kidney_disease_history",
+          "text": "Have you ever been diagnosed with kidney or renal disease?",
           "type": "radio",
           "order": 31,
           "options": ["Yes", "No"],
@@ -1092,7 +1143,7 @@
           "followup_questions": [
             {
               "id": 31.1,
-              "code": "family_thyroid_mens2_history_details",
+              "code": "kidney_disease_history_details",
               "text": "Please tell us more about this",
               "type": "textarea",
               "order": 31.1,
@@ -1112,8 +1163,8 @@
       "questions": [
         {
           "id": 32,
-          "code": "pancreatitis_history",
-          "text": "Have you ever been diagnosed with pancreatitis?",
+          "code": "diabetic_retinopathy_history",
+          "text": "Do you have a history of diabetic retinopathy?",
           "type": "radio",
           "order": 32,
           "options": ["Yes", "No"],
@@ -1122,7 +1173,7 @@
           "followup_questions": [
             {
               "id": 32.1,
-              "code": "pancreatitis_history_details",
+              "code": "diabetic_retinopathy_history_details",
               "text": "Please tell us more about this",
               "type": "textarea",
               "order": 32.1,
@@ -1142,89 +1193,10 @@
       "questions": [
         {
           "id": 33,
-          "code": "kidney_disease_history",
-          "text": "Have you ever been diagnosed with kidney or renal disease?",
-          "type": "radio",
-          "order": 33,
-          "options": ["Yes", "No"],
-          "required": true,
-          "showFollowupWhen": "Yes",
-          "followup_questions": [
-            {
-              "id": 33.1,
-              "code": "kidney_disease_history_details",
-              "text": "Please tell us more about this",
-              "type": "textarea",
-              "order": 33.1,
-              "required": false
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": 34,
-      "code": "step_34",
-      "desc": "",
-      "order": 34,
-      "title": "Step 34",
-      "columns": 1,
-      "questions": [
-        {
-          "id": 34,
-          "code": "diabetic_retinopathy_history",
-          "text": "Do you have a history of diabetic retinopathy?",
-          "type": "radio",
-          "order": 34,
-          "options": ["Yes", "No"],
-          "required": true,
-          "showFollowupWhen": "Yes",
-          "followup_questions": [
-            {
-              "id": 34.1,
-              "code": "diabetic_retinopathy_history_details",
-              "text": "Please tell us more about this",
-              "type": "textarea",
-              "order": 34.1,
-              "required": false
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": 35,
-      "code": "step_35",
-      "desc": "",
-      "order": 35,
-      "title": "Step 35",
-      "columns": 1,
-      "questions": [
-        {
-          "id": 35,
-          "code": "date_of_birth",
-          "text": "Date of Birth",
-          "type": "date",
-          "order": 35,
-          "required": true,
-          "minAge": 18
-        }
-      ]
-    },
-    {
-      "id": 36,
-      "code": "step_36",
-      "desc": "",
-      "order": 36,
-      "title": "Step 36",
-      "columns": 1,
-      "questions": [
-        {
-          "id": 36,
           "code": "how_did_you_find_us",
           "text": "How did you find us?",
           "type": "checkbox",
-          "order": 36,
+          "order": 33,
           "options": [
             "Email",
             "Google/Search Engine",
@@ -1236,11 +1208,11 @@
           "showFollowupWhen": "Other",
           "followup_questions": [
             {
-              "id": 36.1,
+              "id": 33.1,
               "code": "how_did_you_find_us_details_other",
               "text": "Please tell us more about this",
               "type": "textarea",
-              "order": 36.1,
+              "order": 33.1,
               "required": false
             }
           ]
@@ -1248,10 +1220,10 @@
       ]
     },
     {
-      "id": 37,
+      "id": 34,
       "code": "payment_processing",
       "desc": "Complete your registration by processing the payment.",
-      "order": 37,
+      "order": 34,
       "title": "Payment Processing",
       "questions": []
     }
