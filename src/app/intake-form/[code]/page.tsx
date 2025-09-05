@@ -11,6 +11,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import NoJudgment from "@/components/NoJudgment";
 import Introduction from "@/components/Introduction";
 import TreatmentInfo from "@/components/TreatmentInfo";
+import WhyMinimal from "@/components/WhyMinimal";
 
 const STORAGE_KEY = "intake_form_data";
 
@@ -274,8 +275,18 @@ export default function IntakeFormPage() {
               <TreatmentInfo handleNext={handleNext} />
             )}
 
+            {/* Payment Processing Component */}
+            {currentPage.code === "why-minimal" && (
+              <WhyMinimal handleNext={handleNext} />
+            )}
+
+            {/* Payment Processing Component */}
+            {currentPage.code === "checkout-options" && (
+              <div>hi</div>
+            )}
+
             {/* StripePayment Component - Only on Payment Page */}
-            {currentPage.code === "payment_processing" && (
+            {currentPage.code === "payment-processing" && (
               <div className="mb-8">
                 <StripePayment
                   amount={99.99}

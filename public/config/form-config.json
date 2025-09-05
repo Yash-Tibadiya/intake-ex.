@@ -1334,9 +1334,25 @@
     },
     {
       "id": 37,
-      "code": "payment_processing",
-      "desc": "",
       "order": 37,
+      "code": "why-minimal",
+      "desc": "",
+      "title": "",
+      "questions": []
+    },
+    {
+      "id": 38,
+      "order": 38,
+      "code": "checkout-options",
+      "desc": "",
+      "title": "",
+      "questions": []
+    },
+    {
+      "id": 39,
+      "order": 39,
+      "code": "payment-processing",
+      "desc": "",
       "title": "",
       "questions": []
     }
