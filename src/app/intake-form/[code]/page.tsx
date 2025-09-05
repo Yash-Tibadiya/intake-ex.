@@ -4,8 +4,6 @@ import { useState, useEffect, useRef } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import InputRenderer from "@/components/InputRenderer";
-import LoadingSkeleton from "@/components/LoadingSkeleton";
-import PageNotFound from "@/components/PageNotFound";
 import ProgressBar from "@/components/ProgressBar";
 import StripePayment from "@/components/StripePayment";
 import { Question, Page, Config } from "@/types/question";
@@ -23,8 +21,6 @@ export default function IntakeFormPage() {
   const [allPages, setAllPages] = useState<Page[]>([]);
   const [formData, setFormData] = useState<Record<string, any>>({});
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [loading, setLoading] = useState(true);
-  const [pageNotFound, setPageNotFound] = useState(false);
   const formDataRef = useRef<Record<string, any>>({});
 
   useEffect(() => {
@@ -40,15 +36,9 @@ export default function IntakeFormPage() {
         const page = pages.find((p: Page) => p.code === pageCode);
         if (page) {
           setCurrentPage(page);
-          setPageNotFound(false);
         } else {
-          setPageNotFound(true);
+          console.log("Page not found");
         }
-        setLoading(false);
-      })
-      .catch(() => {
-        setLoading(false);
-        setPageNotFound(true);
       });
 
     // Load saved data
@@ -176,13 +166,7 @@ export default function IntakeFormPage() {
     );
   };
 
-  if (loading) {
-    return <LoadingSkeleton />;
-  }
-
-  if (pageNotFound || !currentPage) {
-    return <PageNotFound pageCode={pageCode} />;
-  }
+  if (!currentPage) return <div className="min-h-screen bg-white"></div>;
 
   const currentIndex = allPages.findIndex((p) => p.code === currentPage.code);
 
