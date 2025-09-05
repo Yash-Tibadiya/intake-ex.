@@ -24,7 +24,7 @@ const NoJudgment = ({ handleNext }: { handleNext: () => void }) => {
           alt="Hero"
           width={1000}
           height={1000}
-          className="w-full max-w-[280px] xs:max-w-[320px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[550px] h-auto mt-4 sm:mt-8"
+          className="w-full max-w-[280px] xs:max-w-[320px] sm:max-w-[400px] md:max-w-[550px] lg:min-w-[550px] h-auto mt-4 sm:mt-8"
         />
       </motion.div>
 

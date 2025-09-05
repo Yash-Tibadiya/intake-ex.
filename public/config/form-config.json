@@ -3,7 +3,7 @@
     {
       "id": 1,
       "order": 1,
-      "code": "introduction",
+      "code": "step-1",
       "desc": "",
       "title": "",
       "questions": []
@@ -11,7 +11,7 @@
     {
       "id": 2,
       "order": 2,
-      "code": "step_1",
+      "code": "step-2",
       "desc": "",
       "title": "What is your weight loss goal?",
       "columns": 1,
@@ -36,21 +36,21 @@
     {
       "id": 3,
       "order": 3,
-      "code": "no_judgment",
+      "code": "step-3",
       "desc": "",
       "title": "",
       "questions": []
     },
     {
-      "id": 2,
-      "code": "step_2",
+      "id": 4,
+      "order": 4,
+      "code": "step-4",
       "desc": "",
-      "order": 2,
       "title": "Basic information",
       "columns": 2,
       "questions": [
         {
-          "id": 2.1,
+          "id": 1,
           "colspan": 1,
           "code": "sex",
           "text": "Sex",
@@ -73,7 +73,7 @@
           "required": true
         },
         {
-          "id": 2.2,
+          "id": 2,
           "colspan": 1,
           "code": "gender",
           "text": "Gender",
@@ -96,7 +96,7 @@
           "required": true
         },
         {
-          "id": 2.3,
+          "id": 3,
           "colspan": 2,
           "code": "date_of_birth",
           "text": "Date of Birth",
@@ -108,15 +108,15 @@
       ]
     },
     {
-      "id": 3,
-      "code": "step_3",
+      "id": 5,
+      "code": "step-5",
       "desc": "",
-      "order": 3,
+      "order": 5,
       "title": "Address Information",
       "columns": 2,
       "questions": [
         {
-          "id": 3.1,
+          "id": 1,
           "colspan": 2,
           "code": "address",
           "text": "Address",
@@ -126,7 +126,7 @@
           "placeholder": "Enter your address"
         },
         {
-          "id": 3.2,
+          "id": 2,
           "colspan": 2,
           "code": "city",
           "text": "City",
@@ -136,7 +136,7 @@
           "placeholder": "Enter your city name"
         },
         {
-          "id": 3.3,
+          "id": 3,
           "colspan": 1,
           "code": "state",
           "text": "State",
@@ -348,7 +348,7 @@
           ]
         },
         {
-          "id": 3.4,
+          "id": 4,
           "colspan": 1,
           "code": "zip_code",
           "text": "Zip Code",
@@ -363,15 +363,15 @@
       ]
     },
     {
-      "id": 4,
-      "code": "step_4",
+      "id": 6,
+      "code": "step-6",
       "desc": "",
-      "order": 4,
+      "order": 6,
       "title": "Height and Weight",
       "columns": 2,
       "questions": [
         {
-          "id": 4.1,
+          "id": 1,
           "colspan": 1,
           "code": "feet",
           "text": "height (feet)?",
@@ -384,7 +384,7 @@
           "max": 8
         },
         {
-          "id": 4.2,
+          "id": 2,
           "colspan": 1,
           "code": "inches",
           "text": "height (inches)?",
@@ -397,7 +397,7 @@
           "max": 11
         },
         {
-          "id": 4.3,
+          "id": 3,
           "colspan": 2,
           "code": "weight",
           "text": "What is your weight?",
@@ -412,31 +412,39 @@
       ]
     },
     {
-      "id": 5,
-      "code": "step_5",
+      "id": 7,
+      "order": 7,
+      "code": "step-7",
       "desc": "",
-      "order": 5,
+      "title": "",
+      "questions": []
+    },
+    {
+      "id": 8,
+      "order": 8,
+      "code": "step-8",
+      "desc": "",
       "title": "Do you receive regular doctor's care?",
       "columns": 1,
       "questions": [
         {
-          "id": 5,
+          "id": 1,
           "colspan": 1,
           "code": "doctor_care",
           "text": "",
           "type": "radio",
-          "order": 5,
+          "order": 1,
           "options": ["Yes", "No"],
           "required": true,
           "showFollowupWhen": "Yes",
           "followup_questions": [
             {
-              "id": 5.1,
+              "id": 1.1,
               "colspan": 1,
               "code": "doctor_care_details",
               "text": "Please provide doctor's full name and contact phone number:",
               "type": "textarea",
-              "order": 5.1,
+              "order": 2,
               "required": false
             }
           ]
@@ -444,20 +452,20 @@
       ]
     },
     {
-      "id": 6,
-      "code": "step_6",
+      "id": 9,
+      "order": 9,
+      "code": "step-9",
       "desc": "",
-      "order": 6,
       "title": "What is your past medical history?",
       "columns": 1,
       "questions": [
         {
-          "id": 6,
+          "id": 1,
           "colspan": 1,
           "code": "past_medical_history",
           "text": "",
           "type": "checkbox",
-          "order": 6,
+          "order": 1,
           "options": [
             "Anemia",
             "Alcohol Abuse",
@@ -480,20 +488,20 @@
       ]
     },
     {
-      "id": 7,
-      "code": "step_7",
+      "id": 10,
+      "order": 10,
+      "code": "step-10",
       "desc": "",
-      "order": 7,
       "title": "Any other past medical history not listed above?",
       "columns": 1,
       "questions": [
         {
-          "id": 7,
+          "id": 1,
           "colspan": 1,
           "code": "additional_past_medical_history",
           "text": "",
           "type": "checkbox",
-          "order": 7,
+          "order": 1,
           "options": [
             "Drug Abuse",
             "Diarrhea",
@@ -526,12 +534,12 @@
           "showFollowupWhen": "None of the above",
           "followup_questions": [
             {
-              "id": 7.1,
+              "id": 1.1,
               "colspan": 1,
               "code": "past_surgical_history_details",
               "text": "",
               "type": "textarea",
-              "order": 7.1,
+              "order": 2,
               "required": false
             }
           ],
@@ -540,133 +548,63 @@
       ]
     },
     {
-      "id": 8,
-      "code": "step_8",
+      "id": 11,
+      "order": 11,
+      "code": "step-11",
       "desc": "",
-      "order": 8,
       "title": "Do you have any past surgical history?",
       "columns": 1,
       "questions": [
         {
-          "id": 8,
+          "id": 1,
           "colspan": 1,
           "code": "past_surgical_history",
           "text": "",
           "type": "radio",
-          "order": 8,
+          "order": 1,
           "options": ["Yes", "No"],
           "required": true,
           "showFollowupWhen": "Yes",
           "followup_questions": [
             {
-              "id": 8.1,
+              "id": 1.1,
               "colspan": 1,
               "code": "past_surgical_history_details",
               "text": "",
               "type": "textarea",
-              "order": 8.1,
+              "order": 2,
               "required": false
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": 9,
-      "code": "step_9",
-      "desc": "",
-      "order": 9,
-      "title": "Do you have any allergies to medications or foods?",
-      "columns": 1,
-      "questions": [
-        {
-          "id": 9,
-          "colspan": 1,
-          "code": "allergies",
-          "text": "",
-          "type": "radio",
-          "order": 9,
-          "options": ["Yes", "No"],
-          "required": true,
-          "showFollowupWhen": "Yes",
-          "followup_questions": [
-            {
-              "id": 9.1,
-              "colspan": 1,
-              "code": "allergies_details",
-              "text": "",
-              "type": "textarea",
-              "order": 9.1,
-              "required": false
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": 10,
-      "code": "step_10",
-      "desc": "",
-      "order": 10,
-      "title": "List all current medications (include directions and dosage)",
-      "columns": 1,
-      "questions": [
-        {
-          "id": 10,
-          "colspan": 1,
-          "code": "current_medications",
-          "text": "",
-          "type": "textarea",
-          "order": 10,
-          "required": false
-        }
-      ]
-    },
-    {
-      "id": 11,
-      "code": "step_11",
-      "desc": "",
-      "order": 11,
-      "title": "Which best describes your exercise habits?",
-      "columns": 1,
-      "questions": [
-        {
-          "id": 11,
-          "colspan": 1,
-          "code": "exercise_habits",
-          "text": "",
-          "type": "textarea",
-          "order": 11,
-          "required": false
         }
       ]
     },
     {
       "id": 12,
-      "code": "step_12",
-      "desc": "",
       "order": 12,
-      "title": "Are you dieting now?",
+      "code": "step-12",
+      "desc": "",
+      "title": "Do you have any allergies to medications or foods?",
       "columns": 1,
       "questions": [
         {
-          "id": 12,
+          "id": 1,
           "colspan": 1,
-          "code": "currently_dieting",
+          "code": "allergies",
           "text": "",
           "type": "radio",
-          "order": 12,
+          "order": 1,
           "options": ["Yes", "No"],
           "required": true,
           "showFollowupWhen": "Yes",
           "followup_questions": [
             {
-              "id": 12.1,
+              "id": 1.1,
               "colspan": 1,
-              "code": "currently_dieting_details",
+              "code": "allergies_details",
               "text": "",
               "type": "textarea",
-              "order": 12.1,
+              "order": 2,
               "required": false
             }
           ]
@@ -675,113 +613,100 @@
     },
     {
       "id": 13,
-      "code": "step_13",
-      "desc": "",
       "order": 13,
-      "title": "Do you drink alcohol?",
-      "columns": 1,
-      "questions": [
-        {
-          "id": 13,
-          "colspan": 1,
-          "code": "alcohol_consumption",
-          "text": "",
-          "type": "radio",
-          "order": 13,
-          "options": ["Yes", "No"],
-          "required": true,
-          "showFollowupWhen": "Yes",
-          "followup_questions": [
-            {
-              "id": 13.1,
-              "colspan": 1,
-              "code": "alcohol_consumption_details",
-              "text": "",
-              "type": "textarea",
-              "order": 13.1,
-              "required": false
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": 14,
-      "code": "step_14",
+      "code": "step-13",
       "desc": "",
-      "order": 14,
-      "title": "Do you smoke cigarettes?",
+      "title": "List all current medications (include directions and dosage)",
       "columns": 1,
       "questions": [
         {
-          "id": 14,
+          "id": 1,
           "colspan": 1,
-          "code": "smoking",
-          "text": "",
-          "type": "radio",
-          "order": 14,
-          "options": ["Yes", "No"],
-          "required": true,
-          "showFollowupWhen": "Yes",
-          "followup_questions": [
-            {
-              "id": 14.1,
-              "colspan": 1,
-              "code": "smoking_details",
-              "text": "",
-              "type": "textarea",
-              "order": 14.1,
-              "required": false
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": 15,
-      "code": "step_15",
-      "desc": "",
-      "order": 15,
-      "title": "Describe other weight loss programs or diets you have followed or attempted",
-      "columns": 1,
-      "questions": [
-        {
-          "id": 15,
-          "colspan": 1,
-          "code": "previous_weight_loss_attempts",
+          "code": "current_medications",
           "text": "",
           "type": "textarea",
-          "order": 15,
+          "order": 1,
           "required": false
         }
       ]
     },
     {
-      "id": 16,
-      "code": "step_16",
+      "id": 14,
+      "order": 14,
+      "code": "step-14",
       "desc": "",
-      "order": 16,
-      "title": "Are you currently pregnant or planning pregnancy in the next year?",
+      "title": "Which best describes your exercise habits?",
       "columns": 1,
       "questions": [
         {
-          "id": 16,
+          "id": 1,
           "colspan": 1,
-          "code": "pregnant",
+          "code": "exercise_habits",
+          "text": "",
+          "type": "textarea",
+          "order": 1,
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "order": 15,
+      "code": "step-15",
+      "desc": "",
+      "title": "Are you dieting now?",
+      "columns": 1,
+      "questions": [
+        {
+          "id": 1,
+          "colspan": 1,
+          "code": "currently_dieting",
           "text": "",
           "type": "radio",
-          "order": 16,
+          "order": 1,
           "options": ["Yes", "No"],
           "required": true,
           "showFollowupWhen": "Yes",
           "followup_questions": [
             {
-              "id": 16.1,
+              "id": 1.1,
               "colspan": 1,
-              "code": "pregnant_details",
+              "code": "currently_dieting_details",
               "text": "",
               "type": "textarea",
-              "order": 16.1,
+              "order": 2,
+              "required": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "order": 16,
+      "code": "step-16",
+      "desc": "",
+      "title": "Do you drink alcohol?",
+      "columns": 1,
+      "questions": [
+        {
+          "id": 1,
+          "colspan": 1,
+          "code": "alcohol_consumption",
+          "text": "",
+          "type": "radio",
+          "order": 1,
+          "options": ["Yes", "No"],
+          "required": true,
+          "showFollowupWhen": "Yes",
+          "followup_questions": [
+            {
+              "id": 1.1,
+              "colspan": 1,
+              "code": "alcohol_consumption_details",
+              "text": "",
+              "type": "textarea",
+              "order": 2,
               "required": false
             }
           ]
@@ -790,50 +715,133 @@
     },
     {
       "id": 17,
-      "code": "step_17",
-      "desc": "",
       "order": 17,
+      "code": "step-17",
+      "desc": "",
+      "title": "Do you smoke cigarettes?",
+      "columns": 1,
+      "questions": [
+        {
+          "id": 1,
+          "colspan": 1,
+          "code": "smoking",
+          "text": "",
+          "type": "radio",
+          "order": 1,
+          "options": ["Yes", "No"],
+          "required": true,
+          "showFollowupWhen": "Yes",
+          "followup_questions": [
+            {
+              "id": 1.1,
+              "colspan": 1,
+              "code": "smoking_details",
+              "text": "",
+              "type": "textarea",
+              "order": 2,
+              "required": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "order": 18,
+      "code": "step-18",
+      "desc": "",
+      "title": "Describe other weight loss programs or diets you have followed or attempted",
+      "columns": 1,
+      "questions": [
+        {
+          "id": 1,
+          "colspan": 1,
+          "code": "previous_weight_loss_attempts",
+          "text": "",
+          "type": "textarea",
+          "order": 1,
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "order": 19,
+      "code": "step-19",
+      "desc": "",
+      "title": "Are you currently pregnant or planning pregnancy in the next year?",
+      "columns": 1,
+      "questions": [
+        {
+          "id": 1,
+          "colspan": 1,
+          "code": "pregnant",
+          "text": "",
+          "type": "radio",
+          "order": 1,
+          "options": ["Yes", "No"],
+          "required": true,
+          "showFollowupWhen": "Yes",
+          "followup_questions": [
+            {
+              "id": 1.1,
+              "colspan": 1,
+              "code": "pregnant_details",
+              "text": "",
+              "type": "textarea",
+              "order": 2,
+              "required": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "order": 20,
+      "code": "step-20",
+      "desc": "",
       "title": "Are you currently breastfeeding?",
       "columns": 1,
       "questions": [
         {
-          "id": 17,
+          "id": 1,
           "colspan": 1,
           "code": "breastfeeding",
           "text": "",
           "type": "radio",
-          "order": 17,
+          "order": 1,
           "options": ["Yes", "No"],
           "required": true
         }
       ]
     },
     {
-      "id": 18,
-      "code": "step_18",
+      "id": 21,
+      "order": 21,
+      "code": "step-21",
       "desc": "",
-      "order": 18,
       "title": "Are you currently being treated for cancer?",
       "columns": 1,
       "questions": [
         {
-          "id": 18,
+          "id": 1,
           "colspan": 1,
           "code": "cancer",
           "text": "",
           "type": "radio",
-          "order": 18,
+          "order": 1,
           "options": ["Yes", "No"],
           "required": true,
           "showFollowupWhen": "Yes",
           "followup_questions": [
             {
-              "id": 18.1,
+              "id": 1.1,
               "colspan": 1,
               "code": "cancer_details",
               "text": "",
               "type": "textarea",
-              "order": 18.1,
+              "order": 2,
               "required": false
             }
           ]

@@ -9,6 +9,8 @@ import StripePayment from "@/components/StripePayment";
 import { Question, Page, Config } from "@/types/question";
 import { motion, AnimatePresence } from "framer-motion";
 import NoJudgment from "@/components/NoJudgment";
+import Introduction from "@/components/Introduction";
+import TreatmentInfo from "@/components/TreatmentInfo";
 
 const STORAGE_KEY = "intake_form_data";
 
@@ -258,9 +260,18 @@ export default function IntakeFormPage() {
               </div>
             </div>
 
+            {/* Introduction Component */}
+            {currentPage.code === "introduction" && (
+              <Introduction handleNext={handleNext} />
+            )}
+
             {/* Info Component */}
             {currentPage.code === "no_judgment" && (
               <NoJudgment handleNext={handleNext} />
+            )}
+
+            {currentPage.code === "treatment_info" && (
+              <TreatmentInfo handleNext={handleNext} />
             )}
 
             {/* StripePayment Component - Only on Payment Page */}
