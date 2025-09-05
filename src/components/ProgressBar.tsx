@@ -1,40 +1,15 @@
-import { useState, useEffect } from 'react';
-
-interface ProgressBarProps {
-  currentIndex: number;
-  totalPages: number;
-}
-
-const ProgressBar: React.FC<ProgressBarProps> = ({ currentIndex, totalPages }) => {
-  const [animatedProgress, setAnimatedProgress] = useState(0);
-  const targetProgress = ((currentIndex + 1) / totalPages) * 100;
-
-  useEffect(() => {
-    if (targetProgress !== animatedProgress) {
-      const increment = targetProgress > animatedProgress ? 1 : -1;
-      const interval = setInterval(() => {
-        setAnimatedProgress((prev) => {
-          const next = prev + increment;
-          if ((increment > 0 && next >= targetProgress) || (increment < 0 && next <= targetProgress)) {
-            clearInterval(interval);
-            return targetProgress;
-          }
-          return next;
-        });
-      }, 20); // Adjust speed here (lower = faster)
-
-      return () => clearInterval(interval);
-    }
-  }, [targetProgress, animatedProgress]);
-
+const ProgressBar: React.FC<{
+  currentStepIndex: number;
+  totalSteps: number;
+}> = ({ currentStepIndex, totalSteps }) => {
+  // Progress is 0-based, so add 1 for display
+  const percent = ((currentStepIndex + 1) / totalSteps) * 100;
   return (
-    <div className="mb-3 flex justify-center">
-      <div className="w-full bg-[#a8beb7] rounded-full h-2 shadow-inner">
-        <div
-          className="bg-[#49615e] h-2 rounded-full transition-all duration-500 ease-out shadow-sm"
-          style={{ width: `${animatedProgress}%` }}
-        ></div>
-      </div>
+    <div className="relative w-full h-2 bg-[#a8beb7] rounded-full overflow-hidden">
+      <div
+        className="absolute inset-y-0 left-0 bg-[#49615e] rounded-full transition-[width] duration-500"
+        style={{ width: `${percent}%` }}
+      ></div>
     </div>
   );
 };

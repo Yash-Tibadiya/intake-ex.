@@ -192,13 +192,16 @@ export default function IntakeFormPage() {
       q.showFollowupWhen &&
       ((Array.isArray(value) && value.includes(q.showFollowupWhen)) ||
         value === q.showFollowupWhen);
-    return showFollowup && q.followup_questions && q.followup_questions.length > 0;
+    return (
+      showFollowup && q.followup_questions && q.followup_questions.length > 0
+    );
   });
 
   const shouldHideNextButton =
     !currentPage.questions ||
     currentPage.questions.length === 0 ||
-    (currentPage.questions.some((q) => q.type === "radio") && !hasVisibleFollowupQuestions);
+    (currentPage.questions.some((q) => q.type === "radio") &&
+      !hasVisibleFollowupQuestions);
 
   return (
     <div className="min-h-screen bg-white py-8 px-4">
@@ -215,7 +218,10 @@ export default function IntakeFormPage() {
         </div>
 
         {/* Progress Bar */}
-        <ProgressBar currentIndex={currentIndex} totalPages={allPages.length} />
+        <ProgressBar
+          currentStepIndex={currentIndex}
+          totalSteps={allPages.length}
+        />
 
         {/* Page Content */}
         <div className="my-8">
