@@ -64,6 +64,16 @@ const InputRenderer: React.FC<InputRendererProps> = ({ question: q, value, onCha
                       handleNext?.();
                     }
                   }}
+                  onClick={(e) => {
+                    if (value === optValue) {
+                      if (
+                        !q.showFollowupWhen ||
+                        optValue !== q.showFollowupWhen
+                      ) {
+                        handleNext?.();
+                      }
+                    }
+                  }}
                   className="w-4 h-4 accent-[#253c3c] border-gray-300 focus:ring-[#253c3c]"
                 />
                 <span className="ml-3 text-gray-900 font-medium">
