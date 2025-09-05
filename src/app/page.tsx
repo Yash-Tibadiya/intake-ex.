@@ -7,7 +7,7 @@ export default function HomePage() {
   const router = useRouter();
 
   const handleStartIntake = () => {
-    router.push("/intake-form/introduction");
+    router.push("/intake-form/step-1");
   };
 
   return (

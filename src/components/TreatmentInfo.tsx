@@ -1,5 +1,54 @@
+"use client";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import Image from "next/image";
+
+// Utility function to merge classnames
+const cn = (...classes: (string | undefined)[]) => {
+  return classes.filter(Boolean).join(" ");
+};
+
+// LettersPullUp component
+const LettersPullUp = ({
+  text,
+  className = "",
+}: {
+  text: string;
+  className?: string;
+}) => {
+  const splittedText = text.split("");
+
+  const pullupVariant = {
+    initial: { y: 10, opacity: 0 },
+    animate: (i: number) => ({
+      y: 0,
+      opacity: 1,
+      transition: {
+        delay: i * 0.015,
+      },
+    }),
+  };
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  return (
+    <div className="flex justify-start flex-wrap">
+      {splittedText.map((current, i) => (
+        <motion.div
+          key={i}
+          ref={ref}
+          variants={pullupVariant}
+          initial="initial"
+          animate={isInView ? "animate" : ""}
+          custom={i}
+          className={cn(className)}
+        >
+          {current == " " ? <span>&nbsp;</span> : current}
+        </motion.div>
+      ))}
+    </div>
+  );
+};
 
 const TreatmentInfo = ({ handleNext }: { handleNext: () => void }) => {
   return (
@@ -9,63 +58,46 @@ const TreatmentInfo = ({ handleNext }: { handleNext: () => void }) => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
     >
-      {/* Main Content */}
       <motion.div
         className="flex flex-col justify-center w-full mx-auto"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        <div className="text-center space-y-3">
-          {/* Main Heading */}
-          <motion.h1
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#193231] leading-tight text-left"
+        <div className="text-left space-y-6 max-w-3xl mx-auto">
+          <motion.div
+            className=""
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Explore weight loss plans.
-          </motion.h1>
+            <Image
+              src="/images/logo.webp"
+              alt="Hero"
+              width={1000}
+              height={1000}
+              className="w-full max-w-[80px] sm:max-w-[120px] h-auto my-4 sm:my-8"
+            />
+          </motion.div>
 
-          {/* Subheading */}
-          <motion.h2
-            className="text-xl sm:text-2xl font-normal text-gray-800 leading-relaxed max-w-3xl mx-auto text-left"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            Learn about treatment options based on your goals, habits, and
-            health history.
-          </motion.h2>
+          <LettersPullUp
+            text="You've got it. We'll begin with some questions about you."
+            className="text-2xl sm:text-3xl font-medium text-[#193231] leading-relaxed"
+          />
+
+          <LettersPullUp
+            text="After that, we'll dive into your health history to find which treatment option matches your goals and health history."
+            className="text-2xl sm:text-3xl font-medium text-[#193231] leading-relaxed"
+          />
         </div>
       </motion.div>
 
-      {/* Privacy Notice and Button Section */}
       <motion.div
-        className="w-full max-w-2xl mx-auto space-y-6 sm:space-y-8"
+        className="w-full max-w-2xl mx-auto space-y-6 sm:space-y-8 mt-10"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.8 }}
       >
-        {/* Privacy Notice */}
-        <div className="text-center">
-          <p className="text-sm sm:text-base text-gray-500 leading-relaxed text-left">
-            By clicking 'Continue', you agree that Hims may use your responses
-            to personalize your experience and other purposes as described in
-            our{" "}
-            <motion.span
-              className="underline cursor-pointer hover:text-gray-700 transition-colors"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            >
-              Privacy Policy
-            </motion.span>
-            . Responses prior to account creation will not be used as part of
-            your medical assessment.
-          </p>
-        </div>
-
-        {/* Continue Button */}
         <motion.button
           onClick={handleNext}
           className="w-full bg-[#193231] hover:bg-[#193231f2] text-white font-semibold py-4 sm:py-5 rounded-full text-base sm:text-lg transition-all duration-200 shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-[#193231]/20"

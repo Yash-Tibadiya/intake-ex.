@@ -54,9 +54,9 @@ export default function Introduction({
         {/* Privacy Notice */}
         <div className="text-center">
           <p className="text-sm sm:text-base text-gray-500 leading-relaxed text-left">
-            By clicking 'Continue', you agree that Hims may use your responses
-            to personalize your experience and other purposes as described in
-            our{" "}
+            By clicking &apos;Continue&apos;, you agree that Hims may use your
+            responses to personalize your experience and other purposes as
+            described in our{" "}
             <motion.span
               className="underline cursor-pointer hover:text-gray-700 transition-colors"
               whileHover={{ scale: 1.05 }}
@@ -70,34 +70,34 @@ export default function Introduction({
         </div>
 
         {/* Continue Button */}
-          <motion.button
-            onClick={handleNext}
-            className="w-full bg-[#193231] hover:bg-[#193231f2] text-white font-semibold py-4 sm:py-5 rounded-full text-base sm:text-lg transition-all duration-200 shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-[#193231]/20"
-            whileHover={{
-              scale: 1.02,
-              y: -2,
-              boxShadow: "0 20px 40px -12px rgba(25, 50, 49, 0.3)",
-            }}
-            whileTap={{
-              scale: 0.98,
-              y: 0,
-            }}
-            transition={{
-              type: "spring",
-              stiffness: 400,
-              damping: 17,
-            }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+        <motion.button
+          onClick={handleNext}
+          className="w-full bg-[#193231] hover:bg-[#193231f2] text-white font-semibold py-4 sm:py-5 rounded-full text-base sm:text-lg transition-all duration-200 shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-[#193231]/20"
+          whileHover={{
+            scale: 1.02,
+            y: -2,
+            boxShadow: "0 20px 40px -12px rgba(25, 50, 49, 0.3)",
+          }}
+          whileTap={{
+            scale: 0.98,
+            y: 0,
+          }}
+          transition={{
+            type: "spring",
+            stiffness: 400,
+            damping: 17,
+          }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2, duration: 0.3 }}
           >
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.2, duration: 0.3 }}
-            >
-              Continue
-            </motion.span>
-          </motion.button>
+            Continue
+          </motion.span>
+        </motion.button>
       </motion.div>
     </motion.div>
   );

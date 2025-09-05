@@ -849,31 +849,31 @@
       ]
     },
     {
-      "id": 19,
-      "code": "step_19",
+      "id": 22,
+      "order": 22,
+      "code": "step-22",
       "desc": "",
-      "order": 19,
       "title": "Do you have active gall bladder disease?",
       "columns": 1,
       "questions": [
         {
-          "id": 19,
+          "id": 1,
           "colspan": 1,
           "code": "gallbladder",
           "text": "",
           "type": "radio",
-          "order": 19,
+          "order": 1,
           "options": ["Yes", "No"],
           "required": true,
           "showFollowupWhen": "Yes",
           "followup_questions": [
             {
-              "id": 19.1,
+              "id": 1.1,
               "colspan": 1,
               "code": "gallbladder_details",
               "text": "",
               "type": "textarea",
-              "order": 19.1,
+              "order": 2,
               "required": false
             }
           ]
@@ -881,31 +881,31 @@
       ]
     },
     {
-      "id": 20,
-      "code": "step_20",
+      "id": 23,
+      "order": 23,
+      "code": "step-23",
       "desc": "",
-      "order": 20,
       "title": "Have you had bariatric surgery within the last 18 months?",
       "columns": 1,
       "questions": [
         {
-          "id": 20,
+          "id": 1,
           "colspan": 1,
           "code": "bariatric",
           "text": "",
           "type": "radio",
-          "order": 20,
+          "order": 1,
           "options": ["Yes", "No"],
           "required": true,
           "showFollowupWhen": "Yes",
           "followup_questions": [
             {
-              "id": 20.1,
+              "id": 1.1,
               "colspan": 1,
               "code": "bariatric_details",
               "text": "",
               "type": "textarea",
-              "order": 20.1,
+              "order": 2,
               "required": false
             }
           ]
@@ -913,31 +913,31 @@
       ]
     },
     {
-      "id": 21,
-      "code": "step_21",
+      "id": 24,
+      "order": 24,
+      "code": "step-24",
       "desc": "",
-      "order": 21,
       "title": "Do you have Type 1 Diabetes?",
       "columns": 1,
       "questions": [
         {
-          "id": 21,
+          "id": 1,
           "colspan": 1,
           "code": "diabetes_type1",
           "text": "",
           "type": "radio",
-          "order": 21,
+          "order": 1,
           "options": ["Yes", "No"],
           "required": true,
           "showFollowupWhen": "Yes",
           "followup_questions": [
             {
-              "id": 21.1,
+              "id": 1.1,
               "colspan": 1,
               "code": "diabetes_type1_details",
               "text": "",
               "type": "textarea",
-              "order": 21.1,
+              "order": 2,
               "required": false
             }
           ]
@@ -945,20 +945,20 @@
       ]
     },
     {
-      "id": 22,
-      "code": "step_22",
+      "id": 25,
+      "order": 25,
+      "code": "step-25",
       "desc": "",
-      "order": 22,
       "title": "Select any of the following conditions that apply to you",
       "columns": 1,
       "questions": [
         {
-          "id": 22,
+          "id": 1,
           "colspan": 1,
           "code": "medical_conditions",
           "text": "",
           "type": "checkbox",
-          "order": 22,
+          "order": 1,
           "options": [
             "Currently pregnant or planning to become pregnant in the next year",
             "Currently breastfeeding",
@@ -975,127 +975,31 @@
       ]
     },
     {
-      "id": 23,
-      "code": "step_23",
+      "id": 26,
+      "order": 26,
+      "code": "step-26",
       "desc": "",
-      "order": 23,
       "title": "Have you been prescribed any weight loss GLP-1 medication?",
       "columns": 1,
       "questions": [
         {
-          "id": 23,
+          "id": 1,
           "colspan": 1,
           "code": "glp1_medication_history",
           "text": "",
           "type": "radio",
-          "order": 23,
+          "order": 1,
           "options": ["Yes", "No"],
           "required": true,
           "showFollowupWhen": "Yes",
           "followup_questions": [
             {
-              "id": 23.1,
+              "id": 1.1,
               "colspan": 1,
               "code": "glp1_medication_history_details",
               "text": "",
               "type": "textarea",
-              "order": 23.1,
-              "required": false
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": 24,
-      "code": "step_24",
-      "desc": "",
-      "order": 24,
-      "title": "Have you ever had a heart attack or stroke?",
-      "columns": 1,
-      "questions": [
-        {
-          "id": 24,
-          "colspan": 1,
-          "code": "heart_attack_stroke_history",
-          "text": "",
-          "type": "radio",
-          "order": 24,
-          "options": ["Yes", "No"],
-          "required": true,
-          "showFollowupWhen": "Yes",
-          "followup_questions": [
-            {
-              "id": 24.1,
-              "colspan": 1,
-              "code": "heart_attack_stroke_history_details",
-              "text": "",
-              "type": "textarea",
-              "order": 24.1,
-              "required": false
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": 25,
-      "code": "step_25",
-      "desc": "",
-      "order": 25,
-      "title": "Have you ever needed an insulin injection?",
-      "columns": 1,
-      "questions": [
-        {
-          "id": 25,
-          "colspan": 1,
-          "code": "insulin_injection_history",
-          "text": "",
-          "type": "radio",
-          "order": 25,
-          "options": ["Yes", "No"],
-          "required": true,
-          "showFollowupWhen": "Yes",
-          "followup_questions": [
-            {
-              "id": 25.1,
-              "colspan": 1,
-              "code": "insulin_injection_history_details",
-              "text": "",
-              "type": "textarea",
-              "order": 25.1,
-              "required": false
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": 26,
-      "code": "step_26",
-      "desc": "",
-      "order": 26,
-      "title": "Have you been diagnosed with Medullary Thyroid Carcinoma?",
-      "columns": 1,
-      "questions": [
-        {
-          "id": 26,
-          "colspan": 1,
-          "code": "medullary_thyroid_carcinoma",
-          "text": "",
-          "type": "radio",
-          "order": 26,
-          "options": ["Yes", "No"],
-          "required": true,
-          "showFollowupWhen": "Yes",
-          "followup_questions": [
-            {
-              "id": 26.1,
-              "colspan": 1,
-              "code": "medullary_thyroid_carcinoma_details",
-              "text": "",
-              "type": "textarea",
-              "order": 26.1,
+              "order": 2,
               "required": false
             }
           ]
@@ -1104,30 +1008,30 @@
     },
     {
       "id": 27,
-      "code": "step_27",
-      "desc": "",
       "order": 27,
-      "title": "Have you been diagnosed with any type of thyroid cancer?",
+      "code": "step-27",
+      "desc": "",
+      "title": "Have you ever had a heart attack or stroke?",
       "columns": 1,
       "questions": [
         {
-          "id": 27,
+          "id": 1,
           "colspan": 1,
-          "code": "thyroid_cancer_history",
+          "code": "heart_attack_stroke_history",
           "text": "",
           "type": "radio",
-          "order": 27,
+          "order": 1,
           "options": ["Yes", "No"],
           "required": true,
           "showFollowupWhen": "Yes",
           "followup_questions": [
             {
-              "id": 27.1,
+              "id": 1.1,
               "colspan": 1,
-              "code": "thyroid_cancer_history_details",
+              "code": "heart_attack_stroke_history_details",
               "text": "",
               "type": "textarea",
-              "order": 27.1,
+              "order": 2,
               "required": false
             }
           ]
@@ -1136,30 +1040,30 @@
     },
     {
       "id": 28,
-      "code": "step_28",
-      "desc": "",
       "order": 28,
-      "title": "Have you been diagnosed with Multiple Endocrine Neoplasia Syndrome Type 2 (MENS 2)?",
+      "code": "step-28",
+      "desc": "",
+      "title": "Have you ever needed an insulin injection?",
       "columns": 1,
       "questions": [
         {
-          "id": 28,
+          "id": 1,
           "colspan": 1,
-          "code": "mens2_diagnosis",
+          "code": "insulin_injection_history",
           "text": "",
           "type": "radio",
-          "order": 28,
+          "order": 1,
           "options": ["Yes", "No"],
           "required": true,
           "showFollowupWhen": "Yes",
           "followup_questions": [
             {
-              "id": 28.1,
+              "id": 1.1,
               "colspan": 1,
-              "code": "mens2_diagnosis_details",
+              "code": "insulin_injection_history_details",
               "text": "",
               "type": "textarea",
-              "order": 28.1,
+              "order": 2,
               "required": false
             }
           ]
@@ -1168,30 +1072,30 @@
     },
     {
       "id": 29,
-      "code": "step_29",
-      "desc": "",
       "order": 29,
-      "title": "Has a family member been diagnosed with Medullary Thyroid Carcinoma or MENS 2?",
+      "code": "step-29",
+      "desc": "",
+      "title": "Have you been diagnosed with Medullary Thyroid Carcinoma?",
       "columns": 1,
       "questions": [
         {
-          "id": 29,
+          "id": 1,
           "colspan": 1,
-          "code": "family_thyroid_mens2_history",
+          "code": "medullary_thyroid_carcinoma",
           "text": "",
           "type": "radio",
-          "order": 29,
+          "order": 1,
           "options": ["Yes", "No"],
           "required": true,
           "showFollowupWhen": "Yes",
           "followup_questions": [
             {
-              "id": 29.1,
+              "id": 1.1,
               "colspan": 1,
-              "code": "family_thyroid_mens2_history_details",
+              "code": "medullary_thyroid_carcinoma_details",
               "text": "",
               "type": "textarea",
-              "order": 29.1,
+              "order": 2,
               "required": false
             }
           ]
@@ -1200,30 +1104,30 @@
     },
     {
       "id": 30,
-      "code": "step_30",
-      "desc": "",
       "order": 30,
-      "title": "Have you been diagnosed with pancreatitis?",
+      "code": "step-30",
+      "desc": "",
+      "title": "Have you been diagnosed with any type of thyroid cancer?",
       "columns": 1,
       "questions": [
         {
-          "id": 30,
+          "id": 1,
           "colspan": 1,
-          "code": "pancreatitis_history",
+          "code": "thyroid_cancer_history",
           "text": "",
           "type": "radio",
-          "order": 30,
+          "order": 1,
           "options": ["Yes", "No"],
           "required": true,
           "showFollowupWhen": "Yes",
           "followup_questions": [
             {
-              "id": 30.1,
+              "id": 1.1,
               "colspan": 1,
-              "code": "pancreatitis_history_details",
+              "code": "thyroid_cancer_history_details",
               "text": "",
               "type": "textarea",
-              "order": 30.1,
+              "order": 2,
               "required": false
             }
           ]
@@ -1232,30 +1136,30 @@
     },
     {
       "id": 31,
-      "code": "step_31",
-      "desc": "",
       "order": 31,
-      "title": "Have you been diagnosed with kidney or renal disease?",
+      "code": "step-31",
+      "desc": "",
+      "title": "Have you been diagnosed with Multiple Endocrine Neoplasia Syndrome Type 2 (MENS 2)?",
       "columns": 1,
       "questions": [
         {
-          "id": 31,
+          "id": 1,
           "colspan": 1,
-          "code": "kidney_disease_history",
+          "code": "mens2_diagnosis",
           "text": "",
           "type": "radio",
-          "order": 31,
+          "order": 1,
           "options": ["Yes", "No"],
           "required": true,
           "showFollowupWhen": "Yes",
           "followup_questions": [
             {
-              "id": 31.1,
+              "id": 1.1,
               "colspan": 1,
-              "code": "kidney_disease_history_details",
+              "code": "mens2_diagnosis_details",
               "text": "",
               "type": "textarea",
-              "order": 31.1,
+              "order": 2,
               "required": false
             }
           ]
@@ -1264,30 +1168,30 @@
     },
     {
       "id": 32,
-      "code": "step_32",
-      "desc": "",
       "order": 32,
-      "title": "Do you have a history of diabetic retinopathy?",
+      "code": "step-32",
+      "desc": "",
+      "title": "Has a family member been diagnosed with Medullary Thyroid Carcinoma or MENS 2?",
       "columns": 1,
       "questions": [
         {
-          "id": 32,
+          "id": 1,
           "colspan": 1,
-          "code": "diabetic_retinopathy_history",
+          "code": "family_thyroid_mens2_history",
           "text": "",
           "type": "radio",
-          "order": 32,
+          "order": 1,
           "options": ["Yes", "No"],
           "required": true,
           "showFollowupWhen": "Yes",
           "followup_questions": [
             {
-              "id": 32.1,
+              "id": 1.1,
               "colspan": 1,
-              "code": "diabetic_retinopathy_history_details",
+              "code": "family_thyroid_mens2_history_details",
               "text": "",
               "type": "textarea",
-              "order": 32.1,
+              "order": 2,
               "required": false
             }
           ]
@@ -1296,19 +1200,115 @@
     },
     {
       "id": 33,
-      "code": "step_33",
-      "desc": "",
       "order": 33,
+      "code": "step-33",
+      "desc": "",
+      "title": "Have you been diagnosed with pancreatitis?",
+      "columns": 1,
+      "questions": [
+        {
+          "id": 1,
+          "colspan": 1,
+          "code": "pancreatitis_history",
+          "text": "",
+          "type": "radio",
+          "order": 1,
+          "options": ["Yes", "No"],
+          "required": true,
+          "showFollowupWhen": "Yes",
+          "followup_questions": [
+            {
+              "id": 1.1,
+              "colspan": 1,
+              "code": "pancreatitis_history_details",
+              "text": "",
+              "type": "textarea",
+              "order": 2,
+              "required": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "order": 34,
+      "code": "step-34",
+      "desc": "",
+      "title": "Have you been diagnosed with kidney or renal disease?",
+      "columns": 1,
+      "questions": [
+        {
+          "id": 1,
+          "colspan": 1,
+          "code": "kidney_disease_history",
+          "text": "",
+          "type": "radio",
+          "order": 1,
+          "options": ["Yes", "No"],
+          "required": true,
+          "showFollowupWhen": "Yes",
+          "followup_questions": [
+            {
+              "id": 1.1,
+              "colspan": 1,
+              "code": "kidney_disease_history_details",
+              "text": "",
+              "type": "textarea",
+              "order": 2,
+              "required": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "order": 35,
+      "code": "step-35",
+      "desc": "",
+      "title": "Do you have a history of diabetic retinopathy?",
+      "columns": 1,
+      "questions": [
+        {
+          "id": 1,
+          "colspan": 1,
+          "code": "diabetic_retinopathy_history",
+          "text": "",
+          "type": "radio",
+          "order": 1,
+          "options": ["Yes", "No"],
+          "required": true,
+          "showFollowupWhen": "Yes",
+          "followup_questions": [
+            {
+              "id": 1.1,
+              "colspan": 1,
+              "code": "diabetic_retinopathy_history_details",
+              "text": "",
+              "type": "textarea",
+              "order": 2,
+              "required": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "order": 36,
+      "code": "step-36",
+      "desc": "",
       "title": "How did you find us?",
       "columns": 1,
       "questions": [
         {
-          "id": 33,
+          "id": 1,
           "colspan": 1,
           "code": "how_did_you_find_us",
           "text": "",
           "type": "checkbox",
-          "order": 33,
+          "order": 1,
           "options": [
             "Email",
             "Google/Search Engine",
@@ -1320,12 +1320,12 @@
           "showFollowupWhen": "Other",
           "followup_questions": [
             {
-              "id": 33.1,
+              "id": 1.1,
               "colspan": 1,
               "code": "how_did_you_find_us_details_other",
               "text": "",
               "type": "textarea",
-              "order": 33.1,
+              "order": 2,
               "required": false
             }
           ]
@@ -1333,10 +1333,10 @@
       ]
     },
     {
-      "id": 34,
+      "id": 37,
       "code": "payment_processing",
       "desc": "",
-      "order": 34,
+      "order": 37,
       "title": "",
       "questions": []
     }

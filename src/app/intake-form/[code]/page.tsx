@@ -187,7 +187,7 @@ export default function IntakeFormPage() {
   const currentIndex = allPages.findIndex((p) => p.code === currentPage.code);
 
   // Pages where Logo + ProgressBar should be hidden
-  const HIDE_ON_PAGES = ["no_judgment", "introduction"] as const;
+  const HIDE_ON_PAGES = ["step-1", "step-3", "step-7"] as const;
 
   // Check if Next button should be hidden
   const hasVisibleFollowupQuestions = currentPage.questions?.some((q) => {
@@ -261,16 +261,16 @@ export default function IntakeFormPage() {
             </div>
 
             {/* Introduction Component */}
-            {currentPage.code === "introduction" && (
+            {currentPage.code === "step-1" && (
               <Introduction handleNext={handleNext} />
             )}
 
             {/* Info Component */}
-            {currentPage.code === "no_judgment" && (
+            {currentPage.code === "step-3" && (
               <NoJudgment handleNext={handleNext} />
             )}
 
-            {currentPage.code === "treatment_info" && (
+            {currentPage.code === "step-7" && (
               <TreatmentInfo handleNext={handleNext} />
             )}
 
