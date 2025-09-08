@@ -53,7 +53,7 @@ const InputRenderer: React.FC<InputRendererProps> = ({
             return (
               <label
                 key={optValue}
-                className="flex items-center p-3 rounded-lg border border-gray-200 hover:bg-gray-50 cursor-pointer transition-all duration-200"
+                className="flex items-center px-3 py-3 sm:py-6 rounded-lg border-2 border-[#193231cb] hover:bg-[#1932312a] cursor-pointer transition-all duration-200"
               >
                 <input
                   type="radio"
@@ -79,7 +79,7 @@ const InputRenderer: React.FC<InputRendererProps> = ({
                       }
                     }
                   }}
-                  className="w-4 h-4 accent-[#253c3c] border-gray-300 focus:ring-[#253c3c]"
+                  className="opacity-0 absolute w-4 h-4"
                 />
                 <span className="ml-3 text-gray-900 font-medium">
                   {optLabel}
@@ -98,10 +98,13 @@ const InputRenderer: React.FC<InputRendererProps> = ({
             const isNoneOfTheAbove = optLabel
               .toLowerCase()
               .includes("none of the above");
+            const isChecked = Array.isArray(value) && value.includes(optValue);
             return (
               <label
                 key={optValue}
-                className="flex items-center p-3 rounded-lg border border-gray-200 hover:bg-gray-50 cursor-pointer transition-all duration-200"
+                className={`flex items-center p-3 sm:p-6 rounded-lg border-2 border-[#193231cb] hover:bg-[#1932312a] cursor-pointer transition-all duration-200 ${
+                  isChecked ? "bg-[#1932312a]" : ""
+                }`}
               >
                 <input
                   type="checkbox"
