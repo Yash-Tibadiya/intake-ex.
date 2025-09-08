@@ -3,8 +3,14 @@ import { motion } from "framer-motion";
 
 export default function Introduction({
   handleNext,
+  h1Content,
+  h2Content,
+  pContent,
 }: {
   handleNext: () => void;
+  h1Content: string;
+  h2Content: string;
+  pContent: string;
 }) {
   return (
     <motion.div
@@ -28,7 +34,7 @@ export default function Introduction({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Explore weight loss plans.
+            {h1Content}
           </motion.h1>
 
           {/* Subheading */}
@@ -38,8 +44,7 @@ export default function Introduction({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            Learn about treatment options based on your goals, habits, and
-            health history.
+            {h2Content}
           </motion.h2>
         </div>
       </motion.div>
@@ -53,20 +58,10 @@ export default function Introduction({
       >
         {/* Privacy Notice */}
         <div className="text-center">
-          <p className="text-sm sm:text-base text-gray-500 leading-relaxed text-left">
-            By clicking &apos;Continue&apos;, you agree that Hims may use your
-            responses to personalize your experience and other purposes as
-            described in our{" "}
-            <motion.span
-              className="underline cursor-pointer hover:text-gray-700 transition-colors"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            >
-              Privacy Policy
-            </motion.span>
-            . Responses prior to account creation will not be used as part of
-            your medical assessment.
-          </p>
+          <p
+            className="text-sm sm:text-base text-gray-500 leading-relaxed text-left"
+            dangerouslySetInnerHTML={{ __html: pContent }}
+          />
         </div>
 
         {/* Continue Button */}

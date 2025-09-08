@@ -3,6 +3,11 @@ export interface Option {
   value: string;
 }
 
+export interface Widget {
+  type: string;
+  content: string;
+}
+
 export interface Question {
   id: string | number;
   code: string;
@@ -38,6 +43,8 @@ export interface Page {
   title: string;
   columns: number;
   questions: Question[];
+  widgets?: Widget[];
+  pageType?: string;
 }
 
 export interface Config {

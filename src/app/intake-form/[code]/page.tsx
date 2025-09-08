@@ -265,7 +265,12 @@ export default function IntakeFormPage() {
 
             {/* Introduction Component */}
             {currentPage.code === "step-1" && (
-              <Introduction handleNext={handleNext} />
+              <Introduction
+                handleNext={handleNext}
+                h1Content={currentPage.widgets?.find(w => w.type === 'h1')?.content || ''}
+                h2Content={currentPage.widgets?.find(w => w.type === 'h2')?.content || ''}
+                pContent={currentPage.widgets?.find(w => w.type === 'p')?.content || ''}
+              />
             )}
 
             {/* Info Component */}

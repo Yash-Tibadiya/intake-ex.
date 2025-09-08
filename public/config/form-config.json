@@ -4,9 +4,24 @@
       "id": 1,
       "order": 1,
       "code": "step-1",
+      "pageType": "content:into-info",
       "desc": "",
       "title": "",
-      "questions": []
+      "questions": [],
+      "widgets": [
+        {
+          "type": "h1",
+          "content": "Explore weight loss plans."
+        },
+        {
+          "type": "h2",
+          "content": "Learn about treatment options based on your goals, habits, and health history."
+        },
+        {
+          "type": "p",
+          "content": "By clicking 'Continue', you agree that Hims may use your responses to personalize your experience other purposes as described in our <a href=\"/privacy-policy\" class=\"underline cursor-pointer hover:text-gray-700 transition-colors\">Privacy Policy</a>. Responses prior to account creation will not be used as part of your medical assessment."
+        }
+      ]
     },
     {
       "id": 2,
@@ -37,6 +52,7 @@
       "id": 3,
       "order": 3,
       "code": "step-3",
+      "pageType": "content",
       "desc": "",
       "title": "",
       "questions": []
@@ -415,6 +431,7 @@
       "id": 7,
       "order": 7,
       "code": "step-7",
+      "pageType": "content",
       "desc": "",
       "title": "",
       "questions": []
@@ -1336,6 +1353,7 @@
       "id": 37,
       "order": 37,
       "code": "why-minimal",
+      "pageType": "content",
       "desc": "",
       "title": "",
       "questions": []
@@ -1344,6 +1362,7 @@
       "id": 38,
       "order": 38,
       "code": "checkout-options",
+      "pageType": "content",
       "desc": "",
       "title": "",
       "questions": []
@@ -1352,6 +1371,7 @@
       "id": 39,
       "order": 39,
       "code": "payment-processing",
+      "pageType": "content",
       "desc": "",
       "title": "",
       "questions": []
