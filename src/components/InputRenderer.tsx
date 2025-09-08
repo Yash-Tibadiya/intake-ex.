@@ -50,16 +50,22 @@ const InputRenderer: React.FC<InputRendererProps> = ({
           {q.options?.map((opt) => {
             const optValue = typeof opt === "string" ? opt : opt.value;
             const optLabel = typeof opt === "string" ? opt : opt.label;
+            const optSublabel =
+              typeof opt === "string" ? undefined : opt.sublabel;
+            const optImage = typeof opt === "string" ? undefined : opt.image;
+            const isSelected = value === optValue;
             return (
               <label
                 key={optValue}
-                className="flex items-center px-3 py-3 sm:py-6 rounded-lg border-2 border-[#193231cb] hover:bg-[#1932312a] cursor-pointer transition-all duration-200"
+                className={`flex items-center p-3 sm:p-6 rounded-lg border-2 border-[#193231cb] hover:bg-[#1932312a] cursor-pointer transition-all duration-200 ${
+                  isSelected ? "bg-[#1932312a]" : ""
+                }`}
               >
                 <input
                   type="radio"
                   name={q.code}
                   value={optValue}
-                  checked={value === optValue}
+                  checked={isSelected}
                   onChange={(e) => {
                     onChange(q.code, e.target.value);
                     if (
@@ -81,8 +87,22 @@ const InputRenderer: React.FC<InputRendererProps> = ({
                   }}
                   className="opacity-0 absolute w-4 h-4"
                 />
-                <span className="ml-3 text-gray-900 font-medium">
-                  {optLabel}
+                {optImage && (
+                  <img
+                    src={optImage}
+                    alt={optLabel}
+                    className="w-16 h-16 object-contain mr-3 select-none pointer-events-none"
+                  />
+                )}
+                <span className="ml-3">
+                  <span className="block text-gray-900 font-medium text-xl">
+                    {optLabel}
+                  </span>
+                  {optSublabel && (
+                    <span className="block text-sm text-gray-600">
+                      {optSublabel}
+                    </span>
+                  )}
                 </span>
               </label>
             );

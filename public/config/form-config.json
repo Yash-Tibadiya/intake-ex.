@@ -24,10 +24,30 @@
           "type": "radio",
           "order": 1,
           "options": [
-            "Lose 5 to 20 lbs",
-            "Lose 21 to 50 lbs",
-            "Lose 50 lbs",
-            "Not sure"
+            {
+              "label": "Lose 5 to 20 lbs",
+              "value": "lose_5_to_20",
+              "sublabel": "Small lifestyle changes",
+              "image": "/images/3.png"
+            },
+            {
+              "label": "Lose 21 to 50 lbs",
+              "value": "lose_21_to_50",
+              "sublabel": "Noticeable transformation",
+              "image": "/images/1.png"
+            },
+            {
+              "label": "Lose 50 lbs",
+              "value": "lose_50_plus",
+              "sublabel": "Significant weight loss journey",
+              "image": "/images/2.png"
+            },
+            {
+              "label": "Not sure",
+              "value": "not_sure",
+              "sublabel": "I want guidance to set a goal",
+              "image": "/images/4.png"
+            }
           ],
           "required": true
         }
