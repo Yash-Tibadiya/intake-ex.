@@ -111,7 +111,7 @@ const InputRenderer: React.FC<InputRendererProps> = ({
       );
     case "checkbox":
       return (
-        <div className="space-y-3">
+        <div className="space-y-3 pb-8 sm:pb-0">
           {q.options?.map((opt) => {
             const optValue = typeof opt === "string" ? opt : opt.value;
             const optLabel = typeof opt === "string" ? opt : opt.label;

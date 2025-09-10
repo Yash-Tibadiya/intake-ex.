@@ -290,9 +290,7 @@ export default function IntakeFormPage() {
             )}
 
             {/* Payment Component - Only on Payment Page */}
-            {currentPage.code === "payment-processing" && (
-              <Payment />
-            )}
+            {currentPage.code === "payment-processing" && <Payment />}
 
             <form
               className={`grid gap-6 ${
@@ -306,7 +304,7 @@ export default function IntakeFormPage() {
 
             {/* Navigation */}
             {!shouldHideNextButton && (
-              <div className="flex justify-between items-center mt-8">
+              <div className="hidden sm:flex justify-between items-center mt-8">
                 <button
                   onClick={handleNext}
                   className="px-6 py-3 bg-[#193231] hover:bg-[#193231f2] text-white rounded-full font-semibold shadow-xl hover:shadow-[#19323157] flex items-center w-full justify-center cursor-pointer"
@@ -317,7 +315,55 @@ export default function IntakeFormPage() {
             )}
           </motion.div>
         </AnimatePresence>
+        {!shouldHideNextButton && <div className="pb-16 sm:pb-0"></div>}
       </div>
+
+      {/* Mobile Sticky CTA */}
+      {!shouldHideNextButton && (
+        <div className="block sm:hidden">
+          {/* Blurred background */}
+          <motion.div
+            className="fixed bottom-0 left-0 right-0 w-full px-3 py-12 bg-white shadow-lg z-40 blur-lg"
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.4 }}
+          />
+          {/* Button container */}
+          <motion.div
+            className="fixed bottom-0 left-0 right-0 w-full px-3 pb-10 z-50"
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+          >
+            <motion.button
+              onClick={handleNext}
+              className="px-4 py-2.5 bg-[#193231] hover:bg-[#193231f2] text-white rounded-full font-semibold shadow-xl hover:shadow-[#19323157] flex items-center w-full justify-center cursor-pointer max-w-xs mx-auto text-sm transition-all duration-200"
+              whileHover={{
+                scale: 1.02,
+                y: -2,
+                boxShadow: "0 25px 50px -12px rgba(25, 50, 49, 0.25)",
+              }}
+              whileTap={{
+                scale: 0.98,
+                y: 0,
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 400,
+                damping: 17,
+              }}
+            >
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+              >
+                Next
+              </motion.span>
+            </motion.button>
+          </motion.div>
+        </div>
+      )}
     </div>
   );
 }
