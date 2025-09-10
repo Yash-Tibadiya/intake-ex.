@@ -19,7 +19,6 @@ const STORAGE_KEY = "intake_form_data";
 export default function IntakeFormPage() {
   const params = useParams();
   const router = useRouter();
-  const searchParams = useSearchParams();
   const pageCode = params.code as string;
 
   const [config, setConfig] = useState<Config | null>(null);
@@ -267,15 +266,30 @@ export default function IntakeFormPage() {
             {currentPage.code === "step-1" && (
               <Introduction
                 handleNext={handleNext}
-                h1Content={currentPage.widgets?.find(w => w.type === 'h1')?.content || ''}
-                h2Content={currentPage.widgets?.find(w => w.type === 'h2')?.content || ''}
-                pContent={currentPage.widgets?.find(w => w.type === 'p')?.content || ''}
+                h1Content={
+                  currentPage.widgets?.find((w) => w.type === "h1")?.content ||
+                  ""
+                }
+                h2Content={
+                  currentPage.widgets?.find((w) => w.type === "h2")?.content ||
+                  ""
+                }
+                pContent={
+                  currentPage.widgets?.find((w) => w.type === "p")?.content ||
+                  ""
+                }
               />
             )}
 
             {/* Info Component */}
             {currentPage.code === "step-3" && (
-              <NoJudgment handleNext={handleNext} />
+              <NoJudgment
+                handleNext={handleNext}
+                image={
+                  currentPage.widgets?.find((w) => w.type === "image")?.src ||
+                  ""
+                }
+              />
             )}
 
             {currentPage.code === "step-7" && (

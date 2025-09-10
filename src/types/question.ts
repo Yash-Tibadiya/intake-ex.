@@ -8,6 +8,7 @@ export interface Option {
 export interface Widget {
   type: string;
   content: string;
+  src: string;
 }
 
 export interface Question {

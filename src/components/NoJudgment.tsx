@@ -1,7 +1,13 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-const NoJudgment = ({ handleNext }: { handleNext: () => void }) => {
+const NoJudgment = ({
+  handleNext,
+  image,
+}: {
+  handleNext: () => void;
+  image: string;
+}) => {
   return (
     <motion.div
       className="mb-4 sm:mb-8 w-full flex flex-col items-center relative min-h-screen px-4 sm:px-6 lg:px-8"
@@ -20,7 +26,8 @@ const NoJudgment = ({ handleNext }: { handleNext: () => void }) => {
         }}
       >
         <Image
-          src="/images/ww.jpg"
+          // src="/images/ww.jpg"
+          src={image}
           alt="Hero"
           width={1000}
           height={1000}

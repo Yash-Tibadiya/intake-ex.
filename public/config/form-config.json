@@ -73,7 +73,13 @@
       "pageType": "content",
       "desc": "",
       "title": "",
-      "questions": []
+      "questions": [],
+      "widgets": [
+        {
+          "type": "image",
+          "src": "/images/ww.jpg"
+        }
+      ]
     },
     {
       "id": 4,
