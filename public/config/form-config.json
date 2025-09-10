@@ -44,9 +44,7 @@
             },
             {
               "label": "Not sure",
-              "value": "not_sure",
-              "sublabel": "I want guidance to set a goal",
-              "image": "/images/4.png"
+              "value": "not_sure"
             }
           ],
           "required": true
