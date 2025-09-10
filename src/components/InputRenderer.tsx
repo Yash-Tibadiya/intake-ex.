@@ -8,7 +8,7 @@ const InputRenderer: React.FC<InputRendererProps> = ({
   handleNext,
 }) => {
   const baseInputClasses =
-    "w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#253c3c] focus:border-[#253c3c] transition-all duration-200 bg-white shadow-sm hover:shadow-md text-gray-900 placeholder-gray-500";
+    "w-full p-6 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#253c3c] focus:border-[#253c3c] transition-all duration-200 bg-white shadow-sm hover:shadow-md text-gray-900 placeholder-gray-500";
 
   switch (q.type) {
     case "text":
@@ -50,16 +50,22 @@ const InputRenderer: React.FC<InputRendererProps> = ({
           {q.options?.map((opt) => {
             const optValue = typeof opt === "string" ? opt : opt.value;
             const optLabel = typeof opt === "string" ? opt : opt.label;
+            const optSublabel =
+              typeof opt === "string" ? undefined : opt.sublabel;
+            const optImage = typeof opt === "string" ? undefined : opt.image;
+            const isSelected = value === optValue;
             return (
               <label
                 key={optValue}
-                className="flex items-center p-3 rounded-lg border border-gray-200 hover:bg-gray-50 cursor-pointer transition-all duration-200"
+                className={`flex items-center p-3 sm:p-6 rounded-lg border-2 border-[#193231cb] hover:bg-[#1932312a] cursor-pointer transition-all duration-200 ${
+                  isSelected ? "bg-green-100/50" : ""
+                }`}
               >
                 <input
                   type="radio"
                   name={q.code}
                   value={optValue}
-                  checked={value === optValue}
+                  checked={isSelected}
                   onChange={(e) => {
                     onChange(q.code, e.target.value);
                     if (
@@ -79,10 +85,24 @@ const InputRenderer: React.FC<InputRendererProps> = ({
                       }
                     }
                   }}
-                  className="w-4 h-4 accent-[#253c3c] border-gray-300 focus:ring-[#253c3c]"
+                  className="opacity-0 absolute w-4 h-4"
                 />
-                <span className="ml-3 text-gray-900 font-medium">
-                  {optLabel}
+                {optImage && (
+                  <img
+                    src={optImage}
+                    alt={optLabel}
+                    className="w-16 h-16 object-contain mr-3 select-none pointer-events-none"
+                  />
+                )}
+                <span className="ml-3">
+                  <span className="block text-gray-900 font-medium text-xl">
+                    {optLabel}
+                  </span>
+                  {optSublabel && (
+                    <span className="block text-sm text-gray-600">
+                      {optSublabel}
+                    </span>
+                  )}
                 </span>
               </label>
             );
@@ -91,17 +111,20 @@ const InputRenderer: React.FC<InputRendererProps> = ({
       );
     case "checkbox":
       return (
-        <div className="space-y-3">
+        <div className="space-y-3 pb-8 sm:pb-0">
           {q.options?.map((opt) => {
             const optValue = typeof opt === "string" ? opt : opt.value;
             const optLabel = typeof opt === "string" ? opt : opt.label;
             const isNoneOfTheAbove = optLabel
               .toLowerCase()
               .includes("none of the above");
+            const isChecked = Array.isArray(value) && value.includes(optValue);
             return (
               <label
                 key={optValue}
-                className="flex items-center p-3 rounded-lg border border-gray-200 hover:bg-gray-50 cursor-pointer transition-all duration-200"
+                className={`flex items-center p-3 sm:p-6 rounded-lg border-2 border-[#193231cb] hover:bg-[#1932312a] cursor-pointer transition-all duration-200 ${
+                  isChecked ? "bg-green-100/50" : ""
+                }`}
               >
                 <input
                   type="checkbox"

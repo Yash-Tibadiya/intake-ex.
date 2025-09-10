@@ -1,6 +1,8 @@
 export interface Option {
   label: string;
   value: string;
+  sublabel?: string;
+  image?: string;
 }
 
 export interface Widget {

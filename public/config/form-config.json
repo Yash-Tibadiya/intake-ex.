@@ -39,10 +39,28 @@
           "type": "radio",
           "order": 1,
           "options": [
-            "Lose 5 to 20 lbs",
-            "Lose 21 to 50 lbs",
-            "Lose 50 lbs",
-            "Not sure"
+            {
+              "label": "Lose 5 to 20 lbs",
+              "value": "lose_5_to_20",
+              "sublabel": "Small lifestyle changes",
+              "image": "/images/3.png"
+            },
+            {
+              "label": "Lose 21 to 50 lbs",
+              "value": "lose_21_to_50",
+              "sublabel": "Noticeable transformation",
+              "image": "/images/1.png"
+            },
+            {
+              "label": "Lose 50 lbs",
+              "value": "lose_50_plus",
+              "sublabel": "Significant weight loss journey",
+              "image": "/images/2.png"
+            },
+            {
+              "label": "Not sure",
+              "value": "not_sure"
+            }
           ],
           "required": true
         }
@@ -554,7 +572,7 @@
               "id": 1.1,
               "colspan": 1,
               "code": "past_surgical_history_details",
-              "text": "",
+              "text": "Tell us more about your past medical history:",
               "type": "textarea",
               "order": 2,
               "required": false
@@ -587,7 +605,7 @@
               "id": 1.1,
               "colspan": 1,
               "code": "past_surgical_history_details",
-              "text": "",
+              "text": "Tell us more about your past surgical history:",
               "type": "textarea",
               "order": 2,
               "required": false
@@ -619,7 +637,7 @@
               "id": 1.1,
               "colspan": 1,
               "code": "allergies_details",
-              "text": "",
+              "text": "Tell us more about your allergies:",
               "type": "textarea",
               "order": 2,
               "required": false
@@ -689,7 +707,7 @@
               "id": 1.1,
               "colspan": 1,
               "code": "currently_dieting_details",
-              "text": "",
+              "text": "Tell us more about your diet:",
               "type": "textarea",
               "order": 2,
               "required": false
@@ -721,7 +739,7 @@
               "id": 1.1,
               "colspan": 1,
               "code": "alcohol_consumption_details",
-              "text": "",
+              "text": "Tell us more about your alcohol consumption:",
               "type": "textarea",
               "order": 2,
               "required": false
@@ -753,7 +771,7 @@
               "id": 1.1,
               "colspan": 1,
               "code": "smoking_details",
-              "text": "",
+              "text": "Tell us more about your smoking:",
               "type": "textarea",
               "order": 2,
               "required": false
@@ -804,7 +822,7 @@
               "id": 1.1,
               "colspan": 1,
               "code": "pregnant_details",
-              "text": "",
+              "text": "Tell us more about your pregnancy:",
               "type": "textarea",
               "order": 2,
               "required": false
@@ -856,7 +874,7 @@
               "id": 1.1,
               "colspan": 1,
               "code": "cancer_details",
-              "text": "",
+              "text": "Tell us more about your cancer:",
               "type": "textarea",
               "order": 2,
               "required": false
@@ -888,7 +906,7 @@
               "id": 1.1,
               "colspan": 1,
               "code": "gallbladder_details",
-              "text": "",
+              "text": "Tell us more about your gall bladder:",
               "type": "textarea",
               "order": 2,
               "required": false
@@ -920,7 +938,7 @@
               "id": 1.1,
               "colspan": 1,
               "code": "bariatric_details",
-              "text": "",
+              "text": "Tell us more about your bariatric surgery:",
               "type": "textarea",
               "order": 2,
               "required": false
@@ -952,7 +970,7 @@
               "id": 1.1,
               "colspan": 1,
               "code": "diabetes_type1_details",
-              "text": "",
+              "text": "Tell us more about your diabetes:",
               "type": "textarea",
               "order": 2,
               "required": false
@@ -1014,7 +1032,7 @@
               "id": 1.1,
               "colspan": 1,
               "code": "glp1_medication_history_details",
-              "text": "",
+              "text": "Tell us more about your medication:",
               "type": "textarea",
               "order": 2,
               "required": false
@@ -1046,7 +1064,7 @@
               "id": 1.1,
               "colspan": 1,
               "code": "heart_attack_stroke_history_details",
-              "text": "",
+              "text": "Tell us more about your heart attack or stroke:",
               "type": "textarea",
               "order": 2,
               "required": false
@@ -1078,7 +1096,7 @@
               "id": 1.1,
               "colspan": 1,
               "code": "insulin_injection_history_details",
-              "text": "",
+              "text": "Tell us more about your insulin injection:",
               "type": "textarea",
               "order": 2,
               "required": false
@@ -1110,7 +1128,7 @@
               "id": 1.1,
               "colspan": 1,
               "code": "medullary_thyroid_carcinoma_details",
-              "text": "",
+              "text": "Tell us more about your thyroid Carcinoma:",
               "type": "textarea",
               "order": 2,
               "required": false
@@ -1142,7 +1160,7 @@
               "id": 1.1,
               "colspan": 1,
               "code": "thyroid_cancer_history_details",
-              "text": "",
+              "text": "Tell us more about your thyroid cancer:",
               "type": "textarea",
               "order": 2,
               "required": false
@@ -1174,7 +1192,7 @@
               "id": 1.1,
               "colspan": 1,
               "code": "mens2_diagnosis_details",
-              "text": "",
+              "text": "Tell us more about your MENS 2:",
               "type": "textarea",
               "order": 2,
               "required": false
@@ -1206,7 +1224,7 @@
               "id": 1.1,
               "colspan": 1,
               "code": "family_thyroid_mens2_history_details",
-              "text": "",
+              "text": "Tell us more about your family history of thyroid:",
               "type": "textarea",
               "order": 2,
               "required": false
@@ -1238,7 +1256,7 @@
               "id": 1.1,
               "colspan": 1,
               "code": "pancreatitis_history_details",
-              "text": "",
+              "text": "Tell us more about your pancreatitis:",
               "type": "textarea",
               "order": 2,
               "required": false
@@ -1270,7 +1288,7 @@
               "id": 1.1,
               "colspan": 1,
               "code": "kidney_disease_history_details",
-              "text": "",
+              "text": "Tell us more about your kidney disease:",
               "type": "textarea",
               "order": 2,
               "required": false
@@ -1302,7 +1320,7 @@
               "id": 1.1,
               "colspan": 1,
               "code": "diabetic_retinopathy_history_details",
-              "text": "",
+              "text": "Tell us more about your diabetic retinopathy:",
               "type": "textarea",
               "order": 2,
               "required": false
@@ -1340,7 +1358,7 @@
               "id": 1.1,
               "colspan": 1,
               "code": "how_did_you_find_us_details_other",
-              "text": "",
+              "text": "Tell us more about how you found us:",
               "type": "textarea",
               "order": 2,
               "required": false
