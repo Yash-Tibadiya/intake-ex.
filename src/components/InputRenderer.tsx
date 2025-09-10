@@ -8,7 +8,7 @@ const InputRenderer: React.FC<InputRendererProps> = ({
   handleNext,
 }) => {
   const baseInputClasses =
-    "w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#253c3c] focus:border-[#253c3c] transition-all duration-200 bg-white shadow-sm hover:shadow-md text-gray-900 placeholder-gray-500";
+    "w-full p-6 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#253c3c] focus:border-[#253c3c] transition-all duration-200 bg-white shadow-sm hover:shadow-md text-gray-900 placeholder-gray-500";
 
   switch (q.type) {
     case "text":
@@ -58,7 +58,7 @@ const InputRenderer: React.FC<InputRendererProps> = ({
               <label
                 key={optValue}
                 className={`flex items-center p-3 sm:p-6 rounded-lg border-2 border-[#193231cb] hover:bg-[#1932312a] cursor-pointer transition-all duration-200 ${
-                  isSelected ? "bg-[#1932312a]" : ""
+                  isSelected ? "bg-green-100/50" : ""
                 }`}
               >
                 <input
@@ -123,7 +123,7 @@ const InputRenderer: React.FC<InputRendererProps> = ({
               <label
                 key={optValue}
                 className={`flex items-center p-3 sm:p-6 rounded-lg border-2 border-[#193231cb] hover:bg-[#1932312a] cursor-pointer transition-all duration-200 ${
-                  isChecked ? "bg-[#1932312a]" : ""
+                  isChecked ? "bg-green-100/50" : ""
                 }`}
               >
                 <input
