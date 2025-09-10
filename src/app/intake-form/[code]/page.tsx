@@ -253,7 +253,7 @@ export default function IntakeFormPage() {
             <div className="mb-3 mt-8">
               <div className="flex items-center">
                 <div>
-                  <h1 className="text-4xl font-medium text-black">
+                  <h1 className="text-4xl font-medium text-black tracking-tight">
                     {currentPage.title}
                   </h1>
                   <p className="text-lg text-gray-800 mt-1">
