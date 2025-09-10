@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Sofia Pro';
+  src: url('/fonts/Sofia Pro Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 @import "tailwindcss";
 
 :root {
@@ -28,7 +35,7 @@ html, body {
 
 /* Prefer requested font stack globally */
 :root {
-  --font-sans: sofia-pro, SofiaProWeb, Helvetica, Arial, sans-serif;
+  --font-sans: 'Sofia Pro', sofia-pro, SofiaProWeb, Helvetica, Arial, sans-serif;
 }
 
 body {
